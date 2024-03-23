@@ -7,10 +7,9 @@ const ContentRoute = () => {
     <Routes>
       <Route path="/" element={<Navigate replace to="/CasamentoNet/home" />} />
       {/* Defina a rota inicial como "/CasamentoNet", sem especificar um elemento */}
-      {/* <Route path="/CasamentoNet" element={<Navigate replace to="/CasamentoNet/home" />} /> */}
+      <Route path="/CasamentoNet" element={<Navigate replace to="/CasamentoNet/home" />} />
       {/* Adicione uma rota separada para a página inicial */}
-      {/* <Route path="/CasamentoNet/home" element={<HomePage />} /> */}
-      <Route path="/home" element={<HomePage />} />
+      <Route path="/CasamentoNet/home" element={<HomePage />} />
     </Routes>
   );
 };

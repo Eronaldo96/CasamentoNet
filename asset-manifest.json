@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/CasamentoNet/static/css/main.06759eee.css",
-    "main.js": "/CasamentoNet/static/js/main.61c7d531.js",
+    "main.js": "/CasamentoNet/static/js/main.cda02f7e.js",
     "static/js/453.d0ce4ea9.chunk.js": "/CasamentoNet/static/js/453.d0ce4ea9.chunk.js",
     "static/media/wallpaperflare.com_wallpaper.jpg": "/CasamentoNet/static/media/wallpaperflare.com_wallpaper.af1d747cd604184816cf.jpg",
     "static/media/casal.png": "/CasamentoNet/static/media/casal.d385139b47d0aa3a0492.png",
     "static/media/download (1).png": "/CasamentoNet/static/media/download (1).817e806e2446c4ec39a4.png",
     "index.html": "/CasamentoNet/index.html",
     "main.06759eee.css.map": "/CasamentoNet/static/css/main.06759eee.css.map",
-    "main.61c7d531.js.map": "/CasamentoNet/static/js/main.61c7d531.js.map",
+    "main.cda02f7e.js.map": "/CasamentoNet/static/js/main.cda02f7e.js.map",
     "453.d0ce4ea9.chunk.js.map": "/CasamentoNet/static/js/453.d0ce4ea9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.06759eee.css",
-    "static/js/main.61c7d531.js"
+    "static/js/main.cda02f7e.js"
   ]
 }

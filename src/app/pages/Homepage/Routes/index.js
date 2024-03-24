@@ -2,16 +2,18 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from '../index';
 
-const ContentRoute = () => {
+export default function HomePageRoutes () {
   return (
     <Routes>
-      <Route path="/" element={<Navigate replace to="/CasamentoNet/home" />} />
-      {/* Defina a rota inicial como "/CasamentoNet", sem especificar um elemento */}
-      <Route path="/CasamentoNet" element={<Navigate replace to="/CasamentoNet/home" />} />
-      {/* Adicione uma rota separada para a página inicial */}
+      {/* <Route path="/" element={<HomePage />} /> */}
+      {/* <Route path="/Home" element={<HomePage />} /> */}
+      {/* <Route path="/CasamentoNet" element={<HomePage />} />
+      <Route path="/CasamentoNet/Home" element={<HomePage />} /> */}
+      
+      <Route path="/" element={<Navigate replace to="/CasamentoNet/home" /> } />  
+      <Route path="/CasamentoNet" element={<Navigate replace to="/CasamentoNet/home" /> } />     
       <Route path="/CasamentoNet/home" element={<HomePage />} />
     </Routes>
   );
 };
 
-export default ContentRoute;

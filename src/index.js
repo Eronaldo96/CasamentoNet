@@ -1,19 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client'; // Importe createRoot de react-dom/client
 import './app/assets/styles/index.css';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import HomePageRoutes from './app/pages/Homepage/Routes/index';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-
-ReactDOM.render(
+// Use createRoot em vez de ReactDOM.render
+createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>
       <HomePageRoutes />
     </Router>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );
 
 reportWebVitals();

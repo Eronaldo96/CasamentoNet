@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import HomePageRoutes from './app/pages/Homepage/Routes/index';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-// Use createRoot em vez de ReactDOM.render
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Router>

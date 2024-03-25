@@ -1,0 +1,20 @@
+:root {
+    background-image: url('./image/muro-de-concreto-com-flores.jpg');
+    background-repeat: no-repeat; 
+    background-size: cover;
+}
+.content {
+    min-height: calc(100vh - 60px);
+    padding-bottom: 60px;
+  }
+
+.footerStyle{
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    background-color:  #291800 !important;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+  }

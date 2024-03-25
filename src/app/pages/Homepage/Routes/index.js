@@ -9,8 +9,10 @@ export default function HomePageRoutes() {
       <Route path="/CasamentoNet" element={<Navigate replace to="/CasamentoNet/home" />} />     
       <Route path="/CasamentoNet/home" element={<Navigate replace to="/CasamentoNet/home/" />} />     
       <Route path="/CasamentoNet/home/" element={<HomePage />} /> */}
-      <Route path="/" element={<Navigate replace to="/CasamentoNet/home" />} />
+      {/* <Route path="/" element={<Navigate replace to="/CasamentoNet/home" />} />
       <Route path="/CasamentoNet" element={<Navigate replace to="/CasamentoNet/home" />} />      
+      <Route path="/CasamentoNet/home" element={<HomePage />} /> */}
+      <Route path="/CasamentoNet" element={<Navigate replace to="/CasamentoNet/home" />} /> 
       <Route path="/CasamentoNet/home" element={<HomePage />} />
     </Routes>
   );

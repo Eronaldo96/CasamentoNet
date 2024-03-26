@@ -6,10 +6,8 @@ import ListaPresentesRoutes from '../../ListaPresentes';
 export default function HomePageRoutes() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate replace to="/CasamentoNet/home" />} />
-      <Route path="/CasamentoNet" element={<Navigate replace to="/CasamentoNet/home" />} />
-      <Route path="/CasamentoNet/home" element={<HomePage />} />
-      <Route path="/CasamentoNet/ListaPresentes/*" element={<ListaPresentesRoutes />} /> {/* Ajuste o caminho */}
+      <Route path="/" element={<Navigate replace to="/home" />} />
+      <Route path="/home" element={<HomePage />} />
     </Routes>
   );
 };

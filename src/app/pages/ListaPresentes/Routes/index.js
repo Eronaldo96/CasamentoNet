@@ -5,7 +5,7 @@ import ListaPresentes from '../index';
 export default function ListaPresentesRoutes() {
   return (
     <Routes>
-      <Route path="/CasamentoNet/ListaPresentes" element={<ListaPresentes />} />
+      <Route path="/ListaPresentes" element={<ListaPresentes />} />
     </Routes>
   );
 };

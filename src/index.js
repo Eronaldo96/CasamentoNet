@@ -3,16 +3,11 @@ import { createRoot } from 'react-dom/client'; // Importe createRoot de react-do
 import './app/assets/styles/index.css';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import HomePageRoutes from './app/pages/Homepage/Routes/index';
-import { BrowserRouter as Router } from 'react-router-dom';
-import NavBar from './app/components/NavBar';
+import App from './app';
 
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Router>
-      <NavBar />
-      <HomePageRoutes />
-    </Router>
+    <App/>
   </React.StrictMode>
 );
 

@@ -16,20 +16,6 @@ export default function HomePage() {
   };
   return (
     <div className="homeStyle">
-      <div className="mainHeader">
-        <nav className="navbar navBarStyle">
-          <div className="buttonHome">
-            <div style={{ marginRight: "10px" }}>
-              <p className="navbar-brand-custom textButton">Página de Teste</p>
-            </div>
-            <div>
-              <a className="navbar-brand textButton" href="#">
-                Home
-              </a>
-            </div>
-          </div>
-        </nav>
-      </div>
       <div className="carouselContainer">
         <Carousel fade activeIndex={index} onSelect={handleSelect}>
           <Carousel.Item>

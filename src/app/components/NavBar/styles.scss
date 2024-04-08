@@ -1,37 +1,3 @@
 .navBarStyle {
   background-color: #d16200;
 }
-
-.sideBar {
-  width: 240px; /* Largura do sidebar */
-  height: 95vh;
-  background-color: #060301; /* Cor de fundo do sidebar */
-  position: absolute; /* Para manter o sidebar fixo na tela */
-  //overflow-x: hidden; /* Para evitar rolagem horizontal */
-  padding: 0 30px; /* Ajuste para o menu superior */
-  transition: all 1s;
-}
-
-.sideBar ul {
-  padding: 0;
-}
-
-.sideBar ul li {
-  cursor: pointer;
-  margin: 10px 0;
-  list-style-type: none;
-}
-
-.sideBar ul li a {
-  color: #FFFF;
-  text-decoration: none;
-  font-size: 16px;
-  display:block;
-  padding: 10px 15px;
-  border-radius: 6px;
-}
-
-.sideBar ul li a:hover,
-ul li a.active {
-  background-color: #555; /* Cor de fundo quando o item é hover */
-}

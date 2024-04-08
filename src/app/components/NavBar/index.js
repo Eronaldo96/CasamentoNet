@@ -26,18 +26,6 @@ export default function NavBar() {
           </div>
         </div>
       </nav>
-
-      <div className="sideBar">
-        <img scr={logo} alt="Logo" className="logo"></img>
-        <ul>
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/ListaPresente">Lista de Presentes</a>
-          </li>
-        </ul>
-      </div>
     </div>
   );
 }

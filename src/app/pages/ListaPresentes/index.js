@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Input } from "@mui/material"; // Adicione esta linha
 import AirFry from "../../assets/images/AirFry.jpg";
+import Tv from "../../assets/images/TV.jpg";
 import "./styles.scss";
 import ResponseGrid from "../../components/ResponsiveGrid/index";
 
 export default function ListaPresentes() {
   const [presentes, setPresentes] = useState([
-    { descricao: "Presente 1", imagem: AirFry },
-    { descricao: "Presente 2", imagem: AirFry },
-    // Adicione quantos presentes iniciais desejar
+    { descricao: "Presente 1 - AirFry", imagem: AirFry },
+    { descricao: "Presente 2 - Televisão LG", imagem: Tv },
   ]);
 
 

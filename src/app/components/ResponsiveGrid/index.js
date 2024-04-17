@@ -6,6 +6,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 import "./style.scss"
 
 const Item = styled(Paper)(({ theme }) => ({
+  height: "100%",
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
   padding: theme.spacing(2),
@@ -24,8 +25,8 @@ export default function ResponsiveGrid({ data }) {
         {data.map((item, index) => (
           <Grid xs={2} sm={4} md={4} key={index}>
             <Item>
-              <Box><img className="ImagemPresente" src={item.imagem} alt={item.descricao} /></Box>
-              <Box>{item.descricao}</Box>
+                <Box><img className="ImagemPresente" src={item.imagem} alt={item.descricao} /></Box>
+                <Box>{item.descricao}</Box>
             </Item>
           </Grid>
         ))}

@@ -2,28 +2,30 @@
     background-image: url('./image/muro-de-concreto-com-flores.jpg');
     background-repeat: no-repeat; 
     background-size: cover;
+    /* max-width: 100%; */
 }
+
+body{
+padding-top: 4em;
+box-sizing: border-box;
+}
+
 .content {
-    min-height: calc(100vh - 60px);
-    padding-bottom: 60px;
-  }
+  min-height: calc(100vh - 60px);
+}
+
 
 .footerStyle{
-    display: flex;
-    justify-content: space-between;
-    color: #fff;
-    background-color:  #291800 !important;
-    text-align: center;
-    padding: 10px;
-    position: absolute;
-    width: 100%;
-  }
-
-  @media (max-width: 768px) {
-    .content {
-      min-height: calc(120vh - 90px); /* Ajuste o valor conforme necessário */
-    }
-    .footerStyle {
-      flex-direction: column;
-    }
-  }
+  bottom: 0!important;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  background-color:  #291800 !important;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+}
+/* .content {
+    min-height: calc(100vh - 60px);
+  } */

@@ -18,3 +18,12 @@
     position: absolute;
     width: 100%;
   }
+
+  @media (max-width: 768px) {
+    .content {
+      min-height: calc(120vh - 90px); /* Ajuste o valor conforme necessário */
+    }
+    .footerStyle {
+      flex-direction: column;
+    }
+  }

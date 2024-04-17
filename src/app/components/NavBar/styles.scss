@@ -1,3 +1,26 @@
 .navBarStyle {
   background-color: #d16200;
 }
+
+.mainHeader{
+  margin-bottom: 5%;
+}
+
+.navbar-brand-custom {
+  display: inline-block;
+  padding-top: .3125rem;
+  padding-bottom: .3125rem;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  line-height: inherit;
+  white-space: nowrap;
+}
+
+.buttonHome {
+  margin-left: 25px;
+  display: flex;
+}
+
+.textButton {
+  color: #fff;
+}

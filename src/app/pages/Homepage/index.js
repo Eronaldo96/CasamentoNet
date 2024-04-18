@@ -55,11 +55,11 @@ export default function HomePage() {
             </span>
           </div>
           <div className="col-sm-7">
-            {/* <img
+            <img
               className="ImagemCasalTexto"
               src={fotoCasal}
               alt="fotoCasal"
-            /> */}
+            />
           </div>
         </div>
       </div>

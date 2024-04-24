@@ -1,15 +1,14 @@
-:root {
+/* :root {
     background-image: url('./image/muro-de-concreto-com-flores.jpg');
     background-repeat: no-repeat; 
     background-size: cover;
-    /* max-width: 100%; */
-}
+} */
 
 body{
 padding-top: 4em;
 box-sizing: border-box;
 }
 
-.content {
+/* .content {
   min-height: calc(100vh - 60px);
-}
+} */

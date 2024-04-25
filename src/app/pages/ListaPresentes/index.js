@@ -7,8 +7,8 @@ import ResponseGrid from "../../components/ResponsiveGrid/index";
 
 export default function ListaPresentes() {
   const [presentes, setPresentes] = useState([
-    { descricao: "Presente 1 - AirFry", imagem: AirFry },
-    { descricao: "Presente 2 - Televisão LG", imagem: Tv },
+    { descricao: "Presente 1 - AirFry", imagem: AirFry, url: "https://www.amazon.com.br/s?k=air+fryer+220v&crid=WT8X3G04FVZS&sprefix=air%2Caps%2C160&ref=nb_sb_ss_ts-doa-p_2_3" },
+    { descricao: "Presente 2 - Televisão LG", imagem: Tv, url:"https://www.amazon.com.br/s?k=tv+lg&__mk_pt_BR=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=KMA7COX6A15&sprefix=tv+lg%2Caps%2C285&ref=nb_sb_noss_1" },
   ]);
 
 
@@ -20,14 +20,6 @@ export default function ListaPresentes() {
   return (
     <div className="container">
       <div className="col-sm-12">
-        {/* Adiciona o componente Input e manipulador de eventos para alterar o estado */}
-        {/* <Input
-          value={presentes.descricao}
-          onChange={handleDescricaoChange}
-          placeholder="Descrição do Presente"
-        /> */}
-
-        {/* Exibe o componente ResponseGrid passando a lista de presentes como dados */}
         <ResponseGrid data={presentes} />
       </div>
     </div>

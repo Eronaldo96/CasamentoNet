@@ -15,6 +15,11 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 export default function ResponsiveGrid({ data }) {
+
+  function produtoCaminho(url){
+    window.open(url, '_blank');
+  }
+  
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid
@@ -27,6 +32,8 @@ export default function ResponsiveGrid({ data }) {
             <Item>
                 <Box><img className="ImagemPresente" src={item.imagem} alt={item.descricao} /></Box>
                 <Box>{item.descricao}</Box>
+                <Box><button onClick={() => produtoCaminho(item.url)}>Abrir em Nova Aba</button></Box>
+                {/* <Box><button onclick={produtoCaminho(item.url)}></button></Box> */}
             </Item>
           </Grid>
         ))}

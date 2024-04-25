@@ -15,7 +15,7 @@ export default function HomePage() {
   };
   return (
     <div className="homeStyle">
-      <div className="carouselContainer">
+      {/* <div className="carouselContainer">
         <Carousel fade activeIndex={index} onSelect={handleSelect}>
           <Carousel.Item>
             <img className="carousel-image" src={logoUm} alt="Imagem 1" />
@@ -32,18 +32,18 @@ export default function HomePage() {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
-      </div>
+      </div> */}
 
-      <div className="container">
-        <div className="row">
+      <div className="container" style={{marginBottom:"20px"}}>
+        {/* <div className="row">
           <span>
             Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
             ligula porta felis euismod semper. Praesent commodo cursus magna,
             vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus
             commodo.
           </span>
-        </div>
-        <hr />
+        </div> */}
+        {/* <hr /> */}
         <div className="row">
           <div className="col-sm-5 textoCasal">
             <h2>Teste de textos</h2>

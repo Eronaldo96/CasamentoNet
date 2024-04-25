@@ -1,11 +1,13 @@
 .footerStyle{
-    bottom: 0!important;
     display: flex;
     justify-content: space-between;
     color: #fff;
     background-color:  #291800 !important;
     text-align: center;
-    padding: 10px;
-    position: relative;
+    padding: 15px;
+    position: fixed;
+   // position: relative;
     width: 100%;
+    margin-top: auto;
+    bottom: 0;
   }

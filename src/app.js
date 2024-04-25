@@ -1,21 +1,17 @@
 import React from "react";
-import HomePageRoutes from "./app/pages/Homepage/Routes/index";
 import { BrowserRouter as Router } from "react-router-dom";
 import NavBar from "./app/components/NavBar";
 import Footer from "./app/components/Footer";
-import ListaPresentesRoutes from "./app/pages/ListaPresentes/Routes";
+import "./app.scss";
+import Container from "./app/components/Container";
 
 export default function App() {
   return (
     <Router>
-      <div
-       //style={{display:"flex", justifyContent: "center"}}
-       >
+      <div className="App">
         <NavBar />
-        <HomePageRoutes />
-        <ListaPresentesRoutes />
-        <Footer/>
-        
+        <Container/>
+        <Footer />
       </div>
     </Router>
   );

@@ -1,9 +1,9 @@
 // import { Grid, Card, CardMedia, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { Carousel } from "react-bootstrap";
-import fotoCasal from "../../assets/images/casal.png";
+import fotoCasal from "../../assets/images/ENSAIOBIAEIAN-044.jpg";
 import logoUm from "../../assets/images/download (1).png";
-import logoDois from "../../assets/images/wallpaperflare.com_wallpaper.jpg"
+import logoDois from "../../assets/images/wallpaperflare.com_wallpaper.jpg";
 
 import "./styles.scss";
 
@@ -34,8 +34,8 @@ export default function HomePage() {
         </Carousel>
       </div> */}
 
-      <div className="container" style={{marginBottom:"20px"}}>
-        {/* <div className="row">
+      {/* <div className="container" style={{ marginBottom: "20px" }}> */}
+      {/* <div className="row">
           <span>
             Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id
             ligula porta felis euismod semper. Praesent commodo cursus magna,
@@ -43,8 +43,8 @@ export default function HomePage() {
             commodo.
           </span>
         </div> */}
-        {/* <hr /> */}
-        <div className="row">
+      {/* <hr /> */}
+      {/* <div className="row">
           <div className="col-sm-5 textoCasal">
             <h2>Teste de textos</h2>
             <span>
@@ -55,14 +55,10 @@ export default function HomePage() {
             </span>
           </div>
           <div className="col-sm-7">
-            <img
-              className="ImagemCasalTexto"
-              src={fotoCasal}
-              alt="fotoCasal"
-            />
+            <img className="ImagemCasalTexto" src={fotoCasal} alt="fotoCasal" />
           </div>
-        </div>
-      </div>
+        </div> */}
+      {/* </div> */}
 
       {/* <div className="container card-custom ">
         <div className="row col-sm-7">

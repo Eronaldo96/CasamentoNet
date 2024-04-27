@@ -1,30 +1,67 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import MenuIcon from "@mui/icons-material/Menu";
+import Typography from "@mui/material/Typography";
+import { Drawer, List, ListItemButton, ListItemText } from "@mui/material";
 import "./styles.scss";
 import logo from "../../../app/assets/images/aliancas-de-casamento.png";
+import Button from "@mui/material/Button";
+
 
 export default function NavBar() {
+  const [openDrawer, setOpenDrawer] = useState(false);
+
+  const handleDrawerToggle = () => {
+    setOpenDrawer(!openDrawer);
+  };
+
+  const handleDrawerClose = () => {
+    setOpenDrawer(false);
+  };
+
   return (
     <div className="mainHeader">
-      <nav className="navbar navBarStyle">
-        <div className="buttonHome">
-          <div>
-            <Link className="navbar-brand textButton" to="/">
-            <img style={{width: "2em"}} src={logo} alt="logo" />
+      <AppBar position="fixed" className="navBarStyle">
+        <Toolbar>
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            onClick={handleDrawerToggle}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Link to="/">
+              <img style={{width: "2em"}} src={logo} alt="logo" />
             </Link>
-          </div>
-          <div>
-            <Link className="navbar-brand textButton" to="/">
-              Home
-            </Link>
-          </div>
-          <div>
-            <Link className="navbar-brand textButton" to="/ListaPresentes">
-              Lista de Presentes
-            </Link>
-          </div>
-        </div>
-      </nav>
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Drawer
+        anchor="left"
+        open={openDrawer}
+        onClose={handleDrawerClose}
+        className="drawerStyle"
+      >
+        <List>
+          <ListItemButton component={Link} to="/" onClick={handleDrawerClose}>
+            <ListItemText primary="Home" />
+          </ListItemButton>
+          <ListItemButton component={Link} to="/Home" onClick={handleDrawerClose}>
+            <ListItemText primary="Home" />
+          </ListItemButton>
+          <ListItemButton component={Link} to="/Local" onClick={handleDrawerClose}>
+            <ListItemText  primary="Local" />
+          </ListItemButton>
+          <ListItemButton component={Link} to="/ListaPresentes" onClick={handleDrawerClose}>
+            <ListItemText  primary="Lista de Presentes" />
+          </ListItemButton>
+        </List>
+      </Drawer>
     </div>
   );
 }

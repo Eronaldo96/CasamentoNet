@@ -1,11 +1,11 @@
 .navBarStyle {
-  background-color: #d16200;
+  background-color: #d16200 !important;
 }
 
-.mainHeader{
+.mainHeader {
   z-index: 99999;
-  width:100%;
-  height:4em;
+  width: 100%;
+  height: 4em;
   margin-bottom: 5%;
   position: fixed;
   top: 0;
@@ -28,4 +28,8 @@
 
 .textButton {
   color: #fff;
+}
+
+.linkNoUnderline {
+  text-decoration: none;
 }

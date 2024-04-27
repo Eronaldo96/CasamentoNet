@@ -1,0 +1,16 @@
+.ImagemLocal {
+    justify-items: center;
+}
+
+.ItemImagemLocal {
+    width: 100%; /* Garante que a imagem se ajuste ao contêiner */
+    max-width: 100%; /* Limita a largura da imagem ao tamanho do contêiner */
+    height: 100%; /* Permite que a altura da imagem seja ajustada proporcionalmente */
+    max-height: 100%; /* Limita a altura da imagem ao tamanho do contêiner */
+    border-radius: 2%;
+    object-fit: contain;
+    display: flex;
+    align-items:center;
+    flex-wrap: wrap;
+    justify-content: center;
+}

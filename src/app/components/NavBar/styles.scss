@@ -1,5 +1,5 @@
 .navBarStyle {
-  background-color: #d16200 !important;
+  background-color: #c65038 !important;
 }
 
 .mainHeader {
@@ -33,3 +33,22 @@
 .linkNoUnderline {
   text-decoration: none;
 }
+
+.menuHamburguer{
+  height: 100%;
+  color:#FFFF !important;
+  width: 250px;
+}
+
+.menuItemHamburguer .MuiButtonBase-root {
+  background-color: #0d3d3b !important; /* Cor mais escura */
+}
+
+.menuItemHamburguer .MuiTypography-root {
+  //color: #FFF;
+  color: #10514E;
+}
+
+// .menuItemHamburguer:hover .MuiTypography-root {
+//   color: #10514E;
+// }

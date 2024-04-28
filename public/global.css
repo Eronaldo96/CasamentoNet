@@ -12,3 +12,23 @@ box-sizing: border-box;
 /* .content {
   min-height: calc(100vh - 60px);
 } */
+
+/* Estilizando o scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Thumb */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Hovered Thumb */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

@@ -7,9 +7,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Typography from "@mui/material/Typography";
 import { Drawer, List, ListItemButton, ListItemText } from "@mui/material";
 import "./styles.scss";
-import logo from "../../../app/assets/images/aliancas-de-casamento.png";
-import Button from "@mui/material/Button";
-
+import logo from "../../../app/assets/images/rings.png";
 
 export default function NavBar() {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -26,6 +24,12 @@ export default function NavBar() {
     <div className="mainHeader">
       <AppBar position="fixed" className="navBarStyle">
         <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Link to="/">
+              <img style={{ width: "2em" }} src={logo} alt="logo" />
+            </Link>
+          </Typography>
+
           <IconButton
             edge="start"
             color="inherit"
@@ -34,11 +38,6 @@ export default function NavBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link to="/">
-              <img style={{width: "2em"}} src={logo} alt="logo" />
-            </Link>
-          </Typography>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -47,18 +46,33 @@ export default function NavBar() {
         onClose={handleDrawerClose}
         className="drawerStyle"
       >
-        <List>
+        <List className="menuHamburguer">
           <ListItemButton component={Link} to="/" onClick={handleDrawerClose}>
             <ListItemText primary="Home" />
           </ListItemButton>
-          <ListItemButton component={Link} to="/Home" onClick={handleDrawerClose}>
+          <ListItemButton
+            className="menuItemHamburguer"
+            component={Link}
+            to="/Home"
+            onClick={handleDrawerClose}
+          >
             <ListItemText primary="Home" />
           </ListItemButton>
-          <ListItemButton component={Link} to="/Local" onClick={handleDrawerClose}>
-            <ListItemText  primary="Local" />
+          <ListItemButton
+            className="menuItemHamburguer"
+            component={Link}
+            to="/Local"
+            onClick={handleDrawerClose}
+          >
+            <ListItemText primary="Local" />
           </ListItemButton>
-          <ListItemButton component={Link} to="/ListaPresentes" onClick={handleDrawerClose}>
-            <ListItemText  primary="Lista de Presentes" />
+          <ListItemButton
+            className="menuItemHamburguer"
+            component={Link}
+            to="/ListaPresentes"
+            onClick={handleDrawerClose}
+          >
+            <ListItemText primary="Lista de Presentes" />
           </ListItemButton>
         </List>
       </Drawer>

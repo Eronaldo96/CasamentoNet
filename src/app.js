@@ -13,8 +13,8 @@ export default function App() {
         <NavBar />
         <div className="image-container">
           <img className="ImagemCasalTexto" src={fotoCasal} alt="fotoCasal" />
-          <div className="image-text-Data">03.10.2024<br/>Faltam 584 dias</div>
-          <div className="image-text">Bya & Yan</div>
+          <div className="image-text-Data">22.11.2024<br/>Faltam 584 dias</div>
+          <div className="image-text">Bia & Yan</div>
         </div>
         <Container/>
         <Footer />

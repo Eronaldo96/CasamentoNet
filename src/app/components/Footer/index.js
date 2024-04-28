@@ -6,7 +6,7 @@ export default function Footer() {
     <div className="footerStyle">
       <p>© 2024 Ero Company, Inc.</p>
       <p className="float-right">
-        <a href="/">Back to top</a>
+        {/* <a href="/">Back to top</a> */}
       </p>
     </div>
   );

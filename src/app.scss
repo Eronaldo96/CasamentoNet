@@ -1,5 +1,5 @@
 .App {
-    //min-height: 100vh;
+    min-height: 100vh; //ajeita o footer caso seja relative
     display: flex;
     flex-direction: column;
 }
@@ -30,11 +30,12 @@
 
 .image-text {
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
     font-family: 'Great Vibes', cursive;
-    font-size: 8vw;
+    font-size: 12vw;
     text-align: center; 
+    width: 100%;
 }

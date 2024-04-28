@@ -31,14 +31,11 @@ export default function ListaPresentes() {
     },
   ]);
 
-  // const handleDescricaoChange = () => {
-  //   // Adiciona um novo presente ao array de presentes
-  //   setPresentes([{ descricao: "Teste", imagem: AirFry }, ...presentes]);
-  // };
 
   return (
     <div className="ListaPresenteCustom">
       <div className="col-sm-12">
+        <h1>Lista de presentes</h1>
         <ResponseGrid data={presentes} />
       </div>
     </div>

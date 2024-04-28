@@ -12,11 +12,18 @@ export default function App() {
       <div className="App">
         <NavBar />
         <div className="image-container">
-          <img className="ImagemCasalTexto" src={fotoCasal} alt="fotoCasal" />
-          <div className="image-text-Data">22.11.2024<br/>Faltam 584 dias</div>
-          <div className="image-text">Bia & Yan</div>
+          <figure className="ImagemCasalContainer">
+            {/* <img className="ImagemCasal" src={fotoCasal} alt="fotoCasal" /> */}
+            <img className="ImagemCasal" src={fotoCasal} alt="fotoCasal"></img>
+            <div className="image-text-Data">
+              22.11.2024
+              <br />
+              Faltam 584 dias
+            </div>
+            <div className="image-text">Bia & Yan</div>
+          </figure>
         </div>
-        <Container/>
+        <Container />
         <Footer />
       </div>
     </Router>

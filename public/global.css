@@ -32,3 +32,8 @@ box-sizing: border-box;
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+@font-face {
+  font-family: 'Windsong';
+  src: url('../src/app/assets/fonts/Windsong.ttf') format('truetype');
+}

@@ -4,7 +4,6 @@ import ImageListItem from "@mui/material/ImageListItem";
 import Box from "@mui/material/Box";
 import "./styles.scss";
 export default function StandardImageList({ data }) {
-  console.log(data);
   return (
     <ImageList className="ImagemLocal">
       {data.map((item) => (

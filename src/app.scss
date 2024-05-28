@@ -1,14 +1,14 @@
 .App {
-    min-height: 100vh; //ajeita o footer caso seja relative
     display: flex;
     flex-direction: column;
+    min-height: 90vh;
 }
+
 
 .ImagemCasalContainer {
     position: relative;
     width: 100%;
-    //height: 80vh; /* Altura padrão para telas maiores */
-    height: 90vh;
+    max-height: 100vh;
     overflow: hidden;
 }
 
@@ -20,51 +20,31 @@
 
 @media (max-width: 768px) {
     .ImagemCasalContainer {
-        height: 60vh; /* Altura para telas menores */
-    }
-
-    .ImagemCasalContainer::after {
-        height: 20% !important; /* Altura do gradiente para telas menores */
+        height: 60vh; 
     }
 }
 
 @media (max-width: 580px) {
     .ImagemCasalContainer {
-        height: 50vh; /* Altura para telas pequenas */
-    }
-
-    .ImagemCasalContainer::after {
-        height: 20% !important; /* Altura do gradiente para telas pequenas */
+        height: 50vh;
     }
 }
 
 @media (max-width: 480px) {
     .ImagemCasalContainer {
-        height: 40vh; /* Altura para telas pequenas */
-    }
-
-    .ImagemCasalContainer::after {
-        height: 15% !important; /* Altura do gradiente para telas pequenas */
+        height: 40vh;
     }
 }
 
 @media (max-width: 380px) {
     .ImagemCasalContainer {
-        height: 30vh; /* Altura para telas muito pequenas */
-    }
-
-    .ImagemCasalContainer::after {
-        height: 30% !important; /* Altura do gradiente para telas muito pequenas */
+        height: 30vh;
     }
 }
 
 @media (max-width: 280px) {
     .ImagemCasalContainer {
-        height: 30vh; /* Altura para telas muito pequenas */
-    }
-
-    .ImagemCasalContainer::after {
-        height: 30% !important; /* Altura do gradiente para telas muito pequenas */
+        height: 30vh;
     }
 }
 
@@ -74,13 +54,31 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 30%;
+    height: 30%; /* Altura do gradiente */
     background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
 }
 
+@media (max-width: 768px) {
+    .ImagemCasalContainer::after {
+        height: 20%;
+    }
+}
+
+@media (max-width: 480px) {
+    .ImagemCasalContainer::after {
+        height: 15%;
+    }
+}
+
+@media (max-width: 380px) {
+    .ImagemCasalContainer::after {
+        height: 30%;
+    }
+}
 
 .image-container {
     position: relative;
+    margin-top: -8%;
 }
 
 .image-text-Data {

@@ -74,6 +74,14 @@ export default function NavBar() {
           >
             <ListItemText primary="Lista de Presentes" />
           </ListItemButton>
+          <ListItemButton
+            className="menuItemHamburguer"
+            component={Link}
+            to="/ConfirmaPresenca"
+            onClick={handleDrawerClose}
+          >
+            <ListItemText primary="Confirmar Presença" />
+          </ListItemButton>
         </List>
       </Drawer>
     </div>

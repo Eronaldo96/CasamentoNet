@@ -5,7 +5,7 @@ import ConfirmaPresenca from '../index';
 export default function ConfirmaPresencaRoutes() {
   return (
     <Routes>
-      <Route path="/Local" element={<ConfirmaPresenca />} />
+      <Route path="/ConfirmaPresenca" element={<ConfirmaPresenca />} />
     </Routes>
   );
 };

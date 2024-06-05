@@ -48,7 +48,7 @@ export default function ResponsiveGrid({ data }) {
               <Box>
                 <Button
                   variant="outlined"
-                  onClick={() => produtoCaminho(item.url)}
+                  onClicButtonk={() => produtoCaminho(item.url)}
                 >
                   Presentear
                 </Button>

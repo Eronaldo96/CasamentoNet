@@ -37,7 +37,7 @@ export default function App() {
               <br />
               Faltam {daysUntil} dias
             </div>
-            <div className="image-text">Bia & Yan</div>
+            <div className="image-text">Beatriz & Yan</div>
           </figure>
         </div>
         <Container />

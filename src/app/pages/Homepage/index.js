@@ -15,6 +15,16 @@ export default function HomePage() {
   };
   return (
     <div className="homeStyle">
+      <div>
+        <h2 className="vessiculo">
+          "E, sobre tudo isto, revestí-vos do amor, que é o vínculo da
+          perfeição."
+        </h2>
+        <br></br>
+        <h6 style={{ float: "right" }} className="vessiculo">
+          Colossenses 3:14
+        </h6>
+      </div>
       {/* <div className="carouselContainer">
         <Carousel fade activeIndex={index} onSelect={handleSelect}>
           <Carousel.Item>

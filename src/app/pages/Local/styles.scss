@@ -1,9 +1,17 @@
-.LocalCustom{
+.LocalCustom {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.TituloPagina{
+.TituloPagina {
     text-align: center;
+    font-family: 'Windsong';
+    color: #c65038;
+}
+
+.LocalInfoPagina {
+    text-align: center;
+    color: #c65038;
+    font-family: 'Windsong';
 }

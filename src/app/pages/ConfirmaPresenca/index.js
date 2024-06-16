@@ -9,18 +9,23 @@ import {
   RadioGroup,
   Button,
 } from "@mui/material";
+import InputMask from 'react-input-mask';
 
 export default function ConfirmaPresenca() {
-  // const [local, setLocal] = useState([
-  //   {
-  //     descricao: "Presente 1 - AirFry",
-  //     imagem: AirFry,
-  //   },
-  //   {
-  //     descricao: "Igreja da Saúde",
-  //     imagem: Igreja,
-  //   },
-  // ]);
+  const [phone, setPhone] = useState("");
+  const [mask, setMask] = useState("(99) 99999-9999");
+
+  const handleChange = (event) => {
+    const value = event.target.value;
+    setPhone(value);
+
+    const onlyNumbers = value.replace(/\D/g, "");
+    if (onlyNumbers.length > 2 && onlyNumbers[2] === '9') {
+      setMask("(99) 99999-9999");
+    } else {
+      setMask("(99) 9999-9999");
+    }
+  };
 
   return (
     <div className="ConfirmaPresencaCustom">
@@ -80,12 +85,23 @@ export default function ConfirmaPresenca() {
               />
             </div>
             <div className="col-xl-4 col-md-6 col-sm-12">
-              <TextField
-                id="outlined-number"
-                label="Telefone para contato"
-                type="text"
-                style={{ width: "100%", marginTop: "1rem" }}
-              />
+              <InputMask
+                mask={mask}
+                value={phone}
+                onChange={handleChange}
+                //maskChar={null}
+              >
+                {(inputProps) => (
+                  <TextField
+                    {...inputProps}
+                    id="outlined-phone"
+                    label="Telefone para contato"
+                    type="text"
+                    style={{ width: "100%", marginTop: "1rem" }}
+                    variant="outlined"
+                  />
+                )}
+              </InputMask>
             </div>
           </div>
           <div className="row" style={{ display: "flex", margin: "5px" }}>
@@ -96,7 +112,6 @@ export default function ConfirmaPresenca() {
                 multiline
                 variant="outlined"
                 rows={4}
-                // defaultValue="Default Value"
                 className="resizable-textfield"
               />
             </div>
@@ -105,14 +120,11 @@ export default function ConfirmaPresenca() {
             <div className="col-12">
               <Button
                 variant="outlined"
-                //style={{width:"100%"}}
-                //onClicButtonk={() => produtoCaminho(item.url)}
               >
                 Confirmar Presença
               </Button>
             </div>
           </div>
-          
         </FormControl>
       </div>
     </div>

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import AirFry from "../../assets/images/AirFry.jpg";
 import CasaMaraponga from "../../assets/images/CasaMarapongaLocal.png";
 import CasalTeatro from "../../assets/images/CasalTeatro.jpg";
 import "./styles.scss";
 import StandardImageList from "../../components/SatndardImageList/index";
 
 export default function Local() {
-  const [local, setLocal] = useState([
+  const [local] = useState([
     {
       descricao: "Casa Maraponga",
       imagem: CasaMaraponga,

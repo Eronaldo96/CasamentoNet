@@ -18,7 +18,7 @@ import "./styles.scss";
 import ResponseGrid from "../../components/ResponsiveGrid/index";
 
 export default function ListaPresentes() {
-  const [presentes, setPresentes] = useState([
+  const [presentes] = useState([
     {
       descricao: "Presente 1 - AirFry",
       imagem: AirFry,

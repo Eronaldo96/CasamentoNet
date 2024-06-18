@@ -1,18 +1,18 @@
 // import { Grid, Card, CardMedia, Typography } from "@mui/material";
-import React, { useState } from "react";
-import { Carousel } from "react-bootstrap";
-import fotoCasal from "../../assets/images/ENSAIOBIAEIAN-044.jpg";
-import logoUm from "../../assets/images/download (1).png";
-import logoDois from "../../assets/images/wallpaperflare.com_wallpaper.jpg";
+import React from "react";
+// import { Carousel } from "react-bootstrap";
+// import fotoCasal from "../../assets/images/ENSAIOBIAEIAN-044.jpg";
+// import logoUm from "../../assets/images/download (1).png";
+// import logoDois from "../../assets/images/wallpaperflare.com_wallpaper.jpg";
 
 import "./styles.scss";
 
 export default function HomePage() {
-  const [index, setIndex] = useState(0);
+  // const [index, setIndex] = useState(0);
 
-  const handleSelect = (selectedIndex) => {
-    setIndex(selectedIndex);
-  };
+  // const handleSelect = (selectedIndex) => {
+  //   setIndex(selectedIndex);
+  // };
   return (
     <div className="homeStyle">
       <div>

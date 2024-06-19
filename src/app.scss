@@ -1,247 +1,3 @@
-// .App {
-//     display: flex;
-//     flex-direction: column;
-//     min-height: 90vh;
-// }
-
-
-// .ImagemCasalContainer {
-//     position: relative;
-//     width: 100%;
-//     max-height: 100vh;
-//     overflow: hidden;
-// }
-
-// .ImagemCasal {
-//     width: 100%;
-//     height: auto;
-//     object-fit: cover;
-// }
-
-// @media (max-width: 768px) {
-//     .ImagemCasalContainer {
-//         height: 60vh; 
-//     }
-// }
-
-// @media (max-width: 580px) {
-//     .ImagemCasalContainer {
-//         height: 50vh;
-//     }
-// }
-
-// @media (max-width: 480px) {
-//     .ImagemCasalContainer {
-//         height: 40vh;
-//     }
-// }
-
-// @media (max-width: 380px) {
-//     .ImagemCasalContainer {
-//         height: 30vh;
-//     }
-// }
-
-// @media (max-width: 280px) {
-//     .ImagemCasalContainer {
-//         height: 30vh;
-//     }
-// }
-
-// .ImagemCasalContainer::after {
-//     content: "";
-//     position: absolute;
-//     bottom: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 30%; /* Altura do gradiente */
-//     background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
-// }
-
-// @media (max-width: 768px) {
-//     .ImagemCasalContainer::after {
-//         height: 20%;
-//     }
-// }
-
-// @media (max-width: 480px) {
-//     .ImagemCasalContainer::after {
-//         height: 15%;
-//     }
-// }
-
-// @media (max-width: 380px) {
-//     .ImagemCasalContainer::after {
-//         height: 30%;
-//     }
-// }
-
-// .image-container {
-//     position: relative;
-//     margin-top: -8%;
-// }
-
-// .image-text-Data {
-//     position: absolute;
-//     top: 40%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     color: white;
-//     font-size: 4vw;
-//     text-align: center;
-//     font-family: 'Windsong';
-//     font-weight: lighter;
-// }
-
-// .image-text {
-//     position: absolute;
-//     top: 80%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     color: #c65038;//white;
-//     font-family: 'Windsong';
-//     font-weight: lighter;
-//     font-size: 10vw;
-//     text-align: center;
-//     width: 100%;
-// }
-
-
-
-// html, body {
-//     height: 100%;
-//     margin: 0;
-//     padding: 0;
-//     font-family: Arial, sans-serif;
-// }
-
-// .App {
-//     display: flex;
-//     flex-direction: column;
-//     min-height: 100vh;
-// }
-
-// .content {
-//     flex: 1; /* Expande para preencher o espaço disponível */
-// }
-
-// .ImagemCasalContainer {
-//     position: relative;
-//     width: 100%;
-//     overflow: hidden;
-// }
-
-// .ImagemCasal {
-//     width: 100%;
-//     height: auto;
-//     object-fit: cover;
-// }
-
-// .ImagemCasalContainer::after {
-//     content: "";
-//     position: absolute;
-//     bottom: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 30%; /* Altura do gradiente */
-//     background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-// }
-
-// .image-container {
-//     position: relative;
-//     margin-top: 10%;
-// }
-
-// .image-text-Data {
-//     position: absolute;
-//     top: 40%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     color: white;
-//     font-size: 4vw;
-//     text-align: center;
-//     font-family: 'Windsong';
-//     font-weight: lighter;
-// }
-
-// .image-text {
-//     position: absolute;
-//     top: 80%;
-//     left: 50%;
-//     transform: translate(-50%, -50%);
-//     color: #c65038; //white;
-//     font-family: 'Windsong';
-//     font-weight: lighter;
-//     font-size: 10vw;
-//     text-align: center;
-//     width: 100%;
-// }
-
-// /* Responsividade */
-// @media (max-width: 768px) {
-//     .App {
-//         min-height: 60vh;
-//     }
-
-//     .ImagemCasalContainer {
-//         height: 60vh;
-//     }
-
-//     .ImagemCasalContainer::after {
-//         height: 20%;
-//     }
-// }
-
-// @media (max-width: 580px) {
-//     .ImagemCasalContainer {
-//         height: 50vh;
-//     }
-// }
-
-// @media (max-width: 480px) {
-//     .ImagemCasalContainer {
-//         height: 35vh;
-//     }
-
-//     .ImagemCasalContainer::after {
-//         height: 15%;
-//     }
-
-//     .image-text-Data {
-//         font-size: 6vw;
-//     }
-
-//     .image-text {
-//         font-size: 12vw;
-//     }
-// }
-
-// @media (max-width: 380px) {
-//     .ImagemCasalContainer {
-//         height: 30vh;
-//     }
-
-//     .ImagemCasalContainer::after {
-//         height: 30%;
-//     }
-
-//     .image-text-Data {
-//         font-size: 7vw;
-//     }
-
-//     .image-text {
-//         font-size: 14vw;
-//     }
-// }
-
-// @media (max-width: 280px) {
-//     .ImagemCasalContainer {
-//         height: 25vh;
-//     }
-// }
-
-
-
 html, body {
     height: 100%;
     margin: 0;
@@ -295,11 +51,11 @@ html, body {
 
 .image-text-Data {
     position: absolute;
-    top: 40%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
-    font-size: 4vw;
+    color: #c65038;
+    font-size: 5vw;
     text-align: center;
     font-family: 'Windsong' !important;
     font-weight: lighter !important;
@@ -398,6 +154,33 @@ html, body {
     }
 }
 
+@media (max-width: 430px) {
+    .ImagemCasalContainer {
+        height: 25vh;
+    }
+
+    .ImagemCasalContainer::after {
+        height: 15%;
+    }
+
+    .image-text-Data {
+        font-size: 6vw;
+    }
+
+    // .image-text {
+    //     font-size: 12vw;
+    // }
+
+    .image-container {
+        position: relative;
+        margin-top: 8%; /* Ajuste a margem conforme necessário */
+    }
+
+    .App {
+        min-height: 100vh;
+    }
+}
+
 @media (max-width: 380px) {
     .ImagemCasalContainer {
         height: 30vh;
@@ -408,8 +191,8 @@ html, body {
     }
 
     .image-text-Data {
-        font-size: 7vw;
-        top: 50%;
+        font-size: 5vw;
+        top: 60%;
     }
 
     // .image-text {
@@ -456,7 +239,7 @@ html, body {
 
 @media (min-width: 1200px) {
     .ImagemCasalContainer {
-        height: 80vh;
+        height: 100vh;
     }
 
     .ImagemCasalContainer::after {
@@ -483,7 +266,7 @@ html, body {
     }
 
     .ImagemCasalContainer {
-        height: 60vh;
+        height: 100vh;
     }
 
     .ImagemCasalContainer::after {
@@ -506,7 +289,7 @@ html, body {
 /* Telas grandes */
 @media (min-width: 1024px) {
     .ImagemCasalContainer {
-        height: 80vh;
+        height: 100vh;
     }
 
     .ImagemCasalContainer::after {
@@ -529,7 +312,7 @@ html, body {
 /* Telas extra grandes */
 @media (min-width: 1440px) {
     .ImagemCasalContainer {
-        height: 90vh;
+        height: 100vh;
     }
 
     .ImagemCasalContainer::after {

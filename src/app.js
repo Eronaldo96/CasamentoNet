@@ -5,6 +5,7 @@ import Footer from "./app/components/Footer";
 import "./app.scss";
 import Container from "./app/components/Container";
 import fotoCasal from "./app/assets/images/ENSAIOBIAEIAN-044.jpg";
+import 'normalize.css';
 
 export default function App() {
 

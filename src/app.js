@@ -26,11 +26,12 @@ export default function App() {
 
   return (
     <Router>
-      <div className="App">
+      <div 
+        className="App"
+      >
         <NavBar />
         <div className="image-container">
           <figure className="ImagemCasalContainer">
-            {/* <img className="ImagemCasal" src={fotoCasal} alt="fotoCasal" /> */}
             <img className="ImagemCasal" src={fotoCasal} alt="fotoCasal"></img>
             <div className="image-text-Data">
               22.11.2024

@@ -16,6 +16,7 @@ export default function HomePage() {
   return (
     <div className="homeStyle">
       <div>
+        <div className="image-text">Beatriz & Yan</div>
         <h2 className="vessiculo">
           "E, sobre tudo isto, revestí-vos do amor, que é o vínculo da
           perfeição."

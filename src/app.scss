@@ -301,21 +301,22 @@ html, body {
     color: white;
     font-size: 4vw;
     text-align: center;
-    font-family: 'Windsong';
-    font-weight: lighter;
+    font-family: 'Windsong' !important;
+    font-weight: lighter !important;
 }
 
 .image-text {
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    //position: absolute;
+    //top: 80%;
+    //left: 50%;
+    //transform: translate(-50%, -50%);
     color: #c65038; //white;
-    font-family: 'Windsong';
-    font-weight: lighter;
-    font-size: 10vw;
+    font-family: 'Windsong'!important;
+    font-weight: lighter !important;
+    font-size: 10vw !important;
     text-align: center;
     width: 100%;
+    margin-bottom: 10px;
 }
 
 /* Responsividade */
@@ -325,7 +326,7 @@ html, body {
     }
 
     .ImagemCasalContainer {
-        height: 60vh;
+        height: 30vh;
     }
 
     .ImagemCasalContainer::after {
@@ -335,6 +336,10 @@ html, body {
     .image-container {
         position: relative;
         margin-top: 8%; /* Ajuste a margem conforme necessário */
+    }
+
+    .App {
+        min-height: 100vh;
     }
     
 }
@@ -352,13 +357,17 @@ html, body {
         font-size: 6vw;
     }
 
-    .image-text {
-        font-size: 12vw;
-    }
+    // .image-text {
+    //     font-size: 12vw;
+    // }
 
     .image-container {
         position: relative;
         margin-top: 8%; /* Ajuste a margem conforme necessário */
+    }
+
+    .App {
+        min-height: 100vh;
     }
 }
 
@@ -375,13 +384,17 @@ html, body {
         font-size: 6vw;
     }
 
-    .image-text {
-        font-size: 12vw;
-    }
+    // .image-text {
+    //     font-size: 12vw;
+    // }
 
     .image-container {
         position: relative;
         margin-top: 8%; /* Ajuste a margem conforme necessário */
+    }
+
+    .App {
+        min-height: 100vh;
     }
 }
 
@@ -396,15 +409,20 @@ html, body {
 
     .image-text-Data {
         font-size: 7vw;
+        top: 50%;
     }
 
-    .image-text {
-        font-size: 14vw;
-    }
+    // .image-text {
+    //     font-size: 14vw;
+    // }
 
     .image-container {
         position: relative;
         margin-top: 8%; /* Ajuste a margem conforme necessário */
+    }
+
+    .App {
+        min-height: 100vh;
     }
 }
 
@@ -421,13 +439,17 @@ html, body {
         font-size: 8vw;
     }
 
-    .image-text {
-        font-size: 16vw;
-    }
+    // .image-text {
+    //     font-size: 16vw;
+    // }
 
     .image-container {
         position: relative;
         margin-top: 8%; /* Ajuste a margem conforme necessário */
+    }
+
+    .App {
+        min-height: 100vh;
     }
 }
 
@@ -445,8 +467,12 @@ html, body {
         font-size: 3vw;
     }
 
-    .image-text {
-        font-size: 6vw;
+    // .image-text {
+    //     font-size: 6vw;
+    // }
+
+    .App {
+        min-height: 100vh;
     }
 }
 
@@ -468,8 +494,12 @@ html, body {
         font-size: 4vw;
     }
 
-    .image-text {
-        font-size: 8vw;
+    // .image-text {
+    //     font-size: 8vw;
+    // }
+
+    .App {
+        min-height: 100vh;
     }
 }
 
@@ -487,8 +517,12 @@ html, body {
         font-size: 3vw;
     }
 
-    .image-text {
-        font-size: 6vw;
+    // .image-text {
+    //     font-size: 6vw;
+    // }
+
+    .App {
+        min-height: 100vh;
     }
 }
 
@@ -502,11 +536,15 @@ html, body {
         height: 20%;
     }
 
-    .image-text-Data {
-        font-size: 2vw;
-    }
+    // .image-text-Data {
+    //     font-size: 2vw;
+    // }
 
     .image-text {
         font-size: 5vw;
+    }
+
+    .App {
+        min-height: 100vh;
     }
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Igreja from "../../assets/images/igreja.jpeg";
 import "./styles.scss";
 import StandardImageList from "../../components/SatndardImageList/index";
@@ -14,9 +14,9 @@ export default function Local() {
       imagem: Igreja,
     },
   ]);
-
+  const localSection = useRef(null);
   return (
-    <div className="LocalCustom">
+    <div className="LocalCustom" ref={localSection}>
       <div className="col-sm-12">
         <div className="TituloPagina">
           <h1>Local</h1>

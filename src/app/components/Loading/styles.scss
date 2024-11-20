@@ -8,11 +8,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro com opacidade de 70% */
-  z-index: 9999; /* Garantindo que o loading sobreponha o conteúdo */
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
 }
 
 .loading-gif {
-  width: 100px; /* Ajuste o tamanho conforme necessário */
+  width: 100px;
   height: auto;
 }

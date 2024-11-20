@@ -5,14 +5,29 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Typography from "@mui/material/Typography";
-import { Drawer, List, ListItemButton, ListItemText } from "@mui/material";
+import { Drawer} from "@mui/material";
 import "./styles.scss";
 import logo from "../../../app/assets/images/rings.png";
 import Loading from "../Loading"; // Importe o componente de loading
+import MenuList from "@mui/material/MenuList";
+import MenuItem from "@mui/material/MenuItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import HomeIcon from "@mui/icons-material/Home";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import ListAltIcon from "@mui/icons-material/ListAlt";
+import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import Divider from "@mui/material/Divider";
 
 export default function NavBar() {
   const [openDrawer, setOpenDrawer] = useState(false);
   const [isLoading, setIsLoading] = useState(true); // Estado de carregamento
+
+  const menuItems = [
+    { to: "/Home", label: "Home", icon: <HomeIcon /> },
+    { to: "/Local", label: "Local", icon: <LocationOnIcon /> },
+    { to: "/ListaPresentes", label: "Lista de Presentes", icon: <ListAltIcon /> },
+    { to: "/ConfirmaPresenca", label: "Confirmar Presença", icon: <CheckCircleIcon /> },
+  ];
 
   const handleDrawerToggle = () => {
     setOpenDrawer(!openDrawer);
@@ -31,28 +46,28 @@ export default function NavBar() {
 
   return (
     <div className="mainHeader">
-      {/* {isLoading ? (  // Se estiver carregando, mostra o loading
-        <Loading />
-      ) : ( */}
-        <AppBar position="fixed" className="navBarStyle">
-          <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              <Link to="/">
-                <img style={{ width: "2em", color: "white" }} src={logo} alt="logo" />
-              </Link>
-            </Typography>
+      <AppBar position="fixed" className="navBarStyle">
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Link to="/">
+              <img
+                style={{ width: "2em", color: "white" }}
+                src={logo}
+                alt="logo"
+              />
+            </Link>
+          </Typography>
 
-            <IconButton
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              onClick={handleDrawerToggle}
-            >
-              <MenuIcon />
-            </IconButton>
-          </Toolbar>
-        </AppBar>
-      {/* )} */}
+          <IconButton
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            onClick={handleDrawerToggle}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
 
       <Drawer
         anchor="left"
@@ -60,43 +75,22 @@ export default function NavBar() {
         onClose={handleDrawerClose}
         className="drawerStyle"
       >
-        <List className="menuHamburguer">
-          <ListItemButton component={Link} to="/" onClick={handleDrawerClose}>
-            <ListItemText primary="Home" />
-          </ListItemButton>
-          <ListItemButton
-            className="menuItemHamburguer"
-            component={Link}
-            to="/Home"
-            onClick={handleDrawerClose}
-          >
-            <ListItemText primary="Home" />
-          </ListItemButton>
-          <ListItemButton
-            className="menuItemHamburguer"
-            component={Link}
-            to="/Local"
-            onClick={handleDrawerClose}
-          >
-            <ListItemText primary="Local" />
-          </ListItemButton>
-          <ListItemButton
-            className="menuItemHamburguer"
-            component={Link}
-            to="/ListaPresentes"
-            onClick={handleDrawerClose}
-          >
-            <ListItemText primary="Lista de Presentes" />
-          </ListItemButton>
-          <ListItemButton
-            className="menuItemHamburguer"
-            component={Link}
-            to="/ConfirmaPresenca"
-            onClick={handleDrawerClose}
-          >
-            <ListItemText primary="Confirmar Presença" />
-          </ListItemButton>
-        </List>
+        <MenuList>
+          {menuItems.map((item, index) => (
+            <MenuItem
+              key={index}
+              component={Link}
+              to={item.to}
+              onClick={handleDrawerClose}
+            >
+              <ListItemIcon>
+                {item.icon}
+              </ListItemIcon>
+              <Typography variant="body1">{item.label}</Typography>
+            </MenuItem>
+          ))}
+          <Divider />
+        </MenuList>
       </Drawer>
     </div>
   );

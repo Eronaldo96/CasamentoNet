@@ -38,8 +38,6 @@ body {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    //margin-top: 20px;
-    /* Ajuste conforme necessário */
 }
 
 .ImagemCasal {
@@ -47,8 +45,7 @@ body {
     width: 100%;
     object-fit: cover;
     position: relative;
-    top: 10vh;
-    /* Ajuste o valor conforme necessário */
+    top: 8vh;
 }
 
 .ImagemCasalContainer::after {
@@ -58,48 +55,34 @@ body {
     left: 0;
     width: 100%;
     height: 30%;
-    /* Ajuste a altura conforme necessário */
     background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
 }
 
 .image-text {
-    position: absolute; /* Sobrepõe o texto à imagem */
-    top: 70%; /* Ajuste a posição vertical (10% do contêiner) */
-    left: 50%; /* Centraliza horizontalmente */
-    transform: translate(-50%, -50%); /* Ajuste preciso para centralização */
-    //color: #013220; /* Mantém o estilo de cor */
-    //font-family: 'Windsong', cursive; /* Fonte estilizada */
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    //color: #013220;
+    //font-family: 'Windsong', cursive;
     //font-family: 'Great Vibes', cursive;
     //font-family: 'Parisienne', cursive;
     font-family: 'Cinzel', cursive;
-    font-weight: 300; /* Peso mais leve */
-    font-size: clamp(2rem, 5vw, 8rem); /* Responsivo */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Adiciona contraste ao texto */
-    z-index: 1; /* Para garantir que a div fique acima da imagem */
-    color: #fff; /* Cor do texto, se necessário */
+    font-weight: 300;
+    font-size: clamp(2rem, 5vw, 8rem);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    color: #fff;
   }
-
-// .image-text {
-//     position: absolute; /* Para colocar sobre a imagem ou qualquer outro elemento */
-//     top: 50%;  /* Ajusta a posição vertical */
-//     left: 50%; /* Ajusta a posição horizontal */
-//     transform: translate(-50%, -50%); /* Centraliza a div */
-//     color: #fff; /* Cor do texto, se necessário */
-//     font-size: 2rem; /* Ajuste o tamanho da fonte */
-//     text-align: center;
-// }
-  
 
 @media (max-width: 768px) {
     .ImagemCasal {
         object-fit: contain;
-        /* Ajusta a imagem para telas menores */
     }
 }
 
 @media (min-width: 1200px) {
     .ImagemCasal {
         max-height: 90vh;
-        /* Ocupa o máximo de altura */
     }
 }

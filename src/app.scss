@@ -10,7 +10,7 @@ body {
     padding: 0;
     overflow-x: hidden;
     overflow-y: auto;
-    /* Garante rolagem vertical se necessário */
+    font-family: 'Cinzel', serif;
 }
 
 .App {
@@ -19,33 +19,33 @@ body {
     min-height: 100vh;
 }
 
-
 .content {
     flex: 1;
-    /* Expande para preencher o espaço disponível */
     display: flex;
     flex-direction: column;
 }
 
 .Container {
-    flex: 1;
     padding: 2%;
 }
 
 .ImagemCasalContainer {
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    position: relative;
 }
 
 .ImagemCasal {
     max-height: 70vh;
     width: 100%;
     object-fit: cover;
-    position: relative;
-    top: 8vh;
+
+}
+
+.ImagemCasalContainer {
+    padding-top: 4%;
 }
 
 .ImagemCasalContainer::after {
@@ -63,26 +63,30 @@ body {
     top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
-    //color: #013220;
-    //font-family: 'Windsong', cursive;
-    //font-family: 'Great Vibes', cursive;
-    //font-family: 'Parisienne', cursive;
-    font-family: 'Cinzel', cursive;
+    font-family: 'Cinzel', serif;
     font-weight: 300;
     font-size: clamp(2rem, 5vw, 8rem);
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     z-index: 1;
     color: #fff;
-  }
+    text-align: center;
+}
 
+/* Responsividade para dispositivos pequenos */
 @media (max-width: 768px) {
     .ImagemCasal {
         object-fit: contain;
+        max-height: 60vh;
+    }
+
+    .image-text {
+        font-size: clamp(1.5rem, 4vw, 4rem);
     }
 }
 
+/* Ajuste para dispositivos maiores */
 @media (min-width: 1200px) {
     .ImagemCasal {
-        max-height: 90vh;
+        max-height: 70vh;
     }
 }

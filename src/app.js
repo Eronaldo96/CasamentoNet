@@ -9,22 +9,44 @@ import "normalize.css";
 import "./app.scss";
 
 
-export default function App() {
-  // const daysUntil = useDaysUntil("2024-11-22");
+// export default function App() {
+//   // const daysUntil = useDaysUntil("2024-11-22");
 
+//   return (
+//     <Router>
+//       <div className="App">
+//         <NavBar />
+//         <div className="image-text">Maria & José</div>
+//         <picture className="ImagemCasalContainer">
+//           <img
+//             src={fotoCasal}
+//             alt="Casal feliz"
+//             className="ImagemCasal img-fluid"
+//           />
+//         </picture>
+//         <Container />
+//         <Footer />
+//       </div>
+//     </Router>
+//   );
+// }
+
+export default function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App d-flex flex-column">
         <NavBar />
-        <div className="image-text">Maria & José</div>
-        <picture className="ImagemCasalContainer">
+        <picture className="ImagemCasalContainer position-relative">
           <img
             src={fotoCasal}
             alt="Casal feliz"
             className="ImagemCasal img-fluid"
           />
+          <div className="image-text text-center">Maria & José</div>
         </picture>
-        <Container />
+        <div className="Container container my-4 flex-grow-1">
+          <Container />
+        </div>
         <Footer />
       </div>
     </Router>

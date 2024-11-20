@@ -3,14 +3,14 @@ import { BrowserRouter as Router } from "react-router-dom";
 import NavBar from "./app/components/NavBar";
 import Footer from "./app/components/Footer";
 import Container from "./app/components/Container";
-import useDaysUntil from "./app/components/UseDaysUntil";
+// import useDaysUntil from "./app/components/UseDaysUntil";
 import fotoCasal from "./app/assets/images/FotoCasal.png";
 import "normalize.css";
 import "./app.scss";
 
 
 export default function App() {
-  const daysUntil = useDaysUntil("2024-11-22");
+  // const daysUntil = useDaysUntil("2024-11-22");
 
   return (
     <Router>

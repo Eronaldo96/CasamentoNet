@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import { Drawer} from "@mui/material";
 import "./styles.scss";
 import logo from "../../../app/assets/images/rings.png";
-import Loading from "../Loading"; // Importe o componente de loading
+// import Loading from "../Loading"; // Importe o componente de loading
 import MenuList from "@mui/material/MenuList";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -20,7 +20,7 @@ import Divider from "@mui/material/Divider";
 
 export default function NavBar() {
   const [openDrawer, setOpenDrawer] = useState(false);
-  const [isLoading, setIsLoading] = useState(true); // Estado de carregamento
+  // const [isLoading, setIsLoading] = useState(true); // Estado de carregamento
 
   const menuItems = [
     { to: "/Home", label: "Home", icon: <HomeIcon /> },
@@ -38,11 +38,11 @@ export default function NavBar() {
   };
 
   // Simulando um carregamento (substitua isso com sua lógica real de carregamento)
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false); // Depois de 3 segundos, define o carregamento como falso
-    }, 3000); // Ajuste o tempo conforme necessário
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIsLoading(false); // Depois de 3 segundos, define o carregamento como falso
+  //   }, 3000); // Ajuste o tempo conforme necessário
+  // }, []);
 
   return (
     <div className="mainHeader">

@@ -1,47 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import NavBar from "./app/components/NavBar";
 import Footer from "./app/components/Footer";
-import "./app.scss";
 import Container from "./app/components/Container";
-import fotoCasal from "./app/assets/images/ENSAIOBIAEIAN-044.jpg";
-import 'normalize.css';
+import useDaysUntil from "./app/components/UseDaysUntil";
+import fotoCasal from "./app/assets/images/FotoCasal.png";
+import "normalize.css";
+import "./app.scss";
+
 
 export default function App() {
-
-  const calculateDaysUntil = (date) => {
-    const now = new Date();
-    const targetDate = new Date(date);
-    const timeDifference = targetDate - now;
-    return Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
-  };
-  const [daysUntil, setDaysUntil] = useState(calculateDaysUntil('2024-11-22'));
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setDaysUntil(calculateDaysUntil('2024-11-22'));
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
+  const daysUntil = useDaysUntil("2024-11-22");
 
   return (
     <Router>
-      <div 
-        className="App"
-      >
+      <div className="App">
         <NavBar />
-        <div className="image-container">
-          <figure className="ImagemCasalContainer">
-            <img className="ImagemCasal" src={fotoCasal} alt="fotoCasal"></img>
-            <div className="image-text-Data">
-              22.11.2024
-              <br />
-              Faltam {daysUntil} dias
-            </div>
-            {/* <div className="image-text">Beatriz & Yan</div> */}
-          </figure>
-        </div>
+        <div className="image-text">Maria & José</div>
+        <picture className="ImagemCasalContainer">
+          <img
+            src={fotoCasal}
+            alt="Casal feliz"
+            className="ImagemCasal img-fluid"
+          />
+        </picture>
         <Container />
         <Footer />
       </div>

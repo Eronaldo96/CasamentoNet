@@ -6,9 +6,9 @@ export default function Footer() {
     <div className="footerStyle">
       <p>© 2024 Ero Company, Inc.</p>
       <p className="float-right">
-        <a href="#" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+        <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           Back to top
-        </a>
+        </button>
       </p>
     </div>
   );

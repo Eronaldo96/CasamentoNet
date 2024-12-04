@@ -1,38 +1,60 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import NavBar from "./app/components/NavBar";
 import Footer from "./app/components/Footer";
 import Container from "./app/components/Container";
-// import useDaysUntil from "./app/components/UseDaysUntil";
+import LoadingGif from "./app/assets/images/Loading.gif";
 import fotoCasal from "./app/assets/images/FotoCasal.png";
 import "normalize.css";
 import "./app.scss";
 
 export default function App() {
-  // const daysUntil = useDaysUntil("2025-07-21");
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleImageLoad = () => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  };
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = fotoCasal;
+    img.onload = handleImageLoad;
+  }, []);
 
   return (
     <Router>
-      <div className="App d-flex flex-column">
-        <NavBar />
-        <picture className="ImagemCasalContainer position-relative">
+      {isLoading && (
+        <div className="loading-overlay">
           <img
-            src={fotoCasal}
-            alt="Casal feliz"
-            className="ImagemCasal img-fluid"
+            src={LoadingGif}
+            alt="Carregando..."
+            className="loading-spinner"
           />
-          {/* <div className="image-text text-center">
-            <div>Maria & José</div>
-            <div className="countdown text-center mt-4">
-              <h1>{daysUntil}</h1>
-              <p>Dias para o grande dia!</p>
-            </div>
-          </div> */}
-        </picture>
-        <div className="Container container my-4 flex-grow-1">
-          <Container />
         </div>
-        <Footer />
+      )}
+      <div
+        className={`App d-flex flex-column ${isLoading ? "loading" : "loaded"}`}
+      >
+        {!isLoading && (
+          <>
+            <NavBar />
+            <picture className="ImagemCasalContainer position-relative">
+              <img
+                src={fotoCasal}
+                alt="Casal feliz"
+                className="ImagemCasal img-fluid"
+                onLoad={handleImageLoad}
+                loading="lazy"
+              />
+            </picture>
+            <div className="Container container my-4 flex-grow-1">
+              <Container />
+            </div>
+            <Footer />
+          </>
+        )}
       </div>
     </Router>
   );

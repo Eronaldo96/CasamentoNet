@@ -17,6 +17,12 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    opacity: 0; /* Começa invisível */
+    transition: opacity 2s ease-in-out; /* Transição suave de opacidade */
+}
+
+.App.loaded {
+    opacity: 1; /* A opacidade vai para 1 quando o conteúdo estiver pronto */
 }
 
 .content {
@@ -43,6 +49,41 @@ body {
     object-fit: cover;
 
 }
+
+.ImagemCasal.loaded {
+    opacity: 1; /* Quando carregada, a imagem ficará visível */
+}
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0); /* Fundo escuro semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Para garantir que fique acima de todos os outros elementos */
+    opacity: 1;
+    transition: opacity 1s ease; /* Transição suave de opacidade */
+}
+
+.loading-spinner {
+    width: 100px; /* Ajuste o tamanho conforme necessário */
+    height: 100px; /* Ajuste o tamanho conforme necessário */
+    opacity: 0;
+    animation: fadeIn 1s forwards; /* Fade-in no GIF */
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 
 .ImagemCasalContainer {
     padding-top: 0%;
@@ -120,6 +161,12 @@ body {
 }
 
 @media (min-width: 400px) {
+    .ImagemCasal {
+        max-height: 150vh;
+    }
+}
+
+@media (min-width: 300px) {
     .ImagemCasal {
         max-height: 150vh;
     }

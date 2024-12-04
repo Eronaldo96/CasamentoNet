@@ -41,22 +41,10 @@ export default function NavBar() {
     setOpenDrawer(false);
   };
 
-  // const handleScroll = () => {
-  //   if (window.scrollY === 0) { // Altere o valor conforme necessário
-  //     //setScrolling(true);
-  //     //setOpacity(1);
-  //     setIsHidden(true);
-  //   } else {
-  //     // setScrolling(false);
-  //     //setOpacity(0.5);
-  //     setIsHidden(false);
-  //   }
-  // };
-
   useEffect(() => {
     const handleScroll = () => {
       // Se o scroll for maior que 50px, aplica a classe "hidden"
-      if (window.scrollY > 300) {
+      if (window.scrollY > 5) {
         setIsHidden(true);
       } else {
         setIsHidden(false);

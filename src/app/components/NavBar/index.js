@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -20,6 +20,10 @@ import Divider from "@mui/material/Divider";
 
 export default function NavBar() {
   const [openDrawer, setOpenDrawer] = useState(false);
+  const [isHidden, setIsHidden] = useState(false); // Estado para controlar visibilidade da navbar
+
+  // const [scrolling, setScrolling] = useState(false);
+  // const [opacity, setOpacity] = useState(1); // Controla a opacidade
   // const [isLoading, setIsLoading] = useState(true); // Estado de carregamento
 
   const menuItems = [
@@ -37,6 +41,33 @@ export default function NavBar() {
     setOpenDrawer(false);
   };
 
+  // const handleScroll = () => {
+  //   if (window.scrollY === 0) { // Altere o valor conforme necessário
+  //     //setScrolling(true);
+  //     //setOpacity(1);
+  //     setIsHidden(true);
+  //   } else {
+  //     // setScrolling(false);
+  //     //setOpacity(0.5);
+  //     setIsHidden(false);
+  //   }
+  // };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Se o scroll for maior que 50px, aplica a classe "hidden"
+      if (window.scrollY > 300) {
+        setIsHidden(true);
+      } else {
+        setIsHidden(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   // Simulando um carregamento (substitua isso com sua lógica real de carregamento)
   // useEffect(() => {
   //   setTimeout(() => {
@@ -46,7 +77,10 @@ export default function NavBar() {
 
   return (
     <div className="mainHeader">
-      <AppBar position="fixed" className="navBarStyle">
+      <AppBar position="fixed" 
+      className={`navBarStyle ${isHidden ? "hidden" : ""}`}
+      style={{ transition: "background-color 0.3s ease, border-bottom 0.3s ease" }} 
+      >
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <Link to="/">

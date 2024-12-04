@@ -45,7 +45,7 @@ body {
 }
 
 .ImagemCasalContainer {
-    padding-top: 4%;
+    padding-top: 0%;
 }
 
 .ImagemCasalContainer::after {
@@ -60,7 +60,7 @@ body {
 
 .image-text {
     position: absolute;
-    top: 70%;
+    top: 85%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: 'Cinzel', serif;
@@ -70,6 +70,28 @@ body {
     z-index: 1;
     color: #fff;
     text-align: center;
+}
+
+.countdown {
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    margin-top: 2rem;
+    color: #333;
+    position: relative;
+    z-index: 2;
+}
+
+.countdown h1 {
+    font-size: clamp(2rem, 6vw, 5rem);
+    color: #013220;; /* Rosa vibrante para destaque */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    margin: 0;
+}
+
+.countdown p {
+    font-size: 1.5rem;
+    color: #013220;
+    margin: 0.5rem 0 0;
 }
 
 /* Responsividade para dispositivos pequenos */
@@ -87,6 +109,18 @@ body {
 /* Ajuste para dispositivos maiores */
 @media (min-width: 1200px) {
     .ImagemCasal {
-        max-height: 65vh;
+        max-height: 100vh;
+    }
+}
+
+@media (min-width: 900px) {
+    .ImagemCasal {
+        max-height: 90vh;
+    }
+}
+
+@media (min-width: 400px) {
+    .ImagemCasal {
+        max-height: 150vh;
     }
 }

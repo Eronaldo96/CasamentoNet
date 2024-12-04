@@ -1,7 +1,13 @@
+
 .navBarStyle {
-  background-color: #013220 !important;
+  background-color: rgba(1, 50, 32, 0) !important;
+  border-bottom: 2px solid rgba(1, 50, 32, 0) !important;
 }
 
+.navBarStyle.hidden {
+   background-color: #013220 !important;
+   transition: background-color 0.3s ease;
+}
 
 .navbar-brand-custom {
   display: inline-block;

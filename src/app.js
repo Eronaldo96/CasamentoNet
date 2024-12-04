@@ -8,30 +8,9 @@ import fotoCasal from "./app/assets/images/FotoCasal.png";
 import "normalize.css";
 import "./app.scss";
 
-
-// export default function App() {
-//   // const daysUntil = useDaysUntil("2024-11-22");
-
-//   return (
-//     <Router>
-//       <div className="App">
-//         <NavBar />
-//         <div className="image-text">Maria & José</div>
-//         <picture className="ImagemCasalContainer">
-//           <img
-//             src={fotoCasal}
-//             alt="Casal feliz"
-//             className="ImagemCasal img-fluid"
-//           />
-//         </picture>
-//         <Container />
-//         <Footer />
-//       </div>
-//     </Router>
-//   );
-// }
-
 export default function App() {
+  // const daysUntil = useDaysUntil("2025-07-21");
+
   return (
     <Router>
       <div className="App d-flex flex-column">
@@ -42,7 +21,13 @@ export default function App() {
             alt="Casal feliz"
             className="ImagemCasal img-fluid"
           />
-          <div className="image-text text-center">Maria & José</div>
+          {/* <div className="image-text text-center">
+            <div>Maria & José</div>
+            <div className="countdown text-center mt-4">
+              <h1>{daysUntil}</h1>
+              <p>Dias para o grande dia!</p>
+            </div>
+          </div> */}
         </picture>
         <div className="Container container my-4 flex-grow-1">
           <Container />

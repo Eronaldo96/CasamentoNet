@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
+
+
 .homeStyle {
   display: flex;
   flex-direction: column;
@@ -31,7 +34,19 @@
   flex-direction: column;
 }
 
-.vessiculo{
+.citacao {
   color: #013220;
-  font-family: 'Windsong';
+  font-family: 'Cinzel', serif;
+  text-align: center;
+  font-style: normal;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.autor {
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  color: #555;
+  margin-top: 0;
 }

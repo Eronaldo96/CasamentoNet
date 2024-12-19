@@ -65,7 +65,7 @@ export default function NavBar() {
 
   return (
     <div className="mainHeader">
-      <AppBar position="fixed" 
+      <AppBar sx={{ boxShadow: 'none' }} position="fixed" 
       className={`navBarStyle ${isHidden ? "hidden" : ""}`}
       style={{ transition: "background-color 0.3s ease, border-bottom 0.3s ease" }} 
       >

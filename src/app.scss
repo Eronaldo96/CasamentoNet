@@ -1,95 +1,67 @@
+// Importando fontes
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
 
+// Variáveis de estilo para facilitar personalizações futuras
+$font-primary: 'Cinzel', serif;
+$color-primary: #013220; // Verde escuro
+$color-secondary: #f4f4f9; // Cinza claro
+$color-accent: #fff; // Branco
 
+// Reset básico
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 html,
 body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    font-family: 'Cinzel', serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: $font-primary;
+  background-color: $color-secondary;
 }
 
 .App {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    opacity: 0; /* Começa invisível */
-    transition: opacity 2s ease-in-out; /* Transição suave de opacidade */
-}
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  opacity: 0; // Começa invisível
+  transition: opacity 2s ease-in-out; // Transição suave de opacidade
 
-.App.loaded {
-    opacity: 1; /* A opacidade vai para 1 quando o conteúdo estiver pronto */
+  &.loaded {
+    opacity: 1; // Fica visível quando carregada
+  }
 }
 
 .content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .Container {
-    padding: 2%;
+  padding: 2%;
 }
 
-.ImagemCasalContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-}
-
-.ImagemCasal {
-    max-height: 70vh;
-    width: 100%;
-    object-fit: cover;
-
-}
-
-.ImagemCasal.loaded {
-    opacity: 1; /* Quando carregada, a imagem ficará visível */
-}
-
-.loading-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0); /* Fundo escuro semi-transparente */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; /* Para garantir que fique acima de todos os outros elementos */
-    opacity: 1;
-    transition: opacity 1s ease; /* Transição suave de opacidade */
-}
-
-.loading-spinner {
-    width: 100px; /* Ajuste o tamanho conforme necessário */
-    height: 100px; /* Ajuste o tamanho conforme necessário */
-    opacity: 0;
-    animation: fadeIn 1s forwards; /* Fade-in no GIF */
-}
-
-@keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+.css-11b3ww9-MuiPaper-root-MuiAppBar-root {
+    box-shadow: none !important;
   }
+  
 
 .ImagemCasalContainer {
-    padding-top: 0%;
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  padding-top: 0%;
 
-.ImagemCasalContainer::after {
+  &::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -97,77 +69,146 @@ body {
     width: 100%;
     height: 30%;
     background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  }
+}
+
+.ImagemCasal {
+  max-height: 70vh;
+  width: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+
+  &.loaded {
+    opacity: 1; // Visível quando carregada
+  }
 }
 
 .image-text {
-    position: absolute;
-    top: 85%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'Cinzel', serif;
-    font-weight: 300;
-    font-size: clamp(2rem, 5vw, 8rem);
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-    z-index: 1;
-    color: #fff;
-    text-align: center;
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 300;
+  font-size: clamp(2rem, 5vw, 8rem);
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  z-index: 1;
+  color: $color-accent;
+  text-align: center;
 }
 
 .countdown {
-    font-family: 'Cinzel', serif;
-    text-align: center;
-    margin-top: 2rem;
-    color: #333;
-    position: relative;
-    z-index: 2;
-}
+  text-align: center;
+  margin-top: 2rem;
+  color: $color-primary;
+  position: relative;
+  z-index: 2;
 
-.countdown h1 {
-    font-size: clamp(2rem, 6vw, 5rem);
-    color: #013220;; /* Rosa vibrante para destaque */
+  h1 {
+    font-size: clamp(12rem, 6vw, 5rem);
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     margin: 0;
-}
+  }
 
-.countdown p {
-    font-size: 1.5rem;
-    color: #013220;
+  p {
+    font-size: 4.5rem;
     margin: 0.5rem 0 0;
+  }
 }
 
-/* Responsividade para dispositivos pequenos */
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); // Fundo escuro semi-transparente
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition: opacity 1s ease;
+
+  .loading-spinner {
+    width: 100px;
+    height: 100px;
+    opacity: 0;
+    animation: fadeIn 1s forwards; // Fade-in no GIF
+  }
+}
+
+// Animação para fade-in
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// Responsividade
 @media (max-width: 768px) {
-    .ImagemCasal {
-        object-fit: contain;
-        max-height: 60vh;
+  .ImagemCasal {
+    object-fit: contain;
+    max-height: 60vh;
+  }
+
+  .image-text {
+    font-size: clamp(1.5rem, 4vw, 4rem);
+  }
+
+  .countdown {
+    h1 {
+      font-size: clamp(4.5rem, 5vw, 3rem);
     }
 
-    .image-text {
-        font-size: clamp(1.5rem, 4vw, 4rem);
+    p {
+      font-size: 1.5rem;
     }
+  }
 }
 
-/* Ajuste para dispositivos maiores */
 @media (min-width: 1200px) {
-    .ImagemCasal {
-        max-height: 100vh;
+  .ImagemCasal {
+    max-height: 100vh;
+  }
+
+  .countdown {
+    h1 {
+      font-size: clamp(12rem, 8vw, 6rem);
     }
+
+    p {
+      font-size: 4rem;
+    }
+  }
 }
 
 @media (min-width: 900px) {
-    .ImagemCasal {
-        max-height: 90vh;
-    }
+  .ImagemCasal {
+    max-height: 90vh;
+  }
+  .image-text {
+    top: 40%;
+  }
 }
 
 @media (min-width: 400px) {
-    .ImagemCasal {
-        max-height: 150vh;
-    }
+  .ImagemCasal {
+    max-height: 150vh;
+  }
+  .image-text {
+    top: 40%;
+  }
 }
 
 @media (min-width: 300px) {
-    .ImagemCasal {
-        max-height: 150vh;
-    }
+  .ImagemCasal {
+    max-height: 150vh;
+  }
+  .image-text {
+    top: 40%;
+  }
+  
 }

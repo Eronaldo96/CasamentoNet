@@ -4,7 +4,7 @@ import useDaysUntil from "../../components/UseDaysUntil";
 import "./styles.scss";
 
 export default function HomePage() {
-  const daysUntil = useDaysUntil("2025-07-21");
+  const daysUntil = useDaysUntil("2025-06-21");
   return (
     <div className="homeStyle">
       <div>

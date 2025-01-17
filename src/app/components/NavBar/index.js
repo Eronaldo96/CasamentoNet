@@ -5,7 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Typography from "@mui/material/Typography";
-import { Drawer} from "@mui/material";
+import { Drawer } from "@mui/material";
 import "./styles.scss";
 import logo from "../../../app/assets/images/rings.png";
 // import Loading from "../Loading"; // Importe o componente de loading
@@ -27,10 +27,18 @@ export default function NavBar() {
   // const [isLoading, setIsLoading] = useState(true); // Estado de carregamento
 
   const menuItems = [
-    { to: "/Home", label: "Home", icon: <HomeIcon /> },
-    { to: "/Local", label: "Local", icon: <LocationOnIcon /> },
-    { to: "/ListaPresentes", label: "Lista de Presentes", icon: <ListAltIcon /> },
-    { to: "/ConfirmaPresenca", label: "Confirmar Presença", icon: <CheckCircleIcon /> },
+    { to: "/Home", label: "Home", icon: <HomeIcon fontSize="large" /> },
+    { to: "/Local", label: "Local", icon: <LocationOnIcon fontSize="large" /> },
+    {
+      to: "/ListaPresentes",
+      label: "Lista de Presentes",
+      icon: <ListAltIcon fontSize="large" />,
+    },
+    {
+      to: "/ConfirmaPresenca",
+      label: "Confirmar Presença",
+      icon: <CheckCircleIcon fontSize="large" />,
+    },
   ];
 
   const handleDrawerToggle = () => {
@@ -52,7 +60,7 @@ export default function NavBar() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -65,9 +73,13 @@ export default function NavBar() {
 
   return (
     <div className="mainHeader">
-      <AppBar sx={{ boxShadow: 'none' }} position="fixed" 
-      className={`navBarStyle ${isHidden ? "hidden" : ""}`}
-      style={{ transition: "background-color 0.3s ease, border-bottom 0.3s ease" }} 
+      <AppBar
+        sx={{ boxShadow: "none" }}
+        position="fixed"
+        className={`navBarStyle ${isHidden ? "hidden" : ""}`}
+        style={{
+          transition: "background-color 0.3s ease, border-bottom 0.3s ease",
+        }}
       >
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -105,10 +117,13 @@ export default function NavBar() {
               to={item.to}
               onClick={handleDrawerClose}
             >
-              <ListItemIcon>
-                {item.icon}
-              </ListItemIcon>
-              <Typography variant="body1">{item.label}</Typography>
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <Typography
+                variant="body1"
+                sx={{ fontSize: "1.2rem"}}
+              >
+                {item.label}
+              </Typography>
             </MenuItem>
           ))}
           <Divider />

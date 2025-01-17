@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
+
 .LocalCustom {
     display: flex;
     flex-direction: column;
@@ -15,12 +17,12 @@
 
 .TituloPagina {
     text-align: center;
-    font-family: 'Windsong';
+    font-family: 'Cinzel', serif;
     color: #013220;
 }
 
 .LocalInfoPagina {
     text-align: center;
     color: #013220;
-    font-family: 'Windsong';
-}
+    font-family: 'Cinzel', serif;
+  }

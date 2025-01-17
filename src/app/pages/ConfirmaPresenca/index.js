@@ -34,7 +34,7 @@ export default function ConfirmaPresenca() {
           <h1>Confirme sua presença</h1>
         </div>
         <FormControl className="formConfirmaPresenca">
-          <div className="row" style={{ display: "flex", margin: "5px" }}>
+          {/* <div className="row" style={{ display: "flex", margin: "5px" }}>
             <div>
               <FormLabel id="demo-row-radio-buttons-group-label">
                 Você irá ao evento?
@@ -48,9 +48,9 @@ export default function ConfirmaPresenca() {
                 <FormControlLabel value="nao" control={<Radio />} label="não" />
               </RadioGroup>
             </div>
-          </div>
+          </div> */}
           <div className="row" style={{ display: "flex", margin: "5px" }}>
-            <div className="col-xl-6 col-md-6 col-sm-12">
+            <div className="col-12">
               <TextField
                 id="outlined-basic"
                 label="Nome Completo"
@@ -58,7 +58,7 @@ export default function ConfirmaPresenca() {
                 style={{ width: "100%", marginTop: "1rem" }}
               />
             </div>
-            <div className="col-xl-6 col-md-6 col-sm-12">
+            <div className="col-12">
               <TextField
                 id="outlined-number"
                 label="E-mail"
@@ -66,13 +66,21 @@ export default function ConfirmaPresenca() {
                 style={{ width: "100%", marginTop: "1rem" }}
               />
             </div>
-          </div>
-          <div className="row" style={{ display: "flex", margin: "5px" }}>
-            <div className="col-xl-4 col-md-6 col-sm-12">
+            <div className="col-12">
               <TextField
                 id="outlined-number"
-                label="Quantidade de adultos incluindo você"
-                type="number"
+                label="Nome do Acompanhante"
+                type="text"
+                style={{ width: "100%", marginTop: "1rem" }}
+              />
+            </div>
+          </div>
+          {/* <div className="row" style={{ display: "flex", margin: "5px" }}>
+             <div className="col-12">
+              <TextField
+                id="outlined-number"
+                label="Nome do Acompanhante"
+                type="text"
                 style={{ width: "100%", marginTop: "1rem" }}
               />
             </div>
@@ -83,7 +91,7 @@ export default function ConfirmaPresenca() {
                 type="number"
                 style={{ width: "100%", marginTop: "1rem" }}
               />
-            </div>
+            </div> 
             <div className="col-xl-4 col-md-6 col-sm-12">
               <InputMask
                 mask={mask}
@@ -103,8 +111,8 @@ export default function ConfirmaPresenca() {
                 )}
               </InputMask>
             </div>
-          </div>
-          <div className="row" style={{ display: "flex", margin: "5px" }}>
+          </div> */}
+          {/* <div className="row" style={{ display: "flex", margin: "5px" }}>
             <div className="col-12">
               <TextField
                 id="outlined-multiline-static"
@@ -115,7 +123,7 @@ export default function ConfirmaPresenca() {
                 className="resizable-textfield"
               />
             </div>
-          </div>
+          </div> */}
           <div className="row" style={{ display: "flex", margin: "5px" }}>
             <div className="col-12">
               <Button

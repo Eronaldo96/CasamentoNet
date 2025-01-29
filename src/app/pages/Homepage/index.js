@@ -12,29 +12,44 @@ export default function HomePage() {
           <div>Maria & José</div>
         </div>
         <div className="col-12 ">
-          <div className="row countdown text-center mt-4">
+          <div className="invite-container">
+            <h1 className="invite-title">Celebre Conosco!</h1>
+            <p className="invite-text">
+              O amor é a celebração mais bela da vida, e queremos compartilhar esse momento único com você! 
+              Venha celebrar conosco a união de nossas vidas em um dia repleto de alegria, amor e felicidade. 
+              Sua presença será o presente que tornará esse dia ainda mais especial. 
+              <span className="invite-emoji">💍✨</span>
+            </p>
+            <p className="invite-signature">Com carinho, Maria & José.</p>
+          </div>
+
+          <hr className="decorative-line" />
+
+          <div className="row invite-container countdown text-center mt-4">
             <p>Contagem regressiva para o grande dia!</p>
             <div className="d-flex">
               <div className="box col-3">
                 <h1>{days}</h1>
-                <span>Dias</span>
+                <h3>Dias</h3>
               </div>
               <div className="box col-3">
                 <h1>{hours}</h1>
-                <span>Horas</span>
+                <h3>Horas</h3>
               </div>
               <div className="box col-3">
                 <h1>{minutes}</h1>
-                <span>Minutos</span>
+                <h3>Minutos</h3>
               </div>
               <div className="box col-3">
                 <h1>{seconds}</h1>
-                <span>Segundos</span>
+                <h3>Segundos</h3>
               </div>
             </div>
           </div>
           
-          <div className="row">
+          <hr className="decorative-line" />
+
+          <div className="row invite-container textoBiblico">
             <h2 className="citacao">
               "Os outros eu conheci por ocioso acaso. A ti vim encontrar porque
               era preciso."
@@ -45,10 +60,6 @@ export default function HomePage() {
           </div>
         </div>
 
-        <br></br>
-        {/* <h6 style={{ float: "right" }} className="vessiculo">
-          Colossenses 3:14
-        </h6> */}
       </div>
     </div>
   );

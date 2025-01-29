@@ -8,6 +8,59 @@
   align-items: center;
 }
 
+.decorative-line {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  margin: 40px 0;
+}
+
+/* Estilo para o contêiner da mensagem de convite */
+.invite-container {
+  text-align: center; /* Centraliza o texto */
+  padding: 2rem; /* Espaçamento interno */
+  background-color: #f9f9f9; /* Fundo suave */
+  border-radius: 15px; /* Bordas arredondadas */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  max-width: 100%; /* Largura máxima */
+  margin: 2rem auto; /* Centraliza o contêiner na página */
+}
+
+/* Estilo para o título principal */
+.invite-title {
+  font-family: 'Cinzel', serif; /* Fonte elegante */
+  //font-size: 2.5rem; /* Tamanho grande */
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  color: #013220; /* Cor verde escuro */
+  margin-bottom: 1rem; /* Espaçamento abaixo do título */
+}
+
+/* Estilo para o texto do convite */
+.invite-text {
+  font-family: 'Georgia', serif; /* Fonte clássica */
+  font-size: clamp(1rem, 3vw, 1.2rem);
+  //font-size: 1.2rem; /* Tamanho confortável para leitura */
+  color: #555; /* Cor suave */
+  line-height: 1.6; /* Espaçamento entre linhas */
+  margin-bottom: 1.5rem; /* Espaçamento abaixo do texto */
+}
+
+/* Estilo para a assinatura */
+.invite-signature {
+  font-family: 'Cinzel', serif; /* Fonte elegante */
+  font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+  //font-size: 1.5rem; /* Tamanho destacado */
+  color: #013220; /* Cor verde escuro */
+  margin-top: 1rem; /* Espaçamento acima da assinatura */
+}
+
+/* Estilo para os emojis ou ícones */
+.invite-emoji {
+  font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+  //font-size: 1.5rem; /* Tamanho dos emojis */
+  margin: 0 0.5rem; /* Espaçamento ao redor dos emojis */
+}
+
 .carousel-image {
   max-height: 500px;
   width: 100%;
@@ -32,6 +85,9 @@
   display: flex;
   flex-direction: column;
 }
+.textoBiblico{
+  padding: 8%;
+}
 
 .citacao {
   color: #013220;
@@ -39,7 +95,8 @@
   text-align: center;
   font-style: normal;
   font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  //margin-bottom: 0.5rem;
+  margin-top: 2rem; /* Adiciona espaço acima da citação */
 }
 
 .autor {
@@ -47,7 +104,8 @@
   font-family: 'Cinzel', serif;
   font-size: 1rem;
   color: #555;
-  margin-top: 0;
+  //margin-top: 0;
+  padding: 5%;
 }
 
 /* Responsividade */
@@ -67,10 +125,17 @@
   .citacao {
     font-size: 1rem;
     margin-bottom: 1rem;
+    
   }
 
   .autor {
     font-size: 0.8rem;
+  }
+
+  .invite-container {
+    padding: 1rem; /* Reduz o padding para telas pequenas */
+    margin: 1rem auto; /* Reduz a margem */
+    width: 85%;
   }
 }
 
@@ -94,6 +159,12 @@
   .autor {
     font-size: 0.9rem;
   }
+
+  .invite-container {
+    padding: 1rem; /* Reduz o padding para telas pequenas */
+    margin: 1rem auto; /* Reduz a margem */
+    width: 85%;
+  }
 }
 
 /* Dispositivos médios */
@@ -116,6 +187,18 @@
   .autor {
     font-size: 1rem;
   }
+
+  .invite-container {
+    padding: 1rem; /* Reduz o padding para telas pequenas */
+    margin: 1rem auto; /* Reduz a margem */
+    width: 80%;
+  }
+
+  .invite-container {
+    padding: 1rem; /* Reduz o padding para telas pequenas */
+    margin: 1rem auto; /* Reduz a margem */
+    width: 100%;
+  }
 }
 
 /* Dispositivos grandes */
@@ -137,5 +220,11 @@
 
   .autor {
     font-size: 1rem;
+  }
+
+  .invite-container {
+    padding: 1rem; /* Reduz o padding para telas pequenas */
+    margin: 1rem auto; /* Reduz a margem */
+    width: 80%;
   }
 }

@@ -97,6 +97,7 @@ body {
   color: $color-primary;
   position: relative;
   z-index: 2;
+  margin-bottom: 3rem;
 
   h1 {
     font-size: clamp(12rem, 6vw, 5rem);
@@ -145,107 +146,6 @@ body {
 // Responsividade
 
 
-// @media (max-width: 768px) {
-//     .ImagemCasal {
-//         max-height: 80vh;
-//       }
-    
-//       .image-text {
-//         font-size: clamp(2rem, 6vw, 6rem);
-//         top: 65%;
-//       }
-    
-//       .countdown h1 {
-//         font-size: 6rem;
-//       }
-    
-//       .countdown p {
-//         font-size: 2.5rem;
-//       }
-//   }
-  
-//   @media (min-width: 1200px) {
-//     .ImagemCasal {
-//         max-height: 100vh;
-//       }
-    
-//       .image-text {
-//         font-size: clamp(3rem, 7vw, 8rem);
-//         top: 80%;
-//       }
-    
-//       .countdown h1 {
-//         font-size: 8rem;
-//       }
-    
-//       .countdown p {
-//         font-size: 3rem;
-//       }
-//   }
-  
-//   @media (min-width: 900px) {
-//     .ImagemCasal {
-//         max-height: 100vh;
-//       }
-    
-//       .image-text {
-//         font-size: clamp(3rem, 7vw, 8rem);
-//         top: 80%;
-//       }
-    
-//       .countdown h1 {
-//         font-size: 8rem;
-//       }
-    
-//       .countdown p {
-//         font-size: 3rem;
-//       }
-//   }
-  
-//   @media (min-width: 416px) {
-//     .ImagemCasal {
-//         max-height: 150vh;
-//         //object-fit: contain;
-//       }
-    
-//       .image-text {
-//         font-size: clamp(1.2rem, 3.5vw, 3rem);
-//         top: 45%;
-//       }
-    
-//       .countdown {
-//         h1 {
-//           font-size: 3rem;
-//         }
-    
-//         p {
-//           font-size: 1.2rem;
-//         }
-//       }
-//   }
-  
-//   @media (min-width: 300px) {
-//     .ImagemCasal {
-//       max-height: 150vh;
-//       //object-fit: contain;
-//     }
-  
-//     .image-text {
-//       font-size: clamp(1.2rem, 3.5vw, 3rem);
-//       top: 45%;
-//     }
-  
-//     .countdown {
-//       h1 {
-//         font-size: 3rem;
-//       }
-  
-//       p {
-//         font-size: 1.2rem;
-//       }
-//     }
-//   }
-
 
 /* Dispositivos muito pequenos (até 400px) */
 @media (max-width: 300px) {
@@ -283,11 +183,15 @@ body {
   
     .countdown {
       h1 {
-        font-size: 3rem;
+        font-size: clamp(2rem, 5vw, 3.5rem);
       }
   
       p {
         font-size: 1.2rem;
+      }
+
+      h3{
+        font-size: 70%
       }
     }
   }
@@ -305,11 +209,15 @@ body {
   
     .countdown {
       h1 {
-        font-size: clamp(4rem, 5vw, 3.5rem);
+        font-size: clamp(3rem, 5vw, 3.5rem);
       }
   
       p {
         font-size: 1.5rem;
+      }
+
+      h3{
+        font-size: 1rem
       }
     }
   }

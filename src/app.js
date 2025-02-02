@@ -5,6 +5,7 @@ import Footer from "./app/components/Footer";
 import Container from "./app/components/Container";
 import LoadingGif from "./app/assets/images/Loading.gif";
 import fotoCasal from "./app/assets/images/FotoCasal.png";
+import { ToastContainer } from "react-toastify";
 import "normalize.css";
 import "./app.scss";
 
@@ -39,6 +40,7 @@ export default function App() {
       >
         {!isLoading && (
           <>
+            <ToastContainer />
             <NavBar />
             <picture className="ImagemCasalContainer position-relative">
               <img

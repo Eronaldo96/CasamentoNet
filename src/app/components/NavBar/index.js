@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import { Drawer } from "@mui/material";
 import "./styles.scss";
 import logo from "../../../app/assets/images/rings.png";
-// import Loading from "../Loading"; // Importe o componente de loading
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import MenuList from "@mui/material/MenuList";
 import MenuItem from "@mui/material/MenuItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
@@ -20,25 +20,15 @@ import Divider from "@mui/material/Divider";
 
 export default function NavBar() {
   const [openDrawer, setOpenDrawer] = useState(false);
-  const [isHidden, setIsHidden] = useState(false); // Estado para controlar visibilidade da navbar
-
-  // const [scrolling, setScrolling] = useState(false);
-  // const [opacity, setOpacity] = useState(1); // Controla a opacidade
-  // const [isLoading, setIsLoading] = useState(true); // Estado de carregamento
+  const [isHidden, setIsHidden] = useState(false);
 
   const menuItems = [
     { to: "/Home", label: "Home", icon: <HomeIcon fontSize="large" /> },
+    { to: "/HistoriaCasal", label: "História do Casal", icon: <FavoriteIcon fontSize="large" /> },
     { to: "/Local", label: "Local", icon: <LocationOnIcon fontSize="large" /> },
-    {
-      to: "/ListaPresentes",
-      label: "Lista de Presentes",
-      icon: <ListAltIcon fontSize="large" />,
-    },
-    {
-      to: "/ConfirmaPresenca",
-      label: "Confirmar Presença",
-      icon: <CheckCircleIcon fontSize="large" />,
-    },
+    { to: "/ListaPresentes", label: "Lista de Presentes", icon: <ListAltIcon fontSize="large" /> },
+    { to: "/ConfirmaPresenca", label: "Confirmar Presença", icon: <CheckCircleIcon fontSize="large" /> },
+    
   ];
 
   const handleDrawerToggle = () => {
@@ -51,77 +41,43 @@ export default function NavBar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Se o scroll for maior que 50px, aplica a classe "hidden"
-      if (window.scrollY > 5) {
-        setIsHidden(true);
-      } else {
-        setIsHidden(false);
-      }
+      setIsHidden(window.scrollY > 5);
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Simulando um carregamento (substitua isso com sua lógica real de carregamento)
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setIsLoading(false); // Depois de 3 segundos, define o carregamento como falso
-  //   }, 3000); // Ajuste o tempo conforme necessário
-  // }, []);
 
   return (
     <div className="mainHeader">
       <AppBar
-        sx={{ boxShadow: "none" }}
+        sx={{ boxShadow: "none", transition: "background-color 0.3s ease, border-bottom 0.3s ease" }}
         position="fixed"
         className={`navBarStyle ${isHidden ? "hidden" : ""}`}
-        style={{
-          transition: "background-color 0.3s ease, border-bottom 0.3s ease",
-        }}
       >
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <Link to="/">
-              <img
-                style={{ width: "2em", color: "white" }}
+            <Link to="/" className="logoLink">
+            <img
+                style={{ width: "2em" }}
                 src={logo}
                 alt="logo"
               />
             </Link>
           </Typography>
 
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            onClick={handleDrawerToggle}
-          >
+          <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerToggle}>
             <MenuIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
 
-      <Drawer
-        anchor="left"
-        open={openDrawer}
-        onClose={handleDrawerClose}
-        className="drawerStyle"
-      >
+      <Drawer anchor="left" open={openDrawer} onClose={handleDrawerClose} className="drawerStyle">
         <MenuList>
           {menuItems.map((item, index) => (
-            <MenuItem
-              key={index}
-              component={Link}
-              to={item.to}
-              onClick={handleDrawerClose}
-            >
+            <MenuItem key={index} component={Link} to={item.to} onClick={handleDrawerClose} className="menuItemHamburguer">
               <ListItemIcon>{item.icon}</ListItemIcon>
-              <Typography
-                variant="body1"
-                sx={{ fontSize: "1.2rem"}}
-              >
+              <Typography variant="body1" sx={{ fontSize: "1.2rem" }}>
                 {item.label}
               </Typography>
             </MenuItem>

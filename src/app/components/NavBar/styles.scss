@@ -1,51 +1,65 @@
-
 .navBarStyle {
   background-color: rgba(1, 50, 32, 0) !important;
   border-bottom: 2px solid rgba(1, 50, 32, 0) !important;
+  transition: background-color 0.3s ease, border-bottom 0.3s ease;
+
+  &.hidden {
+    background-color: #013220 !important;
+    border-bottom: 2px solid #013220 !important;
+  }
 }
 
-.navBarStyle.hidden {
-   background-color: #013220 !important;
-   transition: background-color 0.3s ease;
-}
-
-.navbar-brand-custom {
-  display: inline-block;
-  padding-top: .3125rem;
-  padding-bottom: .3125rem;
-  margin-right: 1rem;
-  font-size: 1.25rem;
-  line-height: inherit;
-  white-space: nowrap;
-}
-
-.buttonHome {
-  margin-left: 25px;
-  display: flex;
-}
-
-.textButton {
-  color: #fff;
-}
-
-.linkNoUnderline {
+.logoLink {
   text-decoration: none;
+  display: flex;
+  align-items: center;
+
+  .MuiSvgIcon-root {
+    transition: color 0.3s ease;
+  }
+
+  &:hover .MuiSvgIcon-root {
+    color: #fffacd; // Cor do ícone ao passar o mouse (tom mais claro de dourado)
+  }
 }
 
-.menuHamburguer{
+.menuHamburguer {
   height: 100%;
-  color:#FFFF !important;
+  color: #FFFF !important;
   width: 250px;
 }
 
-.menuItemHamburguer .MuiButtonBase-root {
-  background-color: #0d3d3b !important;
+.menuItemHamburguer {
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  .MuiButtonBase-root {
+    background-color: #0d3d3b !important;
+  }
+
+  .MuiTypography-root {
+    color: #f0f0f0; // Cor do texto mais clara
+  }
+
+  .MuiListItemIcon-root {
+    color: #f0f0f0; // Cor dos ícones mais clara
+  }
+
+  &:hover {
+    background-color: #10514E !important;
+
+    .MuiTypography-root {
+      color: #fff; // Cor do texto durante o hover
+    }
+
+    .MuiListItemIcon-root {
+      color: #fff; // Cor dos ícones durante o hover
+    }
+  }
 }
 
-.menuItemHamburguer .MuiTypography-root {
-  color: #10514E;
-}
-
-.menuItemHamburguer:hover .MuiTypography-root {
-  color: #10514E;
+.drawerStyle {
+  .MuiDrawer-paper {
+    background-color: #013220 !important; // Fundo escuro
+    color: #f0f0f0 !important; // Cor do texto mais clara
+  }
 }

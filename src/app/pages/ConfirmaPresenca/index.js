@@ -1,21 +1,56 @@
-import React from "react";
-import "./styles.scss";
+import React, { useState } from "react";
 import { FormControl, TextField, Button } from "@mui/material";
 import emailjs from "@emailjs/browser";
+import { database } from "../../../firebase";
+import { ref, get, set } from "firebase/database";
 
 export default function ConfirmaPresenca() {
   emailjs.init(process.env.REACT_APP_API_PUBLIC_KEY_EMAILJS);
-  const handleConfirmarPresenca = async () => {
-    const nome = document.getElementById("nome").value;
-    const email = document.getElementById("email").value;
-    const telefone = document.getElementById("telefone").value;
-    const acompanhante = document.getElementById("acompanhante").value;
 
-    // Envia e-mail para você (organizador)
+  const [formData, setFormData] = useState({
+    nome: "",
+    senha: "",
+    email: "",
+    telefone: "",
+    acompanhante: "",
+  });
+
+  const [message, setMessage] = useState("");
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [id]: value,
+    }));
+  };
+
+  const handleConfirmarPresenca = async () => {
+    const { nome, senha, email, telefone, acompanhante } = formData;
+
+    // Verifica se a senha é válida
+    const senhaRef = ref(database, "senhas/" + senha); // Ajusta a referência para o nó "senhas"
+    const snapshot = await get(senhaRef);
+    if (!snapshot.exists()) {
+      setMessage("Senha inválida! Tente novamente.");
+      return;
+    }
+  
+    // Caso a senha seja válida, armazena os dados de presença
+    const presencaRef = ref(database, "presencas/" + nome); // Ajusta a referência para o nó "presencas"
+    await set(presencaRef, {
+      nome: nome,
+      email: email,
+      telefone: telefone,
+      acompanhante: acompanhante,
+      dataConfirmacao: new Date().toISOString(), // Adiciona a data de confirmação
+    });
+
+    // Envia e-mail para o organizador
     emailjs
       .send(
         "service_ewng87q", // ID do serviço no EmailJS
-        "template_bmz2vk7", // ID do template para você
+        "template_bmz2vk7", // ID do template para o organizador
         {
           to_name: "Organizador",
           from_name: nome,
@@ -39,9 +74,9 @@ export default function ConfirmaPresenca() {
         "service_ewng87q", // ID do serviço no EmailJS
         "template_v8qj7rn", // ID do template para o participante
         {
-          to_name: nome, // Nome do participante
-          from_name: "Organizador", // Seu nome ou nome do evento
-          from_email: email, // E-mail do participante
+          to_name: nome,
+          from_name: "Organizador",
+          from_email: email,
           message: "Sua presença foi confirmada com sucesso!",
         }
       )
@@ -55,35 +90,21 @@ export default function ConfirmaPresenca() {
       );
 
     // Envia mensagem por WhatsApp (se o telefone foi fornecido)
-    if (telefone) {
-      const mensagem = `Olá, ${nome}! Sua presença foi confirmada com sucesso.`;
-      const url = `https://wa.me/${telefone}?text=${encodeURIComponent(
-        mensagem
-      )}`;
-      window.open(url, "_blank");
-    }
+    // if (telefone) {
+    //   const mensagem = `Olá, ${nome}! Sua presença foi confirmada com sucesso.`;
+    //   const url = `https://wa.me/${telefone.replace(/\D/g, "")}?text=${encodeURIComponent(mensagem)}`; // Remove caracteres não numéricos
+    //   window.open(url, "_blank");
+    // }
 
-    // Envia os dados para o Google Sheets
-    const response = await fetch(
-      "https://script.google.com/macros/s/AKfycbwOZW_zkiC2BAEpsxwFIqOBoJOJmiOTA2BpgXBNaG4T-pJgGDF3oPuZG8MvjKcZB5Ve/exec", {
-      method: "POST",
-      body: JSON.stringify({
-        nome,
-        email,
-        telefone,
-        acompanhante,
-        token: "A1b2C3d4E5!@#", // Adicione o token aqui
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
+    // Exibe mensagem de sucesso e limpa o formulário
+    setMessage("Presença confirmada com sucesso!");
+    setFormData({
+      nome: "",
+      senha: "",
+      email: "",
+      telefone: "",
+      acompanhante: "",
     });
-
-    if (response.ok) {
-      alert("Confirmação enviada com sucesso!");
-    } else {
-      alert("Erro ao enviar confirmação. Tente novamente.");
-    }
   };
 
   return (
@@ -100,39 +121,61 @@ export default function ConfirmaPresenca() {
                 label="Nome Completo"
                 variant="outlined"
                 style={{ width: "100%", marginTop: "1rem" }}
+                value={formData.nome}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="col-12">
+              <TextField
+                id="senha"
+                label="Senha"
+                variant="outlined"
+                style={{ width: "100%", marginTop: "1rem" }}
+                value={formData.senha}
+                onChange={handleInputChange}
               />
             </div>
             <div className="col-12">
               <TextField
                 id="email"
                 label="E-mail"
-                type="text"
+                variant="outlined"
                 style={{ width: "100%", marginTop: "1rem" }}
+                value={formData.email}
+                onChange={handleInputChange}
               />
             </div>
             <div className="col-12">
               <TextField
                 id="telefone"
                 label="Telefone (WhatsApp)"
-                type="text"
+                variant="outlined"
                 style={{ width: "100%", marginTop: "1rem" }}
+                value={formData.telefone}
+                onChange={handleInputChange}
               />
             </div>
             <div className="col-12">
               <TextField
                 id="acompanhante"
                 label="Nome do Acompanhante"
-                type="text"
+                variant="outlined"
                 style={{ width: "100%", marginTop: "1rem" }}
+                value={formData.acompanhante}
+                onChange={handleInputChange}
               />
             </div>
           </div>
 
           <div className="row" style={{ display: "flex", margin: "5px" }}>
             <div className="col-12">
-              <Button variant="outlined" onClick={handleConfirmarPresenca}>Confirmar Presença</Button>
+              <Button variant="outlined" onClick={handleConfirmarPresenca}>
+                Confirmar Presença
+              </Button>
             </div>
           </div>
+
+          {message && <div className="message">{message}</div>}
         </FormControl>
       </div>
     </div>

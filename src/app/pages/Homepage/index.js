@@ -13,12 +13,25 @@ export default function HomePage() {
           <div>Maria & José</div>
         </div>
         <div className="col-12 ">
+          <div className="row invite-container textoBiblico">
+            <h2 className="citacao">
+              "Os outros eu conheci por ocioso acaso. A ti vim encontrar porque
+              era preciso."
+            </h2>
+            <h6 className="autor">
+              - João Guimarães Rosa em carta a Aracy M. de Carvalho (1946).
+            </h6>
+          </div>
+
+          <hr className="decorative-line" />
+          
           <div className="invite-container">
             <h1 className="invite-title">Celebre Conosco!</h1>
             <p className="invite-text">
-              O amor é a celebração mais bela da vida, e queremos compartilhar esse momento único com você! 
-              Venha celebrar conosco a união de nossas vidas em um dia repleto de alegria, amor e felicidade. 
-              Sua presença será o presente que tornará esse dia ainda mais especial. 
+              O amor é a celebração mais bela da vida, e queremos compartilhar
+              esse momento único com você! Venha celebrar conosco a união de
+              nossas vidas em um dia repleto de alegria, amor e felicidade. Sua
+              presença será o presente que tornará esse dia ainda mais especial.
               <span className="invite-emoji">💍✨</span>
             </p>
             <p className="invite-signature">Com carinho, Maria & José.</p>
@@ -47,20 +60,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          
-          <hr className="decorative-line" />
-
-          <div className="row invite-container textoBiblico">
-            <h2 className="citacao">
-              "Os outros eu conheci por ocioso acaso. A ti vim encontrar porque
-              era preciso."
-            </h2>
-            <h6 className="autor">
-              - João Guimarães Rosa em carta a Aracy M. de Carvalho (1946).
-            </h6>
-          </div>
         </div>
-
       </div>
     </div>
   );

@@ -25,7 +25,7 @@ const locais = [
   {
     titulo: "Local da Recepção",
     subtitulo: "Yucca Gastronomia",
-    descricao: "Após a cerimônia haverá um brunch para celebrarmos o grande dia.",
+    descricao: "Após a cerimônia haverá um chá da tarde para celebrarmos o grande dia.",
     endereco: "Rua Frei Mansueto, 160 - Meireles, Fortaleza - CE, 60175-070",
     imagens: [
       { descricao: "Yucca", imagem: YuccaLogo },

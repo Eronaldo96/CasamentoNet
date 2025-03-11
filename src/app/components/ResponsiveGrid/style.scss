@@ -1,29 +1,5 @@
-// .ImagemPresente {
-//     width: auto;
-//     height: 12em;
-//     //height: 35%;
-//     border-radius: 2%;
-//   }
-
-// .ImagemPresente {
-//   width: auto;
-//   height: 12em; /* Altura fixa desejada */
-//   border-radius: 2%;
-//   object-fit: cover; /* Mantém a proporção da imagem */
-// }
-
-
-// .ImagemPresente {
-//   width: 100%; /* Garante que a imagem se ajuste ao contêiner */
-//   height: auto; /* Permite que a altura da imagem seja ajustada proporcionalmente */
-//   max-height: 100%; /* Evita que a imagem ultrapasse a altura máxima do contêiner */
-//   border-radius: 2%;
-//   object-fit: contain; /* Ajusta a imagem dentro do contêiner mantendo a proporção */
-// }
-
-
 .ImagemPresente {
-  width: 50%; /* Garante que a imagem se ajuste ao contêiner */
+  width: auto; /* Garante que a imagem se ajuste ao contêiner */
   max-width: 100%; /* Limita a largura da imagem ao tamanho do contêiner */
   height: 100%; /* Permite que a altura da imagem seja ajustada proporcionalmente */
   max-height: 100%; /* Limita a altura da imagem ao tamanho do contêiner */
@@ -35,4 +11,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.label-container {
+  margin-top: 16px; /* Adjust the value as needed */
 }

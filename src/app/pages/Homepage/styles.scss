@@ -29,7 +29,6 @@
 /* Estilo para o título principal */
 .invite-title {
   font-family: 'Cinzel', serif; /* Fonte elegante */
-  //font-size: 2.5rem; /* Tamanho grande */
   font-size: clamp(2rem, 5vw, 2.5rem);
   color: #013220; /* Cor verde escuro */
   margin-bottom: 1rem; /* Espaçamento abaixo do título */
@@ -39,7 +38,6 @@
 .invite-text {
   font-family: 'Georgia', serif; /* Fonte clássica */
   font-size: clamp(1rem, 3vw, 1.2rem);
-  //font-size: 1.2rem; /* Tamanho confortável para leitura */
   color: #555; /* Cor suave */
   line-height: 1.6; /* Espaçamento entre linhas */
   margin-bottom: 1.5rem; /* Espaçamento abaixo do texto */
@@ -49,7 +47,6 @@
 .invite-signature {
   font-family: 'Cinzel', serif; /* Fonte elegante */
   font-size: clamp(1.2rem, 3.5vw, 1.5rem);
-  //font-size: 1.5rem; /* Tamanho destacado */
   color: #013220; /* Cor verde escuro */
   margin-top: 1rem; /* Espaçamento acima da assinatura */
 }
@@ -57,7 +54,6 @@
 /* Estilo para os emojis ou ícones */
 .invite-emoji {
   font-size: clamp(1.2rem, 3.5vw, 1.5rem);
-  //font-size: 1.5rem; /* Tamanho dos emojis */
   margin: 0 0.5rem; /* Espaçamento ao redor dos emojis */
 }
 
@@ -95,7 +91,6 @@
   text-align: center;
   font-style: normal;
   font-size: 1.5rem;
-  //margin-bottom: 0.5rem;
   margin-top: 2rem; /* Adiciona espaço acima da citação */
 }
 
@@ -104,7 +99,6 @@
   font-family: 'Cinzel', serif;
   font-size: 1rem;
   color: #555;
-  //margin-top: 0;
   padding: 5%;
 }
 

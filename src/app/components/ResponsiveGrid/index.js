@@ -42,13 +42,17 @@ export default function ResponsiveGrid({ data }) {
                     alt={item.descricao}
                   />
                 </div>
-
-                <label>{item.descricao}</label>
+              </Box>
+              <Box>
+                <div>
+                  <label>{item.descricao}</label>
+                </div>
               </Box>
               <Box>
                 <Button
                   variant="outlined"
-                  onClicButtonk={() => produtoCaminho(item.url)}
+                  href="https://nubank.com.br/cobrar/ejs0w/67cf9306-b578-4f4c-b7fa-3505d9078f95"
+                  onClick={() => produtoCaminho(item.url)}
                 >
                   Presentear
                 </Button>

@@ -3,13 +3,15 @@
   justify-content: space-between;
   align-items: center;
   color: #fff;
-  background-color: #013220 !important;
+  background-color: transparent !important;//#013220 !important;
+  border-top: 1px solid rgba(51, 51, 51, 0.2);
   text-align: center;
   padding: 10px;
   position: relative; /* Padrão para telas grandes */
   width: 100%;
   bottom: 0;
   margin: 0;
+  justify-content: space-evenly;
 }
 
 /* Modifica o footer para que ele fique no final do conteúdo em dispositivos móveis */
@@ -23,4 +25,10 @@
 .float-right {
   margin-left: auto;
   font-size: 14px;
+  margin: 5px
+}
+
+.marca{
+  color: #013220;
+  margin: 5px;
 }

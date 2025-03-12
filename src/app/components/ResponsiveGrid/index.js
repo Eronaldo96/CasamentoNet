@@ -43,7 +43,7 @@ export default function ResponsiveGrid({ data }) {
                   />
                 </div>
               </Box>
-              <Box>
+              <Box className="label-container">
                 <div>
                   <label>{item.descricao}</label>
                 </div>
@@ -51,7 +51,6 @@ export default function ResponsiveGrid({ data }) {
               <Box>
                 <Button
                   variant="outlined"
-                  href="https://nubank.com.br/cobrar/ejs0w/67cf9306-b578-4f4c-b7fa-3505d9078f95"
                   onClick={() => produtoCaminho(item.url)}
                 >
                   Presentear

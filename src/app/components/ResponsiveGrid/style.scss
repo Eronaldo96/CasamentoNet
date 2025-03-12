@@ -1,5 +1,5 @@
 .ImagemPresente {
-  width: auto; /* Garante que a imagem se ajuste ao contêiner */
+  width: fit-content; /* Garante que a imagem se ajuste ao contêiner */
   max-width: 100%; /* Limita a largura da imagem ao tamanho do contêiner */
   height: 100%; /* Permite que a altura da imagem seja ajustada proporcionalmente */
   max-height: 100%; /* Limita a altura da imagem ao tamanho do contêiner */

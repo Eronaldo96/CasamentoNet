@@ -27,9 +27,8 @@ export default function ResponsiveGrid({ data }) {
     <Box sx={{ flexGrow: 1 }}>
       <Grid
         container
-        justifyContent="center" // Alinhar itens ao centro
+        justifyContent="center"
         spacing={{ xs: 2, md: 3 }}
-        // columns={{ xs: 4, sm: 8, md: 12 }}
       >
         {data.map((item, index) => (
           <Grid xs={12} sm={6} md={4} key={index}>
@@ -46,6 +45,9 @@ export default function ResponsiveGrid({ data }) {
               <Box className="label-container">
                 <div>
                   <label>{item.descricao}</label>
+                </div>
+                <div style={{margin:"5px"}}>
+                  <b>{item.valor} Reais</b>
                 </div>
               </Box>
               <Box>

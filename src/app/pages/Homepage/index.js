@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useDaysUntil from "../../components/UseDaysUntil";
-import { Dialog, DialogActions, DialogContent, DialogTitle, Button, TextField, List, ListItem, ListItemText, Card, CardContent, Typography } from "@mui/material";
+import { Dialog, DialogActions, DialogContent, DialogTitle, Button, TextField, List, ListItem, Card, CardContent, Typography } from "@mui/material";
 
 import "./styles.scss";
 

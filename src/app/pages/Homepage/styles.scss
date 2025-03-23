@@ -2,10 +2,13 @@
 
 // Variáveis de estilo
 $font-primary: 'Cinzel', serif;
-$color-primary: #006289; // #0000CD Azul escuro
+$color-primary: #2360a1; //azul escuro
 $color-secondary: #f4f4f9; // Cinza claro
+$color-terciary: #c5b37b; //amarelo esverdeado
+$color-quartenary: #71aad3; //azul claro
 $color-accent: #fff; // Branco
-$color-custom: #5566ff;
+$color-accent2: #9ca5a7; //cinza
+$color-custom: #5566ff; // azul leve
 
 // Escala de tamanhos de fonte
 $font-size-xxs: clamp(0.75rem, 1.5vw, 1rem); // Para textos muito pequenos
@@ -50,12 +53,12 @@ $font-size-corpoTexto: clamp(1rem, 3vw, 1.2rem);
 
 
 .message-author {
-  color: $color-custom;
+  color: $color-accent2;
   font-size: $font-size-xxs; // Padronizado
 }
 
 .tempo, .message-text,.message-invite {
-  color: $color-custom;
+  color: black;
   font-size: $font-size-corpoTexto; // Padronizado
 }
 
@@ -82,7 +85,7 @@ $font-size-corpoTexto: clamp(1rem, 3vw, 1.2rem);
 .invite-text {
   font-family: $font-primary;//'Georgia', serif;
   font-size: $font-size-corpoTexto; // Padronizado
-  color: $color-custom;
+  color: black;
   line-height: 1.6;
   margin-bottom: 1.5rem;
 }
@@ -91,7 +94,7 @@ $font-size-corpoTexto: clamp(1rem, 3vw, 1.2rem);
 .invite-signature {
   font-family: $font-primary;
   font-size: $font-size-lg; // Padronizado
-  color: $color-custom;
+  color: $color-accent2;
   margin-top: 1rem;
 }
 
@@ -131,7 +134,7 @@ $font-size-corpoTexto: clamp(1rem, 3vw, 1.2rem);
 }
 
 .citacao {
-  color: $color-primary;
+  color: black;
   font-family: $font-primary;
   text-align: center;
   font-style: normal;
@@ -143,7 +146,7 @@ $font-size-corpoTexto: clamp(1rem, 3vw, 1.2rem);
   text-align: center;
   font-family: $font-primary;
   font-size: $font-size-md; // Padronizado
-  color: $color-custom;
+  color: $color-accent2;
   padding: 5%;
 }
 

@@ -1,3 +1,13 @@
+$font-primary: 'Cinzel', serif;
+$color-primary: #2360a1; //azul escuro
+$color-secondary: #f4f4f9; // Cinza claro
+$color-terciary: #c5b37b; //amarelo esverdeado
+$color-quartenary: #71aad3; //azul claro
+$color-accent: #fff; // Branco
+$color-accent2: #9ca5a7; //cinza
+$color-custom: #5566ff; // azul leve
+
+
 .footerStyle {
   display: flex;
   justify-content: space-between;
@@ -30,6 +40,6 @@
 
 .marca{
   //color: #013220;
-  color:#006289;
+  color: $color-primary;
   margin: 5px;
 }

@@ -5,11 +5,15 @@
 
 // Variáveis de estilo para facilitar personalizações futuras
 $font-primary: 'Cinzel', serif;
-//$color-primary: #013220; // Verde escuro
-$color-primary: #006289; // Azul escuro
+$color-primary: #2360a1; //azul escuro
 $color-secondary: #f4f4f9; // Cinza claro
+$color-terciary: #c5b37b; //amarelo esverdeado
+$color-quartenary: #71aad3; //azul claro
 $color-accent: #fff; // Branco
-$color-custom: #5566ff;
+$color-accent2: #9ca5a7; //cinza
+$color-custom: #5566ff; // azul leve
+
+
 
 // Escala de tamanhos de fonte
 $font-size-xxs: clamp(0.75rem, 1.5vw, 1rem); // Para textos muito pequenos
@@ -104,21 +108,21 @@ body {
   text-align: center;
 }
 
-.inputCustom .MuiInputLabel-root{
-  color: $color-custom;
- }
+// .inputCustom .MuiInputLabel-root{
+//   color: black;
+//  }
 
- .customFormLabel {
-  color: $color-custom !important;
-}
+//  .customFormLabel {
+//   color: black !important;
+// }
 
-.customRadio {
-  color: $color-custom;
-}
+// .customRadio {
+//   color: black;
+// }
 
- .customFormControlLabel .MuiFormControlLabel-label {
-  color: $color-custom;
-}
+//  .customFormControlLabel .MuiFormControlLabel-label {
+//   color: black;
+// }
 
 .countdown {
   text-align: center;
@@ -128,7 +132,7 @@ body {
   margin-bottom: 3rem;
 
   h1 {
-    color: $color-custom;
+    color: black;
     font-size: $font-size-xxl;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     margin: 0;
@@ -206,7 +210,7 @@ body {
   }
 
   .image-text {
-    font-size: $font-size-TituloLogo;
+    font-size: $font-size-md;
     top: 23rem;
   }
 
@@ -216,7 +220,7 @@ body {
 
   .countdown {
     h1 {
-      font-size: $font-size-xl;
+      font-size: $font-size-lg;
     }
 
     p {
@@ -268,7 +272,7 @@ body {
 
   .countdown {
     h1 {
-      font-size: $font-size-xxl;
+      font-size: $font-size-xl;
     }
 
     p {
@@ -294,7 +298,7 @@ body {
 
   .countdown {
     h1 {
-      font-size: $font-size-xxl;
+      font-size: $font-size-xl;
     }
 
     p {

@@ -1,3 +1,12 @@
+$font-primary: 'Cinzel', serif;
+$color-primary: #2360a1; //azul escuro
+$color-secondary: #f4f4f9; // Cinza claro
+$color-terciary: #c5b37b; //amarelo esverdeado
+$color-quartenary: #71aad3; //azul claro
+$color-accent: #fff; // Branco
+$color-accent2: #9ca5a7; //cinza
+$color-custom: #5566ff; // azul leve
+
 .navBarStyle {
   background-color: rgba(1, 50, 32, 0) !important;
   border-bottom: 2px solid rgba(1, 50, 32, 0) !important;
@@ -10,12 +19,10 @@
 
   &.hidden {
     .customIconButton {
-      color: #006289 !important; /* Cor azul escuro ($color-primary) */
+      color: $color-primary !important; /* Cor azul escuro ($color-primary) */
     }
   }
 }
-
-
 
 .customIconButton:hover {
   color: #5566ff; /* Cor azul mais claro ($color-custom) ao passar o mouse */
@@ -38,7 +45,7 @@
 
 .menuHamburguer {
   height: 100%;
-  color: #FFFF !important;
+  color: $color-accent !important;
   width: 250px;
 }
 
@@ -58,21 +65,21 @@
   }
 
   &:hover {
-    background-color: #006289 !important;//#10514E !important;
+    background-color: $color-primary !important;//#10514E !important;
 
     .MuiTypography-root {
-      color: #fff; // Cor do texto durante o hover
+      color: $color-accent; // Cor do texto durante o hover
     }
 
     .MuiListItemIcon-root {
-      color: #fff; // Cor dos ícones durante o hover
+      color: $color-accent; // Cor dos ícones durante o hover
     }
   }
 }
 
 .drawerStyle {
   .MuiDrawer-paper {
-    background-color: #61bfe5 !important; //#ABBEFF  Fundo escuro
-    color: #f0f0f0 !important; // Cor do texto mais clara
+    background-color: $color-quartenary !important; //#ABBEFF  Fundo escuro
+    color: $color-accent !important; // Cor do texto mais clara
   }
 }

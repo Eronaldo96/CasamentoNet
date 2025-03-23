@@ -66,7 +66,7 @@ export default function NavBar() {
             </Link>
           </Typography>
 
-          <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerToggle}>
+          <IconButton className="customIconButton" edge="start" color="inherit" aria-label="menu" onClick={handleDrawerToggle}>
             <MenuIcon />
           </IconButton>
         </Toolbar>

@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
 
+$font-primary: 'Cinzel', serif;
+$color-primary: #0000CD; // Azul escuro
+$color-secondary: #f4f4f9; // Cinza claro
+$color-accent: #fff; // Branco
+$color-custom: #5566ff;
+
+
 .LocalCustom {
     display: flex;
     flex-direction: column;
@@ -18,12 +25,12 @@
 .TituloPagina {
     text-align: center;
     font-family: 'Cinzel', serif;
-    color: #013220;
+    color: $color-primary;
 }
 
 .LocalInfoPagina {
     text-align: center;
-    color: #013220;
+    color: $color-custom;
     font-family: 'Cinzel', serif;
   }
 

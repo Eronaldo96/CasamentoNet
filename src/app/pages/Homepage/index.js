@@ -96,7 +96,7 @@ export default function HomePage() {
 
           <div className="row invite-container countdown text-center mt-4">
             <p>Contagem regressiva para o grande dia!</p>
-            <div className="d-flex">
+            <div className="tempo d-flex">
               <div className="box col-3">
                 <h1>{days}</h1>
                 <h3>Dias</h3>
@@ -135,9 +135,10 @@ export default function HomePage() {
           </div>
 
           <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
-            <DialogTitle>Deixe sua mensagem</DialogTitle>
+            <DialogTitle className="ModalTitle">Deixe sua mensagem</DialogTitle>
             <DialogContent>
               <TextField
+                className="inputCustom"
                 fullWidth
                 label="Nome *"
                 value={name}
@@ -147,6 +148,7 @@ export default function HomePage() {
                 margin="dense"
               />
               <TextField
+                className="inputCustom"
                 fullWidth
                 multiline
                 rows={4}
@@ -168,25 +170,43 @@ export default function HomePage() {
             </DialogActions>
           </Dialog>
 
-          <div className="message-list">
-            <List>
-              {messagesList.map((msg, index) => (
-                <ListItem key={index}>
-                  <Card
-                    sx={{ width: "100%", mb: 2, borderRadius: 2, boxShadow: 2 }}
-                  >
-                    <CardContent>
-                      <Typography variant="subtitle1" fontWeight="bold">
-                        {msg.name}
-                      </Typography>
-                      <Typography variant="body1" color="text.secondary">
-                        {msg.message}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </ListItem>
-              ))}
-            </List>
+          <div
+            className={
+              messagesList.length > 0 ? "invite-container message-list" : ""
+            }
+          >
+            {messagesList.length > 0 && ( // Renderiza apenas se houver itens
+              <List>
+                {messagesList.map((msg, index) => (
+                  <ListItem key={index}>
+                    <Card
+                      sx={{
+                        width: "100%",
+                        mb: 2,
+                        borderRadius: 2,
+                        boxShadow: 2,
+                      }}
+                    >
+                      <CardContent>
+                        <Typography
+                          className="inviteUser"
+                          variant="subtitle1"
+                          fontWeight="bold"
+                        >
+                          {msg.name}
+                        </Typography>
+                        <Typography
+                          className="inviteUserMessage"
+                          variant="body1"
+                        >
+                          {msg.message}
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  </ListItem>
+                ))}
+              </List>
+            )}
           </div>
         </div>
       </div>

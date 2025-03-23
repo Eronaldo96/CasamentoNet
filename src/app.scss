@@ -5,9 +5,22 @@
 
 // Variáveis de estilo para facilitar personalizações futuras
 $font-primary: 'Cinzel', serif;
-$color-primary: #013220; // Verde escuro
+//$color-primary: #013220; // Verde escuro
+$color-primary: #0000CD; // Azul escuro
 $color-secondary: #f4f4f9; // Cinza claro
 $color-accent: #fff; // Branco
+$color-custom: #5566ff;
+
+// Escala de tamanhos de fonte
+$font-size-xxs: clamp(0.75rem, 1.5vw, 1rem); // Para textos muito pequenos
+$font-size-xs: clamp(1rem, 2vw, 1.25rem); // Para textos pequenos
+$font-size-sm: clamp(1.25rem, 2.5vw, 1.5rem); // Para textos médios
+$font-size-md: clamp(1.5rem, 3vw, 2rem); // Para textos médios-grandes
+$font-size-lg: clamp(2rem, 4vw, 3rem); // Para textos grandes
+$font-size-xl: clamp(3rem, 5vw, 4rem); // Para textos muito grandes
+$font-size-xxl: clamp(4rem, 6vw, 6rem); // Para textos extra grandes
+$font-size-corpoTexto: clamp(1rem, 3vw, 1.2rem);
+$font-size-TituloLogo: clamp(1.8rem, 3vw, 3rem);
 
 // Reset básico
 * {
@@ -84,29 +97,46 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   font-weight: 300;
-  font-size: clamp(2rem, 5vw, 8rem);
+  font-size: $font-size-xxl;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   z-index: 1;
   color: $color-accent;
   text-align: center;
 }
 
+.inputCustom .MuiInputLabel-root{
+  color: $color-custom;
+ }
+
+ .customFormLabel {
+  color: $color-custom !important;
+}
+
+.customRadio {
+  color: $color-custom;
+}
+
+ .customFormControlLabel .MuiFormControlLabel-label {
+  color: $color-custom;
+}
+
 .countdown {
   text-align: center;
   margin-top: 1rem;
-  color: $color-primary;
   position: relative;
   z-index: 2;
   margin-bottom: 3rem;
 
   h1 {
-    font-size: clamp(12rem, 6vw, 5rem);
+    color: $color-custom;
+    font-size: $font-size-xxl;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     margin: 0;
   }
 
   p {
-    font-size: 4.5rem;
+    color: $color-primary;
+    font-size: $font-size-md;
     margin: 0.5rem 0 0;
   }
 }
@@ -138,6 +168,7 @@ body {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -145,164 +176,179 @@ body {
 
 // Responsividade
 
-
-
 /* Dispositivos muito pequenos (até 400px) */
 @media (max-width: 300px) {
-    .ImagemCasal {
-      max-height: 150vh;
-      //object-fit: contain;
-    }
-  
-    .image-text {
-      font-size: clamp(1rem, 3vw, 2.5rem);
-      top: 30%;
-    }
-  
-    .countdown {
-      h1 {
-        font-size: 2.5rem;
-      }
-  
-      p {
-        font-size: 1rem;
-      }
-    }
-  }
-  
-  @media (min-width: 301px) and (max-width: 400px) {
-    .ImagemCasal {
-      max-height: 150vh;
-      //object-fit: contain;
-    }
-  
-    .image-text {
-      font-size: clamp(1.2rem, 3.5vw, 3rem);
-      top: 23rem;
-    }
-  
-    .countdown {
-      h1 {
-        font-size: clamp(2rem, 5vw, 3.5rem);
-      }
-  
-      p {
-        font-size: 1.2rem;
-      }
-
-      h3{
-        font-size: 70%
-      }
-    }
-  }
-  
-  @media (min-width: 401px) and (max-width: 500px) {
-    .ImagemCasal {
-      max-height: 70vh;
-      //object-fit: cover;
-    }
-  
-    .image-text {
-      font-size: clamp(1.5rem, 4vw, 4rem);
-      top: 25rem;
-    }
-  
-    .countdown {
-      h1 {
-        font-size: clamp(3rem, 5vw, 3.5rem);
-      }
-  
-      p {
-        font-size: 1.5rem;
-      }
-
-      h3{
-        font-size: 1rem
-      }
-    }
+  .ImagemCasal {
+    max-height: 150vh;
+    //object-fit: contain;
   }
 
-  @media (min-width: 501px) and (max-width: 600px) {
-    .ImagemCasal {
-      max-height: 70vh;
-      //object-fit: cover;
-    }
-  
-    .image-text {
-      font-size: clamp(1.5rem, 4vw, 4rem);
-      top: 30rem;
-    }
-  
-    .countdown {
-      h1 {
-        font-size: clamp(4rem, 5vw, 3.5rem);
-      }
-  
-      p {
-        font-size: 1.5rem;
-      }
-    }
+  .image-text {
+    font-size: $font-size-lg;
+    top: 30%;
   }
 
+  .countdown {
+    h1 {
+      font-size: $font-size-xl;
+    }
 
-  @media (min-width: 601px) and (max-width: 768px) {
-    .ImagemCasal {
-      max-height: 70vh;
-      //object-fit: cover;
-    }
-  
-    .image-text {
-      font-size: clamp(1.5rem, 4vw, 4rem);
-      top: 55%;
-    }
-  
-    .countdown {
-      h1 {
-        font-size: clamp(4rem, 5vw, 3.5rem);
-      }
-  
-      p {
-        font-size: 1.5rem;
-      }
+    p {
+      font-size: $font-size-sm;
     }
   }
-  
-  /* Dispositivos médios (769px a 1200px) */
-  @media (min-width: 769px) and (max-width: 1200px) {
-    .ImagemCasal {
-      max-height: 80vh;
+}
+
+@media (min-width: 301px) and (max-width: 400px) {
+  .ImagemCasal {
+    max-height: 150vh;
+    //object-fit: contain;
+  }
+
+  .image-text {
+    font-size: $font-size-TituloLogo;
+    top: 23rem;
+  }
+
+  .invite-title {
+    font-size: $font-size-lg;
+  }
+
+  .countdown {
+    h1 {
+      font-size: $font-size-xl;
     }
-  
-    .image-text {
-      font-size: clamp(2rem, 6vw, 6rem);
-      top: 65%;
+
+    p {
+      font-size: $font-size-sm;
     }
-  
-    .countdown h1 {
-      font-size: 6rem;
-    }
-  
-    .countdown p {
-      font-size: 2.5rem;
+
+    h3 {
+      font-size: 70%;
     }
   }
-  
-  /* Dispositivos grandes (acima de 1200px) */
-  @media (min-width: 1201px) {
-    .ImagemCasal {
-      max-height: 100vh;
+}
+
+@media (min-width: 401px) and (max-width: 500px) {
+  .ImagemCasal {
+    max-height: 70vh;
+    //object-fit: cover;
+  }
+
+  .image-text {
+    font-size: $font-size-lg;
+    top: 25rem;
+  }
+
+  .countdown {
+    h1 {
+      font-size: $font-size-xl;
     }
-  
-    .image-text {
-      font-size: clamp(3rem, 7vw, 8rem);
-      top: 80%;
+
+    p {
+      font-size: $font-size-md;
     }
-  
-    .countdown h1 {
-      font-size: 8rem;
-    }
-  
-    .countdown p {
-      font-size: 3rem;
+
+    h3 {
+      font-size: $font-size-xs;
     }
   }
+}
+
+@media (min-width: 501px) and (max-width: 600px) {
+  .ImagemCasal {
+    max-height: 70vh;
+    //object-fit: cover;
+  }
+
+  .image-text {
+    font-size: $font-size-lg;
+    top: 30rem;
+  }
+
+  .countdown {
+    h1 {
+      font-size: $font-size-xxl;
+    }
+
+    p {
+      font-size: $font-size-md;
+    }
+
+    h3 {
+      font-size: $font-size-xs;
+    }
+  }
+}
+
+@media (min-width: 601px) and (max-width: 768px) {
+  .ImagemCasal {
+    max-height: 70vh;
+    //object-fit: cover;
+  }
+
+  .image-text {
+    font-size: $font-size-xl;
+    top: 55%;
+  }
+
+  .countdown {
+    h1 {
+      font-size: $font-size-xxl;
+    }
+
+    p {
+      font-size: $font-size-md;
+    }
+
+    h3 {
+      font-size: $font-size-xs;
+    }
+  }
+}
+
+/* Dispositivos médios (769px a 1200px) */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .ImagemCasal {
+    max-height: 80vh;
+  }
+
+  .image-text {
+    font-size: $font-size-xxl;
+    top: 65%;
+  }
+
+  .countdown {
+    h1 {
+      font-size: $font-size-xxl;
+    }
+
+    p {
+      font-size: $font-size-lg;
+    }
+
+    h3 {
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+/* Dispositivos grandes (acima de 1200px) */
+@media (min-width: 1201px) {
+  .ImagemCasal {
+    max-height: 100vh;
+  }
+
+  .image-text {
+    font-size: $font-size-xxl;
+    top: 80%;
+  }
+
+  .countdown h1 {
+    font-size: $font-size-xxl;
+  }
+
+  .countdown p {
+    font-size: $font-size-sm;
+  }
+}

@@ -1,11 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
 
+// Variáveis de estilo
+$font-primary: 'Cinzel', serif;
+$color-primary: #0000CD; // Azul escuro
+$color-secondary: #f4f4f9; // Cinza claro
+$color-accent: #fff; // Branco
+$color-custom: #5566ff;
+
+// Escala de tamanhos de fonte
+$font-size-xxs: clamp(0.75rem, 1.5vw, 1rem); // Para textos muito pequenos
+$font-size-xs: clamp(1rem, 2vw, 1.25rem);   // Para textos pequenos
+$font-size-sm: clamp(1.25rem, 2.5vw, 1.5rem); // Para textos médios
+$font-size-md: clamp(1.5rem, 3vw, 2rem);     // Para textos médios-grandes
+$font-size-lg: clamp(2rem, 4vw, 3rem);       // Para textos grandes
+$font-size-xl: clamp(3rem, 5vw, 4rem);       // Para textos muito grandes
+$font-size-xxl: clamp(4rem, 6vw, 6rem);      // Para textos extra grandes
+$font-size-corpoTexto: clamp(1rem, 3vw, 1.2rem);
+
 .homeStyle {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
   align-items: center;
+}
+
+.ModalTitle{
+  color: $color-primary;
+}
+
+.inviteUserMessage{
+  color: $color-custom;
+}
+.inviteUser{
+  color: $color-primary;
 }
 
 .decorative-line {
@@ -15,46 +43,62 @@
   margin: 40px 0;
 }
 
+.message-title {
+  color: $color-primary;
+  font-size: $font-size-sm; // Padronizado
+}
+
+
+.message-author {
+  color: $color-custom;
+  font-size: $font-size-xxs; // Padronizado
+}
+
+.tempo, .message-text,.message-invite {
+  color: $color-custom;
+  font-size: $font-size-corpoTexto; // Padronizado
+}
+
 /* Estilo para o contêiner da mensagem de convite */
 .invite-container {
-  text-align: center; /* Centraliza o texto */
-  padding: 2rem; /* Espaçamento interno */
-  background-color: #f9f9f9; /* Fundo suave */
-  border-radius: 15px; /* Bordas arredondadas */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra leve */
-  max-width: 100%; /* Largura máxima */
-  margin: 2rem auto; /* Centraliza o contêiner na página */
+  text-align: center;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  margin: 2rem auto;
 }
 
 /* Estilo para o título principal */
 .invite-title {
-  font-family: 'Cinzel', serif; /* Fonte elegante */
-  font-size: clamp(2rem, 5vw, 2.5rem);
-  color: #013220; /* Cor verde escuro */
-  margin-bottom: 1rem; /* Espaçamento abaixo do título */
+  font-family: $font-primary;
+  font-size: $font-size-sm; // Padronizado
+  color: $color-primary;
+  margin-bottom: 1rem;
 }
 
 /* Estilo para o texto do convite */
 .invite-text {
-  font-family: 'Georgia', serif; /* Fonte clássica */
-  font-size: clamp(1rem, 3vw, 1.2rem);
-  color: #555; /* Cor suave */
-  line-height: 1.6; /* Espaçamento entre linhas */
-  margin-bottom: 1.5rem; /* Espaçamento abaixo do texto */
+  font-family: 'Georgia', serif;
+  font-size: $font-size-corpoTexto; // Padronizado
+  color: $color-custom;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
 }
 
 /* Estilo para a assinatura */
 .invite-signature {
-  font-family: 'Cinzel', serif; /* Fonte elegante */
-  font-size: clamp(1.2rem, 3.5vw, 1.5rem);
-  color: #013220; /* Cor verde escuro */
-  margin-top: 1rem; /* Espaçamento acima da assinatura */
+  font-family: $font-primary;
+  font-size: $font-size-lg; // Padronizado
+  color: $color-custom;
+  margin-top: 1rem;
 }
 
 /* Estilo para os emojis ou ícones */
 .invite-emoji {
-  font-size: clamp(1.2rem, 3.5vw, 1.5rem);
-  margin: 0 0.5rem; /* Espaçamento ao redor dos emojis */
+  font-size: $font-size-lg; // Padronizado
+  margin: 0 0.5rem;
 }
 
 .carousel-image {
@@ -81,24 +125,25 @@
   display: flex;
   flex-direction: column;
 }
-.textoBiblico{
+
+.textoBiblico {
   padding: 8%;
 }
 
 .citacao {
-  color: #013220;
-  font-family: 'Cinzel', serif;
+  color: $color-primary;
+  font-family: $font-primary;
   text-align: center;
   font-style: normal;
-  font-size: 1.5rem;
-  margin-top: 2rem; /* Adiciona espaço acima da citação */
+  font-size: $font-size-lg; // Padronizado
+  margin-top: 2rem;
 }
 
 .autor {
   text-align: center;
-  font-family: 'Cinzel', serif;
-  font-size: 1rem;
-  color: #555;
+  font-family: $font-primary;
+  font-size: $font-size-md; // Padronizado
+  color: $color-custom;
   padding: 5%;
 }
 
@@ -117,26 +162,49 @@
   }
 
   .citacao {
-    font-size: 1rem;
+    font-size: $font-size-sm; // Padronizado
     margin-bottom: 1rem;
-    
+  }
+
+  .message-title {
+    font-size: $font-size-md; // Padronizado
   }
 
   .autor {
-    font-size: 0.8rem;
+    font-size: $font-size-xxs; // Padronizado
+  }
+
+  .message-author {
+    font-size: $font-size-xxs; // Padronizado
+  }
+
+  .tempo, .message-text,.message-invite {
+    font-size: $font-size-xs; // Padronizado
   }
 
   .invite-container {
-    padding: 1rem; /* Reduz o padding para telas pequenas */
-    margin: 1rem auto; /* Reduz a margem */
-    width: 85%;
+    padding: 1rem;
+    margin: 1rem auto;
+    width: 80%;
+  }
+
+  .invite-title {
+    font-size: $font-size-md !important; // Padronizado
+  }
+
+  .invite-text {
+    font-size: $font-size-xs !important; // Padronizado
+  }
+
+  .invite-signature {
+    font-size: $font-size-xxs; // Padronizado
   }
 }
 
 /* Dispositivos pequenos (401px a 768px) */
 @media (min-width: 401px) and (max-width: 768px) {
   .carouselContainer {
-    width: 80%;
+    width: 82%;
     height: auto;
   }
 
@@ -146,22 +214,46 @@
   }
 
   .citacao {
-    font-size: 1.2rem;
+    font-size: $font-size-md; // Padronizado
     margin-bottom: 1rem;
   }
 
+  .message-title {
+    font-size: $font-size-md; // Padronizado
+  }
+
   .autor {
-    font-size: 0.9rem;
+    font-size: $font-size-xs; // Padronizado
+  }
+
+  .message-author {
+    font-size: $font-size-xs !important; // Padronizado
+  }
+
+  .tempo, .message-text,.message-invite {
+    font-size: $font-size-md; // Padronizado
   }
 
   .invite-container {
-    padding: 1rem; /* Reduz o padding para telas pequenas */
-    margin: 1rem auto; /* Reduz a margem */
-    width: 85%;
+    padding: 1rem;
+    margin: 1rem auto;
+    width: 80%;
+  }
+
+  .invite-title {
+    font-size: $font-size-md !important; // Padronizado
+  }
+
+  .invite-text {
+    font-size: $font-size-sm !important; // Padronizado
+  }
+
+  .invite-signature {
+    font-size: $font-size-xs; // Padronizado
   }
 }
 
-/* Dispositivos médios */
+/* Dispositivos médios (769px a 1200px) */
 @media (min-width: 769px) and (max-width: 1200px) {
   .carouselContainer {
     width: 70%;
@@ -174,28 +266,46 @@
   }
 
   .citacao {
-    font-size: 1.4rem;
+    font-size: $font-size-md; // Padronizado
     margin-bottom: 0.8rem;
   }
 
+  .message-title {
+    font-size: $font-size-sm; // Padronizado
+  }
+
   .autor {
-    font-size: 1rem;
+    font-size: $font-size-xs; // Padronizado
+  }
+
+  .message-author {
+    font-size: $font-size-xs !important; // Padronizado
+  }
+
+  .tempo, .message-text,.message-invite {
+    font-size: $font-size-sm; // Padronizado
   }
 
   .invite-container {
-    padding: 1rem; /* Reduz o padding para telas pequenas */
-    margin: 1rem auto; /* Reduz a margem */
-    width: 80%;
-  }
-
-  .invite-container {
-    padding: 1rem; /* Reduz o padding para telas pequenas */
-    margin: 1rem auto; /* Reduz a margem */
+    padding: 1rem;
+    margin: 1rem auto;
     width: 100%;
+  }
+
+  .invite-title {
+    font-size: $font-size-lg !important; // Padronizado
+  }
+
+  .invite-text {
+    font-size: $font-size-sm; // Padronizado
+  }
+
+  .invite-signature {
+    font-size: $font-size-xs; // Padronizado
   }
 }
 
-/* Dispositivos grandes */
+/* Dispositivos grandes (acima de 1200px) */
 @media (min-width: 1201px) {
   .carouselContainer {
     width: 60%;
@@ -208,17 +318,29 @@
   }
 
   .citacao {
-    font-size: 1.5rem;
+    font-size: $font-size-sm; // Padronizado
     margin-bottom: 0.5rem;
   }
 
   .autor {
-    font-size: 1rem;
+    font-size: $font-size-xxs; // Padronizado
   }
 
   .invite-container {
-    padding: 1rem; /* Reduz o padding para telas pequenas */
-    margin: 1rem auto; /* Reduz a margem */
-    width: 80%;
+    padding: 1rem;
+    margin: 1rem auto;
+    width: 100%;
+  }
+
+  .invite-title {
+    font-size: $font-size-sm !important; // Padronizado
+  }
+
+  .invite-text {
+    font-size: $font-size-corpoTexto; // Padronizado
+  }
+
+  .invite-signature {
+    font-size: $font-size-xxs; // Padronizado
   }
 }

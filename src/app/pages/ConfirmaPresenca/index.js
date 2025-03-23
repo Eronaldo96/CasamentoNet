@@ -1,10 +1,18 @@
 import React, { useState } from "react";
-import { FormControl, TextField, Button, Radio, RadioGroup, FormControlLabel, FormLabel } from "@mui/material";
+import {
+  FormControl,
+  TextField,
+  Button,
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  FormLabel,
+} from "@mui/material";
 import emailjs from "@emailjs/browser";
 import { database } from "../../../firebase";
 import { ref, get, set } from "firebase/database";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ConfirmaPresenca() {
   emailjs.init(process.env.REACT_APP_API_PUBLIC_KEY_EMAILJS);
@@ -34,10 +42,18 @@ export default function ConfirmaPresenca() {
   };
 
   const handleConfirmarPresenca = async () => {
-    const { nome, senha, email, telefone, acompanhanteSimNao, acompanhante } = formData;
+    const { nome, senha, email, telefone, acompanhanteSimNao, acompanhante } =
+      formData;
 
     // Validação dos campos obrigatórios
-    if (!nome || !senha || !email || !telefone || !acompanhanteSimNao ||(acompanhanteSimNao === "Sim" && !acompanhante)) {
+    if (
+      !nome ||
+      !senha ||
+      !email ||
+      !telefone ||
+      !acompanhanteSimNao ||
+      (acompanhanteSimNao === "Sim" && !acompanhante)
+    ) {
       toast.error("Por favor, preencha todos os campos obrigatórios.");
       return;
     }
@@ -68,17 +84,13 @@ export default function ConfirmaPresenca() {
 
     // Envia e-mail para o organizador
     emailjs
-      .send(
-        "service_ewng87q",
-        "template_bmz2vk7",
-        {
-          to_name: "Organizador",
-          from_name: nome,
-          from_email: email,
-          telefone: telefone,
-          acompanhante: acompanhanteSimNao === "Sim" ? acompanhante : "",
-        }
-      )
+      .send("service_ewng87q", "template_bmz2vk7", {
+        to_name: "Organizador",
+        from_name: nome,
+        from_email: email,
+        telefone: telefone,
+        acompanhante: acompanhanteSimNao === "Sim" ? acompanhante : "",
+      })
       .then(
         (response) => {
           console.log("E-mail para o organizador enviado!", response);
@@ -90,16 +102,12 @@ export default function ConfirmaPresenca() {
 
     // Envia e-mail para o participante
     emailjs
-      .send(
-        "service_ewng87q",
-        "template_v8qj7rn",
-        {
-          to_name: nome,
-          from_name: "Organizador",
-          from_email: email,
-          message: "Sua presença foi confirmada com sucesso!",
-        }
-      )
+      .send("service_ewng87q", "template_v8qj7rn", {
+        to_name: nome,
+        from_name: "Organizador",
+        from_email: email,
+        message: "Sua presença foi confirmada com sucesso!",
+      })
       .then(
         (response) => {
           console.log("E-mail para o participante enviado!", response);
@@ -131,6 +139,7 @@ export default function ConfirmaPresenca() {
           <div className="row" style={{ display: "flex", margin: "5px" }}>
             <div className="col-12">
               <TextField
+                className="inputCustom"
                 id="nome"
                 label="Nome Completo"
                 variant="outlined"
@@ -142,6 +151,7 @@ export default function ConfirmaPresenca() {
             </div>
             <div className="col-12">
               <TextField
+                className="inputCustom"
                 id="senha"
                 label="Senha"
                 variant="outlined"
@@ -153,6 +163,7 @@ export default function ConfirmaPresenca() {
             </div>
             <div className="col-12">
               <TextField
+                className="inputCustom"
                 id="email"
                 label="E-mail"
                 variant="outlined"
@@ -165,6 +176,7 @@ export default function ConfirmaPresenca() {
             </div>
             <div className="col-12">
               <TextField
+                className="inputCustom"
                 id="telefone"
                 label="Telefone (WhatsApp)"
                 variant="outlined"
@@ -176,21 +188,34 @@ export default function ConfirmaPresenca() {
             </div>
             <div className="col-12">
               <FormControl component="fieldset" style={{ marginTop: "1rem" }}>
-                <FormLabel component="legend">Vai ter acompanhante?</FormLabel>
+                <FormLabel className="customFormLabel" component="legend">
+                  Vai ter acompanhante?
+                </FormLabel>
                 <RadioGroup
                   id="acompanhanteSimNao"
                   value={formData.acompanhanteSimNao}
                   onChange={handleRadioChange}
                   row
                 >
-                  <FormControlLabel value="Sim" control={<Radio />} label="Sim" />
-                  <FormControlLabel value="Não" control={<Radio />} label="Não" />
+                  <FormControlLabel
+                    className="customFormControlLabel"
+                    value="Sim"
+                    control={<Radio />}
+                    label="Sim"
+                  />
+                  <FormControlLabel
+                    className="customFormControlLabel"
+                    value="Não"
+                    control={<Radio />}
+                    label="Não"
+                  />
                 </RadioGroup>
               </FormControl>
             </div>
             {formData.acompanhanteSimNao === "Sim" && (
               <div className="col-12">
                 <TextField
+                  className="inputCustom"
                   id="acompanhante"
                   label="Nome do Acompanhante"
                   variant="outlined"
@@ -201,7 +226,6 @@ export default function ConfirmaPresenca() {
                 />
               </div>
             )}
-
           </div>
 
           <div className="row" style={{ display: "flex", margin: "5px" }}>

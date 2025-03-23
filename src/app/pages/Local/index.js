@@ -42,7 +42,7 @@ const LocalSection = ({ titulo, subtitulo, descricao, endereco, imagens, latitud
     <div className="TituloPagina">
       <h1>{titulo}</h1>
       <h5 className="LocalInfoPagina">{subtitulo}</h5>
-      {descricao && <h7>{descricao}</h7>}
+      {descricao && <h7 className="LocalInfoPagina">{descricao}</h7>}
     </div>
 
     {/* Galeria de imagens */}

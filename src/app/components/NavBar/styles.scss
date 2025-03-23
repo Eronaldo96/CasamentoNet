@@ -3,10 +3,18 @@
   border-bottom: 2px solid rgba(1, 50, 32, 0) !important;
   transition: background-color 0.3s ease, border-bottom 0.3s ease;
 
-  &.hidden {
-    background-color: #013220 !important;
-    border-bottom: 2px solid #013220 !important;
-  }
+  // &.hidden {
+  //   background-color: #013220 !important;
+  //   border-bottom: 2px solid #013220 !important;
+  // }
+}
+
+.customIconButton {
+  color: #0000CD !important; /* Cor azul escuro ($color-primary) */
+}
+
+.customIconButton:hover {
+  color: #5566ff; /* Cor azul mais claro ($color-custom) ao passar o mouse */
 }
 
 .logoLink {
@@ -46,7 +54,7 @@
   }
 
   &:hover {
-    background-color: #10514E !important;
+    background-color: #0000CD !important;//#10514E !important;
 
     .MuiTypography-root {
       color: #fff; // Cor do texto durante o hover
@@ -60,7 +68,7 @@
 
 .drawerStyle {
   .MuiDrawer-paper {
-    background-color: #013220 !important; // Fundo escuro
+    background-color: #ABBEFF !important; // Fundo escuro
     color: #f0f0f0 !important; // Cor do texto mais clara
   }
 }

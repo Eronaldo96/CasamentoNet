@@ -1,4 +1,12 @@
+$font-primary: 'Cinzel', serif;
+$color-primary: #0000CD; // Azul escuro
+$color-secondary: #f4f4f9; // Cinza claro
+$color-accent: #fff; // Branco
+$color-custom: #5566ff;
+
+
 .ListaPresenteCustom{
     margin-bottom: 15%;
     text-align: center;
+    color: $color-primary;
 }

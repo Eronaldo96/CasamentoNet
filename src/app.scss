@@ -6,7 +6,7 @@
 // Variáveis de estilo para facilitar personalizações futuras
 $font-primary: 'Cinzel', serif;
 //$color-primary: #013220; // Verde escuro
-$color-primary: #0000CD; // Azul escuro
+$color-primary: #006289; // Azul escuro
 $color-secondary: #f4f4f9; // Cinza claro
 $color-accent: #fff; // Branco
 $color-custom: #5566ff;
@@ -307,8 +307,33 @@ body {
   }
 }
 
+@media (min-width: 769px) and (max-width: 868px) {
+  .ImagemCasal {
+    max-height: 80vh;
+  }
+
+  .image-text {
+    font-size: $font-size-xl;
+    top: 65%;
+  }
+
+  .countdown {
+    h1 {
+      font-size: $font-size-xxl;
+    }
+
+    p {
+      font-size: $font-size-lg;
+    }
+
+    h3 {
+      font-size: $font-size-sm;
+    }
+  }
+}
+
 /* Dispositivos médios (769px a 1200px) */
-@media (min-width: 769px) and (max-width: 1200px) {
+@media (min-width: 869px) and (max-width: 1200px) {
   .ImagemCasal {
     max-height: 80vh;
   }

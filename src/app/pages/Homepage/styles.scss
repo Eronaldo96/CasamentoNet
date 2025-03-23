@@ -2,7 +2,7 @@
 
 // Variáveis de estilo
 $font-primary: 'Cinzel', serif;
-$color-primary: #0000CD; // Azul escuro
+$color-primary: #006289; // #0000CD Azul escuro
 $color-secondary: #f4f4f9; // Cinza claro
 $color-accent: #fff; // Branco
 $color-custom: #5566ff;
@@ -80,7 +80,7 @@ $font-size-corpoTexto: clamp(1rem, 3vw, 1.2rem);
 
 /* Estilo para o texto do convite */
 .invite-text {
-  font-family: 'Georgia', serif;
+  font-family: $font-primary;//'Georgia', serif;
   font-size: $font-size-corpoTexto; // Padronizado
   color: $color-custom;
   line-height: 1.6;
@@ -135,7 +135,7 @@ $font-size-corpoTexto: clamp(1rem, 3vw, 1.2rem);
   font-family: $font-primary;
   text-align: center;
   font-style: normal;
-  font-size: $font-size-lg; // Padronizado
+  font-size: $font-size-corpoTexto; // Padronizado
   margin-top: 2rem;
 }
 
@@ -162,7 +162,7 @@ $font-size-corpoTexto: clamp(1rem, 3vw, 1.2rem);
   }
 
   .citacao {
-    font-size: $font-size-sm; // Padronizado
+    font-size: $font-size-xs; // Padronizado
     margin-bottom: 1rem;
   }
 
@@ -214,7 +214,7 @@ $font-size-corpoTexto: clamp(1rem, 3vw, 1.2rem);
   }
 
   .citacao {
-    font-size: $font-size-md; // Padronizado
+    font-size: $font-size-sm; // Padronizado
     margin-bottom: 1rem;
   }
 
@@ -231,7 +231,7 @@ $font-size-corpoTexto: clamp(1rem, 3vw, 1.2rem);
   }
 
   .tempo, .message-text,.message-invite {
-    font-size: $font-size-md; // Padronizado
+    font-size: $font-size-sm; // Padronizado
   }
 
   .invite-container {
@@ -266,7 +266,7 @@ $font-size-corpoTexto: clamp(1rem, 3vw, 1.2rem);
   }
 
   .citacao {
-    font-size: $font-size-md; // Padronizado
+    font-size: $font-size-sm; // Padronizado
     margin-bottom: 0.8rem;
   }
 
@@ -318,7 +318,7 @@ $font-size-corpoTexto: clamp(1rem, 3vw, 1.2rem);
   }
 
   .citacao {
-    font-size: $font-size-sm; // Padronizado
+    font-size: $font-size-corpoTexto; // Padronizado
     margin-bottom: 0.5rem;
   }
 

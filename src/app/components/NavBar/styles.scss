@@ -19,13 +19,15 @@ $color-custom: #5566ff; // azul leve
 
   &.hidden {
     .customIconButton {
-      color: $color-primary !important; /* Cor azul escuro ($color-primary) */
+      color: $color-primary !important;
+      /* Cor azul escuro ($color-primary) */
     }
   }
 }
 
 .customIconButton:hover {
-  color: #5566ff; /* Cor azul mais claro ($color-custom) ao passar o mouse */
+  color: #5566ff;
+  /* Cor azul mais claro ($color-custom) ao passar o mouse */
 }
 
 .logoLink {
@@ -65,7 +67,7 @@ $color-custom: #5566ff; // azul leve
   }
 
   &:hover {
-    background-color: $color-primary !important;//#10514E !important;
+    background-color: $color-primary !important; //#10514E !important;
 
     .MuiTypography-root {
       color: $color-accent; // Cor do texto durante o hover
@@ -79,7 +81,51 @@ $color-custom: #5566ff; // azul leve
 
 .drawerStyle {
   .MuiDrawer-paper {
-    background-color: $color-quartenary !important; //#ABBEFF  Fundo escuro
-    color: $color-accent !important; // Cor do texto mais clara
+    background-image: url('../../../app/assets/images/navMenuImage.png'); // Caminho da imagem
+    background-size: cover; // Cobrir todo o espaço
+    background-color: $color-quartenary !important;
+    background-position: center; // Centralizar a imagem
+    background-repeat: no-repeat; // Evitar repetição
+    color: $color-accent !important; // Cor do texto para garantir legibilidade
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative; // Para garantir que os itens do menu fiquem acima da imagem
+    width: 25%; // Largura padrão para telas maiores
+    max-width: 300px; // Largura máxima para evitar que fique muito largo
+    min-width: 250px; // Largura mínima para garantir que o conteúdo caiba
+
+    // Ajustes para telas menores
+    @media (max-width: 768px) {
+      width: 50%; // Largura maior para telas menores
+      max-width: none; // Remove a largura máxima
+    }
+
+    @media (max-width: 480px) {
+      width: 75%; // Largura ainda maior para telas muito pequenas
+    }
+  }
+
+  // Adiciona um overlay escuro para melhorar a legibilidade do texto
+  .MuiDrawer-paper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); // Overlay escuro com 50% de opacidade
+    z-index: 1; // Garante que o overlay fique acima da imagem de fundo
+  }
+
+  // Garante que os itens do menu fiquem acima do overlay
+  .MuiList-root {
+    position: relative;
+    z-index: 2; // Coloca os itens do menu acima do overlay
+  }
+
+  // Remove a imagem dentro do drawer (não será mais necessária)
+  .ImagemNavMenu {
+    display: none;
   }
 }

@@ -17,7 +17,6 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Divider from "@mui/material/Divider";
-import Mgs3 from "../../assets/images/navMenuImage.png";
 
 export default function NavBar() {
   const [openDrawer, setOpenDrawer] = useState(false);

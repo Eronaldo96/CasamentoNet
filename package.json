@@ -30,6 +30,7 @@
     "redux": "^5.0.1",
     "sass": "^1.72.0",
     "styled-components": "^6.1.8",
+    "swiper": "^11.2.6",
     "them": "0.0.4",
     "to": "^0.2.9",
     "web-vitals": "^2.1.4"

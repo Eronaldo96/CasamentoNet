@@ -5,7 +5,7 @@ import CapelaSaoPedroExterno from "../../assets/images/Capela de São Pedro Exte
 import YuccaEntrada from "../../assets/images/yucca entrada.jpg";
 import YuccaLogo from "../../assets/images/yucca entrada 2.jpg";
 import MapComponent from "../../components/MapComponent";
-import StandardImageList from "../../components/SatndardImageList/index";
+import GalleryLoop from "../../components/GalleryLoop";  // Importando o componente GalleryLoop
 import "./styles.scss";
 
 // Lista de locais do casamento e recepção
@@ -36,7 +36,6 @@ const locais = [
   },
 ];
 
-// Componente para exibir cada local
 const LocalSection = ({ titulo, subtitulo, descricao, endereco, imagens, latitude, longitude, isLast }) => (
   <div>
     <div className="TituloPagina">
@@ -45,25 +44,20 @@ const LocalSection = ({ titulo, subtitulo, descricao, endereco, imagens, latitud
       {descricao && <h7 className="LocalInfoPagina">{descricao}</h7>}
     </div>
 
-    {/* Galeria de imagens */}
-    <StandardImageList data={imagens} />
+    <GalleryLoop images={imagens.map(item => item.imagem)} />
 
-    {/* Endereço */}
     <div className="LocalInfoPagina">
       <h6>Endereço: {endereco}</h6>
     </div>
 
-    {/* Mapa do local */}
     <div style={{ marginTop: "2%", marginBottom: "2%" }}>
       <MapComponent latitude={latitude} longitude={longitude} />
     </div>
 
-    {/* Linha separadora (somente se não for o último item) */}
     {!isLast && <hr className="decorative-line" />}
   </div>
 );
 
-// Componente principal
 export default function Local() {
   const localSection = useRef(null);
 

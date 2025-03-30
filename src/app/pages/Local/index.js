@@ -15,7 +15,7 @@ const locais = [
     subtitulo: "Igreja de São Pedro dos Pescadores",
     endereco: "Av. Beira Mar, 4600 - Mucuripe, Fortaleza - CE, 60165-121",
     imagens: [
-      { descricao: "Capela de São Pedro dos Pescadores", imagem: CapelaSaoPedro },
+      { descricao: "Igreja de São Pedro dos Pescadores", imagem: CapelaSaoPedro },
       { descricao: "Área Interna", imagem: CapelaSaoPedroInterno },
       { descricao: "Área Externa", imagem: CapelaSaoPedroExterno },
     ],

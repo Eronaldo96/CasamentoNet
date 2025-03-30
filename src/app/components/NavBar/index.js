@@ -17,6 +17,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Divider from "@mui/material/Divider";
+import logoCasalIniciais from "../../assets/images/logo_IniciaisCasal.png";
 
 export default function NavBar() {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -95,7 +96,11 @@ export default function NavBar() {
         className="drawerStyle"
       >
         <div
-          style={{ display: "flex", flexDirection: "column", height: "100%" }}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
+          }}
         >
           <MenuList sx={{ flexGrow: 1 }}>
             {menuItems.map((item, index) => (
@@ -114,6 +119,18 @@ export default function NavBar() {
             ))}
             <Divider />
           </MenuList>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              filter: "invert(1)",
+            }}
+          >
+            <img src={logoCasalIniciais} alt="logo" style={{ width: "8em" }} />
+          </div>
+          <div style={{ flexGrow: 1 }} />
         </div>
       </Drawer>
     </div>

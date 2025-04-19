@@ -1,10 +1,12 @@
 import ImageCarouselCube from "../../components/ImageCarouselCube";
 
+import StudioGhibli1 from "../../assets/images/StudioGhibli1.jpg";
+import StudioGhibli2 from "../../assets/images/StudioGhibli2.jpg";
+
 import "./styles.scss";
 
 export default function HistoriaCasal() {
-  const images = ["/image/StudioGhibli1.jpg",
-    "/image/StudioGhibli2.jpg"];
+  const images = [StudioGhibli1, StudioGhibli2];
 
   return (
     <div className="historiaCasal">

@@ -3,8 +3,6 @@ import { BrowserRouter as Router } from "react-router-dom";
 import NavBar from "./app/components/NavBar";
 import Footer from "./app/components/Footer";
 import Container from "./app/components/Container";
-import LoadingGif from "./app/assets/images/Loading.gif";
-import fotoCasal from "./app/assets/images/FotoCasal.png";
 import { ToastContainer } from "react-toastify";
 import "normalize.css";
 import "./app.scss";
@@ -20,7 +18,7 @@ export default function App() {
 
   useEffect(() => {
     const img = new Image();
-    img.src = fotoCasal;
+    img.src = "/image/FotoCasal.png";
     img.onload = handleImageLoad;
   }, []);
 
@@ -29,7 +27,7 @@ export default function App() {
       {isLoading && (
         <div className="loading-overlay">
           <img
-            src={LoadingGif}
+            src="/image/Loading.gif"
             alt="Carregando..."
             className="loading-spinner"
           />
@@ -44,7 +42,7 @@ export default function App() {
             <NavBar />
             <picture className="ImagemCasalContainer position-relative">
               <img
-                src={fotoCasal}
+                src="/image/FotoCasal.png"
                 alt="Casal feliz"
                 className="ImagemCasal img-fluid"
                 onLoad={handleImageLoad}

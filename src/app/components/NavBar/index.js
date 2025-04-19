@@ -7,7 +7,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Typography from "@mui/material/Typography";
 import { Drawer } from "@mui/material";
 import "./styles.scss";
-import logo from "../../../app/assets/images/rings.png";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import MenuList from "@mui/material/MenuList";
 import MenuItem from "@mui/material/MenuItem";
@@ -17,7 +16,6 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Divider from "@mui/material/Divider";
-import logoCasalIniciais from "../../assets/images/logo_IniciaisCasal.png";
 
 export default function NavBar() {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -73,7 +71,7 @@ export default function NavBar() {
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <Link to="/" className="logoLink">
-              <img style={{ width: "2em" }} src={logo} alt="logo" />
+              <img style={{ width: "2em" }} src="/image/rings.png" alt="logo" />
             </Link>
           </Typography>
 
@@ -128,7 +126,7 @@ export default function NavBar() {
               filter: "invert(1)",
             }}
           >
-            <img src={logoCasalIniciais} alt="logo" style={{ width: "8em" }} />
+            <img src="/image/logo_IniciaisCasal.png" alt="logo" style={{ width: "8em" }} />
           </div>
           <div style={{ flexGrow: 1 }} />
         </div>

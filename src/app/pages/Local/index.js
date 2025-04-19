@@ -1,9 +1,4 @@
 import React, { useRef } from "react";
-import CapelaSaoPedro from "../../assets/images/Capela de São Pedro.jpg";
-import CapelaSaoPedroInterno from "../../assets/images/Capela de São Pedro Interno.jpg";
-import CapelaSaoPedroExterno from "../../assets/images/Capela de São Pedro Externo.jpg";
-import YuccaEntrada from "../../assets/images/yucca entrada.jpg";
-import YuccaLogo from "../../assets/images/yucca entrada 2.jpg";
 import MapComponent from "../../components/MapComponent";
 import GalleryLoop from "../../components/GalleryLoop";  // Importando o componente GalleryLoop
 import "./styles.scss";
@@ -15,9 +10,9 @@ const locais = [
     subtitulo: "Igreja de São Pedro dos Pescadores",
     endereco: "Av. Beira Mar, 4600 - Mucuripe, Fortaleza - CE, 60165-121",
     imagens: [
-      { descricao: "Igreja de São Pedro dos Pescadores", imagem: CapelaSaoPedro },
-      { descricao: "Área Interna", imagem: CapelaSaoPedroInterno },
-      { descricao: "Área Externa", imagem: CapelaSaoPedroExterno },
+      { descricao: "Igreja de São Pedro dos Pescadores", imagem: "/image/Capela de São Pedro.jpg" },
+      { descricao: "Área Interna", imagem: "/image/Capela de São Pedro Interno.jpg" },
+      { descricao: "Área Externa", imagem: "/image/Capela de São Pedro Externo.jpg" },
     ],
     latitude: -3.722002,
     longitude: -38.480321,
@@ -28,8 +23,8 @@ const locais = [
     descricao: "Após a cerimônia haverá um chá da tarde para celebrarmos o grande dia.",
     endereco: "Rua Frei Mansueto, 160 - Meireles, Fortaleza - CE, 60175-070",
     imagens: [
-      { descricao: "Yucca", imagem: YuccaLogo },
-      { descricao: "Yucca Entrada", imagem: YuccaEntrada },
+      { descricao: "Yucca", imagem: "/image/yucca entrada 2.jpg" },
+      { descricao: "Yucca Entrada", imagem: "/image/yucca entrada.jpg" },
     ],
     latitude: -3.7260092565849052,
     longitude: -38.48950297273497,

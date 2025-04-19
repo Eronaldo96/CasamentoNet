@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import MapComponent from "../../components/MapComponent";
-import GalleryLoop from "../../components/GalleryLoop";  // Importando o componente GalleryLoop
+import GalleryLoop from "../../components/GalleryLoop"; // Importando o componente GalleryLoop
 import "./styles.scss";
 
 // Lista de locais do casamento e recepção
@@ -10,9 +10,18 @@ const locais = [
     subtitulo: "Igreja de São Pedro dos Pescadores",
     endereco: "Av. Beira Mar, 4600 - Mucuripe, Fortaleza - CE, 60165-121",
     imagens: [
-      { descricao: "Igreja de São Pedro dos Pescadores", imagem: "/image/Capela de São Pedro.jpg" },
-      { descricao: "Área Interna", imagem: "/image/Capela de São Pedro Interno.jpg" },
-      { descricao: "Área Externa", imagem: "/image/Capela de São Pedro Externo.jpg" },
+      {
+        descricao: "Igreja de São Pedro dos Pescadores",
+        imagem: "/image/Capela de São Pedro.jpg",
+      },
+      {
+        descricao: "Área Interna",
+        imagem: "/image/Capela de São Pedro Interno.jpg",
+      },
+      {
+        descricao: "Área Externa",
+        imagem: "/image/Capela de São Pedro Externo.jpg",
+      },
     ],
     latitude: -3.722002,
     longitude: -38.480321,
@@ -20,7 +29,8 @@ const locais = [
   {
     titulo: "Local da Recepção",
     subtitulo: "Yucca Gastronomia",
-    descricao: "Após a cerimônia haverá um chá da tarde para celebrarmos o grande dia.",
+    descricao:
+      "Após a cerimônia haverá um chá da tarde para celebrarmos o grande dia.",
     endereco: "Rua Frei Mansueto, 160 - Meireles, Fortaleza - CE, 60175-070",
     imagens: [
       { descricao: "Yucca", imagem: "/image/yucca entrada 2.jpg" },
@@ -31,7 +41,16 @@ const locais = [
   },
 ];
 
-const LocalSection = ({ titulo, subtitulo, descricao, endereco, imagens, latitude, longitude, isLast }) => (
+const LocalSection = ({
+  titulo,
+  subtitulo,
+  descricao,
+  endereco,
+  imagens,
+  latitude,
+  longitude,
+  isLast,
+}) => (
   <div>
     <div className="TituloPagina">
       <h1>{titulo}</h1>
@@ -39,14 +58,16 @@ const LocalSection = ({ titulo, subtitulo, descricao, endereco, imagens, latitud
       {descricao && <h7 className="LocalInfoPagina">{descricao}</h7>}
     </div>
 
-    <GalleryLoop images={imagens.map(item => item.imagem)} />
+    <GalleryLoop images={imagens.map((item) => item.imagem)} />
 
-    <div className="LocalInfoPagina">
-      <h6>Endereço: {endereco}</h6>
-    </div>
-
-    <div style={{ marginTop: "2%", marginBottom: "2%" }}>
-      <MapComponent latitude={latitude} longitude={longitude} />
+    <div className="EnderecoMapaContainer">
+      <div className="EnderecoBox LocalInfoPagina">
+        <h6>Endereço:</h6>
+        <p>{endereco}</p>
+      </div>
+      <div className="MapaBox">
+        <MapComponent latitude={latitude} longitude={longitude} />
+      </div>
     </div>
 
     {!isLast && <hr className="decorative-line" />}
@@ -60,7 +81,11 @@ export default function Local() {
     <div className="LocalCustom" ref={localSection}>
       <div className="col-sm-12">
         {locais.map((local, index) => (
-          <LocalSection key={index} {...local} isLast={index === locais.length - 1} />
+          <LocalSection
+            key={index}
+            {...local}
+            isLast={index === locais.length - 1}
+          />
         ))}
       </div>
     </div>

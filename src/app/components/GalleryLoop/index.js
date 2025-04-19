@@ -14,9 +14,9 @@ const GalleryLoop = ({ images }) => {
       centeredSlides={true}
       slidesPerView={'auto'}
       coverflowEffect={{
-        rotate: 30,
-        stretch: 0,
-        depth: 50,
+        rotate: 15,
+        stretch: 50,
+        depth: 120,
         modifier: 1,
         slideShadows: false,
       }}

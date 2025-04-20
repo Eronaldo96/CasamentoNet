@@ -11,16 +11,16 @@ const locais = [
     endereco: "Av. Beira Mar, 4600 - Mucuripe, Fortaleza - CE, 60165-121",
     imagens: [
       {
+        descricao: "Área Externa",
+        imagem: "/image/Capela de São Pedro Externo.jpg",
+      },
+      {
         descricao: "Igreja de São Pedro dos Pescadores",
         imagem: "/image/Capela de São Pedro.jpg",
       },
       {
         descricao: "Área Interna",
         imagem: "/image/Capela de São Pedro Interno.jpg",
-      },
-      {
-        descricao: "Área Externa",
-        imagem: "/image/Capela de São Pedro Externo.jpg",
       },
     ],
     latitude: -3.722002,

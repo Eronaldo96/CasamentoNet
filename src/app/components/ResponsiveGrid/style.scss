@@ -26,3 +26,21 @@ $color-custom: #5566ff; // azul leve
   margin-top: 16px; /* Adjust the value as needed */
   color: black;
 }
+
+.selo-pago {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #4caf50;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.presente-pago {
+  border: 2px solid #4caf50;
+  opacity: 0.9;
+}
+

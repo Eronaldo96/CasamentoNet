@@ -32,34 +32,38 @@ export default function ResponsiveGrid({ data }) {
       >
         {data.map((item, index) => (
           <Grid xs={12} sm={6} md={4} key={index}>
-            <Item>
-              <Box className="BoxCustom">
-                <div>
-                  <img
-                    className="ImagemPresente"
-                    src={item.imagem}
-                    alt={item.descricao}
-                  />
-                </div>
-              </Box>
-              <Box className="label-container">
-                <div>
-                  <label>{item.descricao}</label>
-                </div>
-                <div style={{margin:"5px"}}>
-                  <b>{item.valor} Reais</b>
-                </div>
-              </Box>
-              <Box>
-                <Button
-                  variant="outlined"
-                  onClick={() => produtoCaminho(item.url)}
-                >
-                  Presentear
-                </Button>
-              </Box>
-            </Item>
-          </Grid>
+          <Item className={item.pago ? "presente-pago" : ""}>
+            <Box className="BoxCustom">
+              <div style={{ position: "relative" }}>
+                <img
+                  className="ImagemPresente"
+                  src={item.imagem}
+                  alt={item.descricao}
+                />
+                {item.pago && (
+                  <div className="selo-pago">🎁 Presenteado</div>
+                )}
+              </div>
+            </Box>
+            <Box className="label-container">
+              <div>
+                <label>{item.descricao}</label>
+              </div>
+              <div style={{ margin: "5px" }}>
+                <b>{item.valor} Reais</b>
+              </div>
+            </Box>
+            <Box>
+              <Button
+                variant="outlined"
+                onClick={() => produtoCaminho(item.url)}
+                disabled={item.pago}
+              >
+                {item.pago ? "Já foi presenteado" : "Presentear"}
+              </Button>
+            </Box>
+          </Item>
+        </Grid>
         ))}
       </Grid>
     </Box>

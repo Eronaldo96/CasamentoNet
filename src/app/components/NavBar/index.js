@@ -126,7 +126,7 @@ export default function NavBar() {
               filter: "invert(1)",
             }}
           >
-            <img src="/image/logo_IniciaisCasal.png" alt="logo" style={{ width: "8em" }} />
+            {/* <img src="/image/logo_IniciaisCasal.png" alt="logo" style={{ width: "8em" }} /> */}
           </div>
           <div style={{ flexGrow: 1 }} />
         </div>

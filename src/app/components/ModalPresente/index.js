@@ -32,23 +32,23 @@ export default function ModalPresente({ open, onClose, presente }) {
   const emailValido = /\S+@\S+\.\S+/.test(emailComprador);
   const ehPixPago = presente?.pix === true;
 
-  useEffect(() => {
-    if (open && !window.MercadoPago) {
-      const script = document.createElement('script');
-      script.src = 'https://sdk.mercadopago.com/js/v2';
-      script.onload = () => {
-        console.log('Mercado Pago SDK carregado');
-        setMercadoPagoLoaded(true);
-      };
-      script.onerror = () => {
-        console.error('Falha ao carregar Mercado Pago SDK');
-        toast.error('Falha ao carregar sistema de pagamentos');
-      };
-      document.body.appendChild(script);
-    } else if (window.MercadoPago) {
-      setMercadoPagoLoaded(true);
-    }
-  }, [open]);
+//   useEffect(() => {
+//     if (open && !window.MercadoPago) {
+//       const script = document.createElement('script');
+//       script.src = 'https://sdk.mercadopago.com/js/v2';
+//       script.onload = () => {
+//         console.log('Mercado Pago SDK carregado');
+//         setMercadoPagoLoaded(true);
+//       };
+//       script.onerror = () => {
+//         console.error('Falha ao carregar Mercado Pago SDK');
+//         toast.error('Falha ao carregar sistema de pagamentos');
+//       };
+//       document.body.appendChild(script);
+//     } else if (window.MercadoPago) {
+//       setMercadoPagoLoaded(true);
+//     }
+//   }, [open]);
 
   useEffect(() => {
     if (ehPixPago) {
@@ -112,84 +112,84 @@ export default function ModalPresente({ open, onClose, presente }) {
     }
   };
 
-  const criarPreferenciaPagamento = async () => {
-    setLoading(true);
-    try {
-      const valor = parseFloat(presente.valor);
-      if (isNaN(valor)) {
-        throw new Error('Valor do presente inválido');
-      }
+//   const criarPreferenciaPagamento = async () => {
+//     setLoading(true);
+//     try {
+//       const valor = parseFloat(presente.valor);
+//       if (isNaN(valor)) {
+//         throw new Error('Valor do presente inválido');
+//       }
 
-      const response = await fetch('https://api.mercadopago.com/checkout/preferences', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.REACT_APP_MP_ACCESS_TOKEN}`
-        },
-        body: JSON.stringify({
-          items: [
-            {
-              title: presente.descricao,
-              unit_price: valor,
-              quantity: 1,
-            }
-          ],
-          payer: {
-            name: nomeComprador,
-            email: emailComprador
-          },
-          payment_methods: {
-            installments: 12,
-            excluded_payment_types: ehPixPago ? [{ id: 'credit_card' }] : []
-          },
-          back_urls: {
-            success: window.location.href,
-            failure: window.location.href,
-            pending: window.location.href
-          },
-          auto_return: 'approved',
-        })
-      });
+//       const response = await fetch('https://api.mercadopago.com/checkout/preferences', {
+//         method: 'POST',
+//         headers: {
+//           'Content-Type': 'application/json',
+//           'Authorization': `Bearer ${process.env.REACT_APP_MP_ACCESS_TOKEN}`
+//         },
+//         body: JSON.stringify({
+//           items: [
+//             {
+//               title: presente.descricao,
+//               unit_price: valor,
+//               quantity: 1,
+//             }
+//           ],
+//           payer: {
+//             name: nomeComprador,
+//             email: emailComprador
+//           },
+//           payment_methods: {
+//             installments: 12,
+//             excluded_payment_types: ehPixPago ? [{ id: 'credit_card' }] : []
+//           },
+//           back_urls: {
+//             success: window.location.href,
+//             failure: window.location.href,
+//             pending: window.location.href
+//           },
+//           auto_return: 'approved',
+//         })
+//       });
 
-      const data = await response.json();
+//       const data = await response.json();
       
-      if (!response.ok) {
-        console.error('Detalhes do erro:', data);
-        throw new Error(data.message || 'Erro ao criar preferência');
-      }
+//       if (!response.ok) {
+//         console.error('Detalhes do erro:', data);
+//         throw new Error(data.message || 'Erro ao criar preferência');
+//       }
 
-      return data.id;
-    } catch (error) {
-      console.error('Erro detalhado:', error);
-      toast.error(`Erro ao processar pagamento: ${error.message}`);
-      throw error;
-    } finally {
-      setLoading(false);
-    }
-  };
+//       return data.id;
+//     } catch (error) {
+//       console.error('Erro detalhado:', error);
+//       toast.error(`Erro ao processar pagamento: ${error.message}`);
+//       throw error;
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
 
-  const iniciarPagamentoCartao = async () => {
-    try {
-      const preferenceId = await criarPreferenciaPagamento();
+//   const iniciarPagamentoCartao = async () => {
+//     try {
+//       const preferenceId = await criarPreferenciaPagamento();
       
-      if (window.MercadoPago) {
-        const mp = new window.MercadoPago(process.env.REACT_APP_MP_PUBLIC_KEY, {
-          locale: 'pt-BR'
-        });
+//       if (window.MercadoPago) {
+//         const mp = new window.MercadoPago(process.env.REACT_APP_MP_PUBLIC_KEY, {
+//           locale: 'pt-BR'
+//         });
 
-        // Abre diretamente o checkout sem precisar de botão
-        mp.checkout({
-          preference: {
-            id: preferenceId
-          },
-          autoOpen: true // Esta opção faz abrir automaticamente
-        });
-      }
-    } catch (error) {
-      console.error('Erro no pagamento:', error);
-      toast.error(`Falha ao iniciar pagamento: ${error.message}`);
-    }
-  };
+//         // Abre diretamente o checkout sem precisar de botão
+//         mp.checkout({
+//           preference: {
+//             id: preferenceId
+//           },
+//           autoOpen: true // Esta opção faz abrir automaticamente
+//         });
+//       }
+//     } catch (error) {
+//       console.error('Erro no pagamento:', error);
+//       toast.error(`Falha ao iniciar pagamento: ${error.message}`);
+//     }
+//   };
 
   const avancarParaPagamento = async () => {
     setNomeTocado(true);
@@ -208,9 +208,10 @@ export default function ModalPresente({ open, onClose, presente }) {
     if (metodoPagamento === "pix") {
       window.open(presente.url, "_blank");
       await finalizarPresente();
-    } else if (metodoPagamento === "cartao") {
-      await iniciarPagamentoCartao();
     }
+    //  else if (metodoPagamento === "cartao") {
+    //   await iniciarPagamentoCartao();
+    // }
   };
 
   const sendEmail = () => {
@@ -309,14 +310,14 @@ export default function ModalPresente({ open, onClose, presente }) {
               sx={{ mb: 2 }}
             >
               <ToggleButton value="pix">Pix</ToggleButton>
-              {!ehPixPago && <ToggleButton value="cartao">Cartão de Crédito</ToggleButton>}
+              {/* {!ehPixPago && <ToggleButton value="cartao">Cartão de Crédito</ToggleButton>} */}
             </ToggleButtonGroup>
             
-            {metodoPagamento === "cartao" && (
+            {/* {metodoPagamento === "cartao" && (
               <Typography variant="body2" color="text.secondary">
                 Você será redirecionado para a página segura do Mercado Pago para finalizar o pagamento.
               </Typography>
-            )}
+            )} */}
           </>
         )}
       </DialogContent>

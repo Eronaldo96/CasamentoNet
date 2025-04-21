@@ -26,6 +26,7 @@ export default function ModalPresente({ open, onClose, presente }) {
   const [nomeTocado, setNomeTocado] = useState(false);
   const [emailTocado, setEmailTocado] = useState(false);
   const [loading, setLoading] = useState(false);
+  // eslint-disable-next-line
   const [mercadoPagoLoaded, setMercadoPagoLoaded] = useState(false);
 
   const emailValido = /\S+@\S+\.\S+/.test(emailComprador);

@@ -6,17 +6,14 @@ import "./styles.scss";
 // Lista de locais do casamento e recepção
 const locais = [
   {
-    titulo: "Local do Casamento",
+    titulo: "Local da Cerimônia",
     subtitulo: "Igreja de São Pedro dos Pescadores",
     endereco: "Av. Beira Mar, 4600 - Mucuripe, Fortaleza - CE, 60165-121",
+    horario:"Realizar-se-á às quinze horas do dia Treze de Setembro de Dois Mil e Vinte e Cinco.",
     imagens: [
       {
         descricao: "Área Externa",
         imagem: "/image/Capela de São Pedro Externo.jpg",
-      },
-      {
-        descricao: "Igreja de São Pedro dos Pescadores",
-        imagem: "/image/Capela de São Pedro.jpg",
       },
       {
         descricao: "Área Interna",
@@ -32,6 +29,7 @@ const locais = [
     descricao:
       "Após a cerimônia haverá um chá da tarde para celebrarmos o grande dia.",
     endereco: "Rua Frei Mansueto, 160 - Meireles, Fortaleza - CE, 60175-070",
+    horario:"",
     imagens: [
       { descricao: "Yucca", imagem: "/image/yucca entrada 2.jpg" },
       { descricao: "Yucca Entrada", imagem: "/image/yucca entrada.jpg" },
@@ -46,6 +44,7 @@ const LocalSection = ({
   subtitulo,
   descricao,
   endereco,
+  horario,
   imagens,
   latitude,
   longitude,
@@ -63,7 +62,16 @@ const LocalSection = ({
     <div className="EnderecoMapaContainer">
       <div className="EnderecoBox LocalInfoPagina">
         <h6>Endereço:</h6>
-        <p>{endereco}</p>
+        <ul>
+        {horario !=="" && (
+          <li>
+            <p>{horario}</p>
+          </li>
+        )}
+          <li>
+            <p>{endereco}</p>
+          </li>
+        </ul>
       </div>
       <div className="MapaBox">
         <MapComponent latitude={latitude} longitude={longitude} />

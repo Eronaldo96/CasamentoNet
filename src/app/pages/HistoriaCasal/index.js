@@ -28,6 +28,17 @@ export default function HistoriaCasal() {
       <div className="col-sm-12">
         <h1>História do Casal</h1>
 
+        <section>
+          <div className="row invite-container textoBiblico">
+            <h2 className="citacao">
+              "E nós conhecemos e cremos no amor que Deus tem por nós. Deus é amor. Aquele que permanece no amor permanece em Deus, e Deus nele."
+            </h2>
+            <h6 className="autor">
+              - 1 João 4:16.
+            </h6>
+          </div>
+        </section>
+
         <section className="historia-bloco">
           <h2>Início do namoro</h2>
           <ImageCarouselCube images={images1} />

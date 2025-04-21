@@ -6,6 +6,8 @@
     "@emailjs/browser": "^4.4.1",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@mercadopago/sdk-js": "0.0.3",
+    "@mercadopago/sdk-react": "^1.0.2",
     "@mui/icons-material": "^5.15.15",
     "@mui/material": "^5.15.15",
     "@testing-library/jest-dom": "^5.17.0",

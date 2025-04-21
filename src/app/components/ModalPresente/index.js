@@ -10,6 +10,7 @@ import {
   TextField,
   ToggleButtonGroup,
   ToggleButton,
+  CircularProgress
 } from "@mui/material";
 import { getDatabase, ref, update } from "firebase/database";
 import { toast } from "react-toastify";
@@ -22,13 +23,31 @@ export default function ModalPresente({ open, onClose, presente }) {
   const [nomeComprador, setNomeComprador] = useState("");
   const [metodoPagamento, setMetodoPagamento] = useState("");
   const [emailComprador, setEmailComprador] = useState("");
-
   const [nomeTocado, setNomeTocado] = useState(false);
   const [emailTocado, setEmailTocado] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [mercadoPagoLoaded, setMercadoPagoLoaded] = useState(false);
 
   const emailValido = /\S+@\S+\.\S+/.test(emailComprador);
-
   const ehPixPago = presente?.pix === true;
+
+  useEffect(() => {
+    if (open && !window.MercadoPago) {
+      const script = document.createElement('script');
+      script.src = 'https://sdk.mercadopago.com/js/v2';
+      script.onload = () => {
+        console.log('Mercado Pago SDK carregado');
+        setMercadoPagoLoaded(true);
+      };
+      script.onerror = () => {
+        console.error('Falha ao carregar Mercado Pago SDK');
+        toast.error('Falha ao carregar sistema de pagamentos');
+      };
+      document.body.appendChild(script);
+    } else if (window.MercadoPago) {
+      setMercadoPagoLoaded(true);
+    }
+  }, [open]);
 
   useEffect(() => {
     if (ehPixPago) {
@@ -48,6 +67,7 @@ export default function ModalPresente({ open, onClose, presente }) {
     setEmailComprador("");
     setNomeTocado(false);
     setEmailTocado(false);
+    setLoading(false);
   };
 
   const finalizarPresente = async () => {
@@ -77,6 +97,8 @@ export default function ModalPresente({ open, onClose, presente }) {
       await update(ref(db, `presentes/${idPresente}`), {
         pago: true,
         nomeComprador: nomeComprador.trim(),
+        emailComprador: emailComprador.trim(),
+        dataPagamento: new Date().toISOString()
       });
 
       toast.success("Presente confirmado com sucesso!");
@@ -89,7 +111,86 @@ export default function ModalPresente({ open, onClose, presente }) {
     }
   };
 
-  const avancarParaPagamento = () => {
+  const criarPreferenciaPagamento = async () => {
+    setLoading(true);
+    try {
+      const valor = parseFloat(presente.valor);
+      if (isNaN(valor)) {
+        throw new Error('Valor do presente inválido');
+      }
+
+      const response = await fetch('https://api.mercadopago.com/checkout/preferences', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.REACT_APP_MP_ACCESS_TOKEN}`
+        },
+        body: JSON.stringify({
+          items: [
+            {
+              title: presente.descricao,
+              unit_price: valor,
+              quantity: 1,
+            }
+          ],
+          payer: {
+            name: nomeComprador,
+            email: emailComprador
+          },
+          payment_methods: {
+            installments: 12,
+            excluded_payment_types: ehPixPago ? [{ id: 'credit_card' }] : []
+          },
+          back_urls: {
+            success: window.location.href,
+            failure: window.location.href,
+            pending: window.location.href
+          },
+          auto_return: 'approved',
+        })
+      });
+
+      const data = await response.json();
+      
+      if (!response.ok) {
+        console.error('Detalhes do erro:', data);
+        throw new Error(data.message || 'Erro ao criar preferência');
+      }
+
+      return data.id;
+    } catch (error) {
+      console.error('Erro detalhado:', error);
+      toast.error(`Erro ao processar pagamento: ${error.message}`);
+      throw error;
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const iniciarPagamentoCartao = async () => {
+    try {
+      const preferenceId = await criarPreferenciaPagamento();
+      
+      if (window.MercadoPago) {
+        const mp = new window.MercadoPago(process.env.REACT_APP_MP_PUBLIC_KEY, {
+          locale: 'pt-BR'
+        });
+
+        // Abre diretamente o checkout sem precisar de botão
+        mp.checkout({
+          preference: {
+            id: preferenceId
+          },
+          autoOpen: true // Esta opção faz abrir automaticamente
+        });
+      }
+    } catch (error) {
+      console.error('Erro no pagamento:', error);
+      toast.error(`Falha ao iniciar pagamento: ${error.message}`);
+    }
+  };
+
+  const avancarParaPagamento = async () => {
     setNomeTocado(true);
     setEmailTocado(true);
 
@@ -105,9 +206,10 @@ export default function ModalPresente({ open, onClose, presente }) {
 
     if (metodoPagamento === "pix") {
       window.open(presente.url, "_blank");
+      await finalizarPresente();
+    } else if (metodoPagamento === "cartao") {
+      await iniciarPagamentoCartao();
     }
-
-    finalizarPresente();
   };
 
   const sendEmail = () => {
@@ -124,7 +226,7 @@ export default function ModalPresente({ open, onClose, presente }) {
     };
 
     emailjs
-      .send("service_w26ipg2", "template_zm9cuur", templateParams)
+      .send(process.env.REACT_APP_EMAILJS_SERVICE_ID, process.env.REACT_APP_EMAILJS_TEMPLATE_ID, templateParams)
       .then(
         (response) => {
           console.log("E-mail enviado com sucesso:", response);
@@ -203,10 +305,17 @@ export default function ModalPresente({ open, onClose, presente }) {
               exclusive
               onChange={(e, newValue) => setMetodoPagamento(newValue)}
               fullWidth
+              sx={{ mb: 2 }}
             >
               <ToggleButton value="pix">Pix</ToggleButton>
-              {!ehPixPago && <ToggleButton value="outro">Outro</ToggleButton>}
+              {!ehPixPago && <ToggleButton value="cartao">Cartão de Crédito</ToggleButton>}
             </ToggleButtonGroup>
+            
+            {metodoPagamento === "cartao" && (
+              <Typography variant="body2" color="text.secondary">
+                Você será redirecionado para a página segura do Mercado Pago para finalizar o pagamento.
+              </Typography>
+            )}
           </>
         )}
       </DialogContent>
@@ -226,6 +335,7 @@ export default function ModalPresente({ open, onClose, presente }) {
               ehPixPago ? finalizarPresente() : setStep(2);
             }}
             variant="contained"
+            disabled={loading}
           >
             {ehPixPago ? "Finalizar" : "Continuar"}
           </Button>
@@ -234,9 +344,10 @@ export default function ModalPresente({ open, onClose, presente }) {
           <Button
             onClick={avancarParaPagamento}
             variant="contained"
-            disabled={!metodoPagamento}
+            disabled={!metodoPagamento || loading}
+            startIcon={loading ? <CircularProgress size={20} /> : null}
           >
-            Finalizar
+            {loading ? "Processando..." : "Finalizar"}
           </Button>
         )}
       </DialogActions>

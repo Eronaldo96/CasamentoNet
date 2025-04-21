@@ -15,7 +15,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function ConfirmaPresenca() {
-  emailjs.init(process.env.REACT_APP_API_PUBLIC_KEY_EMAILJS);
+  emailjs.init(process.env.REACT_APP_PUBLIC_KEY_EMAILJS);
 
   const [formData, setFormData] = useState({
     nome: "",

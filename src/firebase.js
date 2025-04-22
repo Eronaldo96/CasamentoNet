@@ -3,7 +3,7 @@ import { getDatabase, ref, set, get } from "firebase/database";
 
 // Configuração do Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyDFIxmtZddcqTAvd1FczfeB18R3yGPflsQ",
+  apiKey: process.env.REACT_APP_FB_KEY,
   authDomain: "casamento-209b7.firebaseapp.com",
   databaseURL: "https://casamento-209b7-default-rtdb.firebaseio.com",
   projectId: "casamento-209b7",

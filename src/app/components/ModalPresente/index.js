@@ -16,7 +16,7 @@ import { getDatabase, ref, update } from "firebase/database";
 import { toast } from "react-toastify";
 import emailjs from "@emailjs/browser";
 
-emailjs.init(process.env.REACT_APP_API_PUBLIC_KEY_EMAILJS_SECONDARY);
+emailjs.init(process.env.EMAILJS_SECONDARY);
 
 export default function ModalPresente({ open, onClose, presente }) {
   const [step, setStep] = useState(1);

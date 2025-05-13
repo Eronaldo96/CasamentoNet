@@ -168,23 +168,48 @@ export default function ModalPresente({ open, onClose, presente }) {
     }
   };
 
+  // const iniciarPagamentoCartao = async () => {
+  //   try {
+  //     const preferenceId = await criarPreferenciaPagamento();
+      
+  //     if (window.MercadoPago) {
+  //       const mp = new window.MercadoPago(process.env.REACT_APP_MP_PUBLIC_KEY, {
+  //         locale: 'pt-BR'
+  //       });
+
+  //       // Abre diretamente o checkout sem precisar de botão
+  //       mp.checkout({
+  //         preference: {
+  //           id: preferenceId
+  //         },
+  //         autoOpen: true // Esta opção faz abrir automaticamente
+  //       });
+  //     }
+  //   } catch (error) {
+  //     console.error('Erro no pagamento:', error);
+  //     toast.error(`Falha ao iniciar pagamento: ${error.message}`);
+  //   }
+  // };
+
   const iniciarPagamentoCartao = async () => {
     try {
       const preferenceId = await criarPreferenciaPagamento();
-      
-      if (window.MercadoPago) {
-        const mp = new window.MercadoPago(process.env.REACT_APP_MP_PUBLIC_KEY, {
-          locale: 'pt-BR'
-        });
-
-        // Abre diretamente o checkout sem precisar de botão
-        mp.checkout({
-          preference: {
-            id: preferenceId
-          },
-          autoOpen: true // Esta opção faz abrir automaticamente
-        });
+  
+      // Após obter a preferência, abre nova aba com o checkout do Mercado Pago
+      const response = await fetch(`https://api.mercadopago.com/checkout/preferences/${preferenceId}`, {
+        headers: {
+          'Authorization': `Bearer ${process.env.REACT_APP_MP_ACCESS_TOKEN}`
+        }
+      });
+  
+      const data = await response.json();
+  
+      if (data && data.init_point) {
+        window.open(data.init_point, "_blank");
+      } else {
+        throw new Error("URL de pagamento não encontrada.");
       }
+  
     } catch (error) {
       console.error('Erro no pagamento:', error);
       toast.error(`Falha ao iniciar pagamento: ${error.message}`);

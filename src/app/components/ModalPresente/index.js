@@ -191,6 +191,52 @@ export default function ModalPresente({ open, onClose, presente }) {
   //   }
   // };
 
+  // const iniciarPagamentoCartao = async () => {
+  //   setLoading(true);
+    
+  //   try {
+  //     // 1. Criar preferência de pagamento
+  //     const preferenceId = await criarPreferenciaPagamento();
+      
+  //     // 3. Inicializar checkout com container dedicado
+  //     if (window.MercadoPago) {
+  //       const mp = new window.MercadoPago(process.env.REACT_APP_MP_PUBLIC_KEY, {
+  //         locale: 'pt-BR'
+  //       });
+  
+  //       // Container temporário
+  //       const containerId = 'mp-checkout-container-' + Date.now();
+  //       const container = document.createElement('div');
+  //       container.id = containerId;
+  //       container.style.display = 'none';
+  //       document.body.appendChild(container);
+  
+  //       // Configuração do checkout
+  //       mp.checkout({
+  //         preference: {
+  //           id: preferenceId
+  //         },
+  //         autoOpen: true,
+  //         render: {
+  //           container: `#${containerId}`,
+  //           type: 'modal'
+  //         }
+  //       });
+  
+  //       // Limpeza após 5 minutos (caso o modal não feche)
+  //       setTimeout(() => {
+  //         const element = document.getElementById(containerId);
+  //         if (element) element.remove();
+  //       }, 300000);
+  //     }
+  //   } catch (error) {
+  //     console.error('Erro no pagamento:', error);
+  //     toast.error(`Falha ao iniciar pagamento: ${error.message}`);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
   const iniciarPagamentoCartao = async () => {
     setLoading(true);
     
@@ -198,41 +244,12 @@ export default function ModalPresente({ open, onClose, presente }) {
       // 1. Criar preferência de pagamento
       const preferenceId = await criarPreferenciaPagamento();
       
-      // 3. Inicializar checkout com container dedicado
-      if (window.MercadoPago) {
-        const mp = new window.MercadoPago(process.env.REACT_APP_MP_PUBLIC_KEY, {
-          locale: 'pt-BR'
-        });
-  
-        // Container temporário
-        const containerId = 'mp-checkout-container-' + Date.now();
-        const container = document.createElement('div');
-        container.id = containerId;
-        container.style.display = 'none';
-        document.body.appendChild(container);
-  
-        // Configuração do checkout
-        mp.checkout({
-          preference: {
-            id: preferenceId
-          },
-          autoOpen: true,
-          render: {
-            container: `#${containerId}`,
-            type: 'modal'
-          }
-        });
-  
-        // Limpeza após 5 minutos (caso o modal não feche)
-        setTimeout(() => {
-          const element = document.getElementById(containerId);
-          if (element) element.remove();
-        }, 300000);
-      }
+      // 2. Redirecionar para o checkout do Mercado Pago
+      window.location.href = `https://www.mercadopago.com.br/checkout/v1/redirect?preference-id=${preferenceId}`;
+      
     } catch (error) {
       console.error('Erro no pagamento:', error);
-      toast.error(`Falha ao iniciar pagamento: ${error.message}`);
-    } finally {
+      toast.error('Falha ao iniciar pagamento: ' + (error.message || 'Tente novamente mais tarde.'));
       setLoading(false);
     }
   };

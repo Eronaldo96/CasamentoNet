@@ -112,62 +112,6 @@ export default function ModalPresente({ open, onClose, presente }) {
     }
   };
 
-  // const criarPreferenciaPagamento = async () => {
-  //   setLoading(true);
-  //   try {
-  //     const valor = parseFloat(presente.valor);
-  //     if (isNaN(valor)) {
-  //       throw new Error('Valor do presente inválido');
-  //     }
-
-  //     const response = await fetch('https://api.mercadopago.com/checkout/preferences', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'Authorization': `Bearer ${process.env.REACT_APP_MP_ACCESS_TOKEN}`
-  //       },
-  //       body: JSON.stringify({
-  //         items: [
-  //           {
-  //             title: presente.descricao,
-  //             unit_price: valor,
-  //             quantity: 1,
-  //           }
-  //         ],
-  //         payer: {
-  //           name: nomeComprador,
-  //           email: emailComprador
-  //         },
-  //         payment_methods: {
-  //           installments: 12,
-  //           excluded_payment_types: ehPixPago ? [{ id: 'credit_card' }] : []
-  //         },
-  //         back_urls: {
-  //           success: `https://casamentonet.netlify.app/pagamento-sucesso?presenteId=${presente.id}&nome=${encodeURIComponent(nomeComprador)}&email=${encodeURIComponent(emailComprador)}`,
-  //           failure: "https://casamentonet.netlify.app/ListaPresentes",
-  //           pending: "https://casamentonet.netlify.app/ListaPresentes"
-  //         },
-  //         auto_return: 'approved',
-  //       })
-  //     });
-
-  //     const data = await response.json();
-      
-  //     if (!response.ok) {
-  //       console.error('Detalhes do erro:', data);
-  //       throw new Error(data.message || 'Erro ao criar preferência');
-  //     }
-
-  //     return data.id;
-  //   } catch (error) {
-  //     console.error('Erro detalhado:', error);
-  //     toast.error(`Erro ao processar pagamento: ${error.message}`);
-  //     throw error;
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-
   const criarPreferenciaPagamento = async () => {
     setLoading(true);
     try {
@@ -175,7 +119,7 @@ export default function ModalPresente({ open, onClose, presente }) {
       if (isNaN(valor)) {
         throw new Error('Valor do presente inválido');
       }
-  
+
       const response = await fetch('https://api.mercadopago.com/checkout/preferences', {
         method: 'POST',
         headers: {
@@ -206,14 +150,14 @@ export default function ModalPresente({ open, onClose, presente }) {
           auto_return: 'approved',
         })
       });
-  
+
       const data = await response.json();
       
       if (!response.ok) {
         console.error('Detalhes do erro:', data);
         throw new Error(data.message || 'Erro ao criar preferência');
       }
-  
+
       return data.id;
     } catch (error) {
       console.error('Erro detalhado:', error);
@@ -224,59 +168,23 @@ export default function ModalPresente({ open, onClose, presente }) {
     }
   };
 
-  // // const iniciarPagamentoCartao = async () => {
-  // //   try {
-  // //     const preferenceId = await criarPreferenciaPagamento();
-      
-  // //     if (window.MercadoPago) {
-  // //       const mp = new window.MercadoPago(process.env.REACT_APP_MP_PUBLIC_KEY, {
-  // //         locale: 'pt-BR'
-  // //       });
-
-  // //       // Abre diretamente o checkout sem precisar de botão
-  // //       mp.checkout({
-  // //         preference: {
-  // //           id: preferenceId
-  // //         },
-  // //         autoOpen: true // Esta opção faz abrir automaticamente
-  // //       });
-  // //     }
-  // //   } catch (error) {
-  // //     console.error('Erro no pagamento:', error);
-  // //     toast.error(`Falha ao iniciar pagamento: ${error.message}`);
-  // //   }
-  // // };
-
-  // const iniciarPagamentoCartao = async () => {
-  //   try {
-  //     const preferenceId = await criarPreferenciaPagamento();
-  
-  //     // Após obter a preferência, abre nova aba com o checkout do Mercado Pago
-  //     const response = await fetch(`https://api.mercadopago.com/checkout/preferences/${preferenceId}`, {
-  //       headers: {
-  //         'Authorization': `Bearer ${process.env.REACT_APP_MP_ACCESS_TOKEN}`
-  //       }
-  //     });
-  
-  //     const data = await response.json();
-  
-  //     if (data && data.init_point) {
-  //       window.open(data.init_point, "_blank");
-  //     } else {
-  //       throw new Error("URL de pagamento não encontrada.");
-  //     }
-  
-  //   } catch (error) {
-  //     console.error('Erro no pagamento:', error);
-  //     toast.error(`Falha ao iniciar pagamento: ${error.message}`);
-  //   }
-  // };
-
   const iniciarPagamentoCartao = async () => {
     try {
       const preferenceId = await criarPreferenciaPagamento();
-      // Abre o checkout em uma nova aba
-      window.open(`https://www.mercadopago.com.br/checkout/v1/redirect?pref_id=${preferenceId}`, '_blank');
+      
+      if (window.MercadoPago) {
+        const mp = new window.MercadoPago(process.env.REACT_APP_MP_PUBLIC_KEY, {
+          locale: 'pt-BR'
+        });
+
+        // Abre diretamente o checkout sem precisar de botão
+        mp.checkout({
+          preference: {
+            id: preferenceId
+          },
+          autoOpen: true // Esta opção faz abrir automaticamente
+        });
+      }
     } catch (error) {
       console.error('Erro no pagamento:', error);
       toast.error(`Falha ao iniciar pagamento: ${error.message}`);

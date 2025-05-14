@@ -132,6 +132,7 @@ export default function ModalPresente({ open, onClose, presente }) {
             {
               title: presente.descricao,
               unit_price: valor,
+              currency_id: 'BRL',
               quantity: 1,
             }
           ],

@@ -88,6 +88,7 @@ export default function ModalPresente({ open, onClose, presente }) {
     sendEmail();
 
     if (ehPixPago) {
+      window.open(presente.url, "_blank");
       toast.success("Este presente já foi pago via PIX. Obrigado!");
       resetarCampos();
       onClose(true);

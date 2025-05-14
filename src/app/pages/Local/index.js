@@ -13,11 +13,11 @@ const locais = [
     imagens: [
       {
         descricao: "Área Externa",
-        imagem: "/image/Capela de São Pedro Externo.jpg",
+        imagem: "/image/LocalCasamento/Capela de São Pedro Externo.jpg",
       },
       {
         descricao: "Área Interna",
-        imagem: "/image/Capela de São Pedro Interno.jpg",
+        imagem: "/image/LocalCasamento/Capela de São Pedro Interno.jpg",
       },
     ],
     latitude: -3.722002,
@@ -31,8 +31,8 @@ const locais = [
     endereco: "Rua Frei Mansueto, 160 - Meireles, Fortaleza - CE, 60175-070",
     horario:"",
     imagens: [
-      { descricao: "Yucca", imagem: "/image/yucca entrada 2.jpg" },
-      { descricao: "Yucca Entrada", imagem: "/image/yucca entrada.jpg" },
+      { descricao: "Yucca", imagem: "/image/LocalCasamento/yucca entrada 2.jpg" },
+      { descricao: "Yucca Entrada", imagem: "/image/LocalCasamento/yucca entrada.jpg" },
     ],
     latitude: -3.7260092565849052,
     longitude: -38.48950297273497,

@@ -21,7 +21,7 @@ import "./styles.scss";
 
 export default function HomePage() {
   const targetDate = "2025-09-13T00:00:00-03:00";
-  const { days, hours, minutes, seconds } = useDaysUntil(targetDate);
+  const { days, hours, minutes, seconds, isPast } = useDaysUntil(targetDate);
 
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
@@ -95,25 +95,53 @@ export default function HomePage() {
           <hr className="decorative-line" />
 
           <div className="row invite-container countdown text-center mt-4">
-            <p>Contagem regressiva para o grande dia!</p>
-            <div className="tempo d-flex">
-              <div className="box col-3">
-                <h1>{days}</h1>
-                <h3>Dias</h3>
+            {isPast ? (
+              <div>
+                <p>
+                  Casados há
+                </p>
+                <div className="tempo d-flex">
+                  <div className="box col-3">
+                    <h1>{days}</h1>
+                    <h3>Dias</h3>
+                  </div>
+                  <div className="box col-3">
+                    <h1>{hours}</h1>
+                    <h3>Horas</h3>
+                  </div>
+                  <div className="box col-3">
+                    <h1>{minutes}</h1>
+                    <h3>Minutos</h3>
+                  </div>
+                  <div className="box col-3">
+                    <h1>{seconds}</h1>
+                    <h3>Segundos</h3>
+                  </div>
+                </div>
               </div>
-              <div className="box col-3">
-                <h1>{hours}</h1>
-                <h3>Horas</h3>
-              </div>
-              <div className="box col-3">
-                <h1>{minutes}</h1>
-                <h3>Minutos</h3>
-              </div>
-              <div className="box col-3">
-                <h1>{seconds}</h1>
-                <h3>Segundos</h3>
-              </div>
-            </div>
+            ) : (
+              <>
+                <p>Contagem regressiva para o grande dia!</p>
+                <div className="tempo d-flex">
+                  <div className="box col-3">
+                    <h1>{days}</h1>
+                    <h3>Dias</h3>
+                  </div>
+                  <div className="box col-3">
+                    <h1>{hours}</h1>
+                    <h3>Horas</h3>
+                  </div>
+                  <div className="box col-3">
+                    <h1>{minutes}</h1>
+                    <h3>Minutos</h3>
+                  </div>
+                  <div className="box col-3">
+                    <h1>{seconds}</h1>
+                    <h3>Segundos</h3>
+                  </div>
+                </div>
+              </>
+            )}
           </div>
 
           <hr className="decorative-line" />

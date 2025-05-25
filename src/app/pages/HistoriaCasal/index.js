@@ -3,24 +3,31 @@ import "./styles.scss";
 
 export default function HistoriaCasal() {
   const images1 = [
-    "/image/HistoriaCasal/StudioGhibli1.jpg",
-    "/image/HistoriaCasal/StudioGhibli2.jpg",
-    "/image/HistoriaCasal/historiaCasal1.jpeg",
-    "/image/HistoriaCasal/historiaCasal2.jpeg",
+    "/image/HistoriaCasal/InicioNamoro01.jpeg",
+    "/image/HistoriaCasal/InicioNamoro02.jpeg",
+    "/image/HistoriaCasal/InicioNamoro03.jpeg",
   ];
 
   const images2 = [
+    "/image/HistoriaCasal/ViagensAventuras03.jpeg",
     "/image/HistoriaCasal/historiaCasal3.jpeg",
-    "/image/HistoriaCasal/historiaCasal4.jpeg",
     "/image/HistoriaCasal/historiaCasal5.jpeg",
     "/image/HistoriaCasal/historiaCasal6.jpeg",
+    "/image/HistoriaCasal/historiaCasal7.jpeg",
+    "/image/HistoriaCasal/historiaCasal8.jpeg",
+    "/image/HistoriaCasal/ViagensAventuras01.jpeg",
+    "/image/HistoriaCasal/ViagensAventuras02.jpeg",
+    "/image/HistoriaCasal/historiaCasal9.jpeg",
   ];
 
   const images3 = [
-    "/image/HistoriaCasal/historiaCasal7.jpeg",
-    "/image/HistoriaCasal/historiaCasal8.jpeg",
-    "/image/HistoriaCasal/historiaCasal9.jpeg",
+    "/image/HistoriaCasal/historiaCasal4.jpeg",
     "/image/HistoriaCasal/historiaCasal10.jpeg",
+    "/image/HistoriaCasal/historiaCasal2.jpeg",
+    "/image/HistoriaCasal/MomentosEspeciais01.jpeg",
+    "/image/HistoriaCasal/MomentosEspeciais02.jpeg",
+    "/image/HistoriaCasal/MomentosEspeciais03.jpeg",
+    "/image/HistoriaCasal/MomentosEspeciais04.jpeg",
   ];
 
   return (

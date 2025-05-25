@@ -60,7 +60,7 @@ export default function ResponsiveGrid({ data, onRefresh }) {
                   <label>{item.descricao}</label>
                 </div>
                 <div style={{ margin: "5px" }}>
-                  <b>{item.valor} Reais</b>
+                  <b>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(item.valor)}</b>
                 </div>
               </Box>
               <Box>

@@ -25,17 +25,19 @@ export default function HistoriaCasal() {
 
   return (
     <div className="historiaCasal">
-      <div className="col-sm-12">
-        <h1>História do Casal</h1>
+      <div>
+        <section>
+          <h1>História do Casal</h1>
+        </section>
 
         <section>
           <div className="row invite-container textoBiblico">
             <h2 className="citacao">
-              "E nós conhecemos e cremos no amor que Deus tem por nós. Deus é amor. Aquele que permanece no amor permanece em Deus, e Deus nele."
+              "E nós conhecemos e cremos no amor que Deus tem por nós. Deus é
+              amor. Aquele que permanece no amor permanece em Deus, e Deus
+              nele."
             </h2>
-            <h6 className="autor">
-              - 1 João 4:16.
-            </h6>
+            <h6 className="autor">- 1 João 4:16.</h6>
           </div>
         </section>
 

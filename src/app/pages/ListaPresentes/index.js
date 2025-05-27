@@ -41,11 +41,8 @@ export default function ListaPresentes() {
         <div className="InfoCustom">
           <h1>Lista de presentes</h1>
           <h7 className="ListaPresenteInfoPagina">
-            Nesta página, você encontrará uma seleção de presentes que
-            escolhemos com carinho para o nosso grande dia. Caso queira nos
-            presentear, sinta-se à vontade para escolher um dos itens abaixo ou,
-            se preferir, contribuir via Pix usando a chave: <b>85 9108-0172</b>.
-            Agradecemos de coração pelo carinho!
+            Se quiser nos presentear, sinta-se à vontade para escolher algum item da lista ou,
+             se preferir, contribuir via Pix pela chave: <b>85 99108-0172 NUBANK Maria das Graças de Castro Cavalcante</b>
           </h7>
         </div>
         <ResponseGrid data={presentes} onRefresh={buscarPresentes} />

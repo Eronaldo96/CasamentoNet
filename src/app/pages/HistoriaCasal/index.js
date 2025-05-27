@@ -10,6 +10,8 @@ export default function HistoriaCasal() {
 
   const images2 = [
     "/image/HistoriaCasal/historiaCasal3.jpeg",
+    "/image/HistoriaCasal/ViagensAventuras04.jpeg",
+    "/image/HistoriaCasal/historiaCasal1.jpeg",
     "/image/HistoriaCasal/ViagensAventuras03.jpeg",
     "/image/HistoriaCasal/historiaCasal5.jpeg",
     "/image/HistoriaCasal/historiaCasal6.jpeg",

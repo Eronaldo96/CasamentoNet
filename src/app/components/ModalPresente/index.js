@@ -257,7 +257,6 @@ export default function ModalPresente({ open, onClose, presente }) {
                 {presente.descricao}
               </Typography>
               <Typography variant="body1" color="text.secondary">
-                {/* Valor: R$ {presente.valor} */}
                 Valor: {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(presente.valor)}
               </Typography>
             </Box>

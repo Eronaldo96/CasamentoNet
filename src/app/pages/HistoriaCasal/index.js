@@ -9,8 +9,8 @@ export default function HistoriaCasal() {
   ];
 
   const images2 = [
-    "/image/HistoriaCasal/ViagensAventuras03.jpeg",
     "/image/HistoriaCasal/historiaCasal3.jpeg",
+    "/image/HistoriaCasal/ViagensAventuras03.jpeg",
     "/image/HistoriaCasal/historiaCasal5.jpeg",
     "/image/HistoriaCasal/historiaCasal6.jpeg",
     "/image/HistoriaCasal/historiaCasal7.jpeg",
@@ -21,8 +21,8 @@ export default function HistoriaCasal() {
   ];
 
   const images3 = [
-    "/image/HistoriaCasal/historiaCasal4.jpeg",
     "/image/HistoriaCasal/historiaCasal10.jpeg",
+    "/image/HistoriaCasal/historiaCasal4.jpeg",
     "/image/HistoriaCasal/historiaCasal2.jpeg",
     "/image/HistoriaCasal/MomentosEspeciais01.jpeg",
     "/image/HistoriaCasal/MomentosEspeciais02.jpeg",

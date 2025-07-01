@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import emailjs from "@emailjs/browser";
 import { database } from "../../../firebase";
-import { ref, get, set } from "firebase/database";
+import { ref, set } from "firebase/database";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -19,7 +19,7 @@ export default function ConfirmaPresenca() {
 
   const [formData, setFormData] = useState({
     nome: "",
-    senha: "",
+    // senha: "",
     email: "",
     telefone: "",
     acompanhanteSimNao: "",
@@ -42,13 +42,15 @@ export default function ConfirmaPresenca() {
   };
 
   const handleConfirmarPresenca = async () => {
-    const { nome, senha, email, telefone, acompanhanteSimNao, acompanhante } =
+    // const { nome, senha, email, telefone, acompanhanteSimNao, acompanhante } =
+    //   formData;
+    const { nome, email, telefone, acompanhanteSimNao, acompanhante } =
       formData;
 
     // Validação dos campos obrigatórios
     if (
       !nome ||
-      !senha ||
+      // !senha ||
       !email ||
       !telefone ||
       !acompanhanteSimNao ||
@@ -59,12 +61,12 @@ export default function ConfirmaPresenca() {
     }
 
     // Verifica se a senha é válida
-    const senhaRef = ref(database, "senhas/" + senha);
-    const snapshot = await get(senhaRef);
-    if (!snapshot.exists()) {
-      toast.error("Senha inválida! Tente novamente.");
-      return;
-    }
+    // const senhaRef = ref(database, "senhas/" + senha);
+    // const snapshot = await get(senhaRef);
+    // if (!snapshot.exists()) {
+    //   toast.error("Senha inválida! Tente novamente.");
+    //   return;
+    // }
 
     // Valida se o acompanhante é obrigatório
     if (acompanhanteSimNao === "Sim" && !acompanhante) {
@@ -121,7 +123,7 @@ export default function ConfirmaPresenca() {
     toast.success("Presença confirmada com sucesso!");
     setFormData({
       nome: "",
-      senha: "",
+      //senha: "",
       email: "",
       telefone: "",
       acompanhanteSimNao: "",
@@ -149,7 +151,7 @@ export default function ConfirmaPresenca() {
                 required
               />
             </div>
-            <div className="col-12">
+            {/* <div className="col-12">
               <TextField
                 className="inputCustom"
                 id="senha"
@@ -160,7 +162,7 @@ export default function ConfirmaPresenca() {
                 onChange={handleInputChange}
                 required
               />
-            </div>
+            </div> */}
             <div className="col-12">
               <TextField
                 className="inputCustom"

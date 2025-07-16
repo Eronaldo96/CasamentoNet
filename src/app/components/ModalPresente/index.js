@@ -34,15 +34,15 @@ export default function ModalPresente({ open, onClose, presente }) {
 
   useEffect(() => {
     if (open && !window.MercadoPago) {
-      const script = document.createElement('script');
-      script.src = 'https://sdk.mercadopago.com/js/v2';
+      const script = document.createElement("script");
+      script.src = "https://sdk.mercadopago.com/js/v2";
       script.onload = () => {
-        console.log('Mercado Pago SDK carregado');
+        console.log("Mercado Pago SDK carregado");
         setMercadoPagoLoaded(true);
       };
       script.onerror = () => {
-        console.error('Falha ao carregar Mercado Pago SDK');
-        toast.error('Falha ao carregar sistema de pagamentos');
+        console.error("Falha ao carregar Mercado Pago SDK");
+        toast.error("Falha ao carregar sistema de pagamentos");
       };
       document.body.appendChild(script);
     } else if (window.MercadoPago) {
@@ -85,11 +85,10 @@ export default function ModalPresente({ open, onClose, presente }) {
       return;
     }
 
-    sendEmail();
-
     if (ehPixPago) {
       window.open(presente.url, "_blank");
       toast.success("Este presente já foi pago via PIX. Obrigado!");
+      sendEmail(); // Envia e-mail após a confirmação do PIX
       resetarCampos();
       onClose(true);
       return;
@@ -104,6 +103,7 @@ export default function ModalPresente({ open, onClose, presente }) {
       });
 
       toast.success("Presente confirmado com sucesso!");
+      sendEmail(); // Envia e-mail após a confirmação do cartão de crédito
       onClose(true);
     } catch (error) {
       toast.error("Erro ao confirmar presente.");
@@ -118,21 +118,21 @@ export default function ModalPresente({ open, onClose, presente }) {
     try {
       const valor = parseFloat(presente.valor);
       if (isNaN(valor)) {
-        throw new Error('Valor do presente inválido');
+        throw new Error("Valor do presente inválido");
       }
 
-      const response = await fetch('https://api.mercadopago.com/checkout/preferences', {
-        method: 'POST',
+      const response = await fetch("https://api.mercadopago.com/checkout/preferences", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.REACT_APP_MP_ACCESS_TOKEN}`
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${process.env.REACT_APP_MP_ACCESS_TOKEN}`
         },
         body: JSON.stringify({
           items: [
             {
               title: presente.descricao,
               unit_price: valor,
-              currency_id: 'BRL',
+              currency_id: "BRL",
               quantity: 1,
             }
           ],
@@ -142,27 +142,27 @@ export default function ModalPresente({ open, onClose, presente }) {
           },
           payment_methods: {
             installments: 12,
-            excluded_payment_types: ehPixPago ? [{ id: 'credit_card' }] : []
+            excluded_payment_types: ehPixPago ? [{ id: "credit_card" }] : []
           },
           back_urls: {
             success: `https://casamentonet.netlify.app/pagamento-sucesso?presenteId=${presente.id}&nome=${encodeURIComponent(nomeComprador)}&email=${encodeURIComponent(emailComprador)}`,
             failure: "https://casamentonet.netlify.app/ListaPresentes",
             pending: "https://casamentonet.netlify.app/ListaPresentes"
           },
-          auto_return: 'approved',
+          auto_return: "approved",
         })
       });
 
       const data = await response.json();
       
       if (!response.ok) {
-        console.error('Detalhes do erro:', data);
-        throw new Error(data.message || 'Erro ao criar preferência');
+        console.error("Detalhes do erro:", data);
+        throw new Error(data.message || "Erro ao criar preferência");
       }
 
       return data.id;
     } catch (error) {
-      console.error('Erro detalhado:', error);
+      console.error("Erro detalhado:", error);
       toast.error(`Erro ao processar pagamento: ${error.message}`);
       throw error;
     } finally {
@@ -176,7 +176,7 @@ export default function ModalPresente({ open, onClose, presente }) {
       
       if (window.MercadoPago) {
         const mp = new window.MercadoPago(process.env.REACT_APP_MP_PUBLIC_KEY, {
-          locale: 'pt-BR'
+          locale: "pt-BR"
         });
 
         // Abre diretamente o checkout sem precisar de botão
@@ -188,7 +188,7 @@ export default function ModalPresente({ open, onClose, presente }) {
         });
       }
     } catch (error) {
-      console.error('Erro no pagamento:', error);
+      console.error("Erro no pagamento:", error);
       toast.error(`Falha ao iniciar pagamento: ${error.message}`);
     }
   };
@@ -257,7 +257,7 @@ export default function ModalPresente({ open, onClose, presente }) {
                 {presente.descricao}
               </Typography>
               <Typography variant="body1" color="text.secondary">
-                Valor: {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(presente.valor)}
+                Valor: {new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(presente.valor)}
               </Typography>
             </Box>
             <TextField
@@ -358,3 +358,4 @@ export default function ModalPresente({ open, onClose, presente }) {
     </Dialog>
   );
 }
+

@@ -7,27 +7,126 @@ $color-accent: #fff; // Branco
 $color-accent2: #9ca5a7; //cinza
 $color-custom: #5566ff; // azul leve
 
+// Animação de pulse para chamar atenção
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(35, 96, 161, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(35, 96, 161, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(35, 96, 161, 0);
+  }
+}
+
+// Animação de breathing (respiração) sutil
+@keyframes breathing {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
 .navBarStyle {
   background-color: rgba(1, 50, 32, 0) !important;
   border-bottom: 2px solid rgba(1, 50, 32, 0) !important;
   transition: background-color 0.3s ease, border-bottom 0.3s ease;
 
-  // &.hidden {
-  //   background-color: #013220 !important;
-  //   border-bottom: 2px solid #013220 !important;
-  // }
-
   &.hidden {
     .customIconButton {
       color: $color-primary !important;
-      /* Cor azul escuro ($color-primary) */
+      background-color: rgba(255, 255, 255, 0.1) !important;
+      backdrop-filter: blur(10px);
     }
   }
 }
 
-.customIconButton:hover {
-  color: #5566ff;
-  /* Cor azul mais claro ($color-custom) ao passar o mouse */
+.customIconButton {
+  // Estilo base melhorado
+  color: $color-primary !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border-radius: 12px !important;
+  padding: 12px !important;
+  margin: 4px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(35, 96, 161, 0.2) !important;
+  
+  // Transições suaves
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  
+  // Animação de breathing sutil para chamar atenção
+  animation: breathing 4s ease-in-out infinite;
+  
+  // Efeitos no hover
+  &:hover {
+    color: $color-accent !important;
+    background-color: $color-primary !important;
+    transform: scale(1.1) !important;
+    box-shadow: 0 4px 16px rgba(35, 96, 161, 0.3) !important;
+    border-color: $color-primary !important;
+    
+    // Para o breathing quando em hover
+    animation: none;
+  }
+  
+  // Efeito quando ativo (menu aberto)
+  &.active {
+    color: $color-accent !important;
+    background-color: $color-custom !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 0 0 3px rgba(85, 102, 255, 0.3) !important;
+    animation: pulse 2s infinite;
+  }
+  
+  // Efeito no focus (acessibilidade)
+  &:focus {
+    outline: 2px solid $color-custom !important;
+    outline-offset: 2px !important;
+  }
+  
+  // Efeito no active (clique)
+  &:active {
+    transform: scale(0.95) !important;
+  }
+  
+  // Ícone dentro do botão
+  .MuiSvgIcon-root {
+    font-size: 1.8rem !important;
+    transition: transform 0.2s ease !important;
+  }
+  
+  &:hover .MuiSvgIcon-root {
+    transform: rotate(90deg) !important;
+  }
+}
+
+// Estilo específico para dispositivos móveis
+@media (max-width: 768px) {
+  .customIconButton {
+    padding: 14px !important;
+    
+    .MuiSvgIcon-root {
+      font-size: 2rem !important;
+    }
+  }
+}
+
+// Tooltip customizado
+.MuiTooltip-tooltip {
+  background-color: $color-primary !important;
+  color: $color-accent !important;
+  font-size: 0.875rem !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.MuiTooltip-arrow {
+  color: $color-primary !important;
 }
 
 .logoLink {
@@ -129,3 +228,4 @@ $color-custom: #5566ff; // azul leve
     display: none;
   }
 }
+

@@ -5,7 +5,7 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Typography from "@mui/material/Typography";
-import { Drawer } from "@mui/material";
+import { Drawer, Tooltip } from "@mui/material";
 import "./styles.scss";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import MenuList from "@mui/material/MenuList";
@@ -75,15 +75,18 @@ export default function NavBar() {
             </Link>
           </Typography>
 
-          <IconButton
-            className="customIconButton"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            onClick={handleDrawerToggle}
-          >
-            <MenuIcon />
-          </IconButton>
+          <Tooltip title="Abrir menu de navegação" placement="bottom">
+            <IconButton
+              className={`customIconButton ${openDrawer ? 'active' : ''}`}
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              onClick={handleDrawerToggle}
+              size="large"
+            >
+              <MenuIcon fontSize="large" />
+            </IconButton>
+          </Tooltip>
         </Toolbar>
       </AppBar>
 
@@ -134,3 +137,4 @@ export default function NavBar() {
     </div>
   );
 }
+

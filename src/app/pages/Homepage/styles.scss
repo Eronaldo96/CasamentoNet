@@ -9,6 +9,13 @@ $color-quartenary: #71aad3; //azul claro
 $color-accent: #fff; // Branco
 $color-accent2: #9ca5a7; //cinza
 $color-custom: #5566ff; // azul leve
+$color-border: #e0e0e0;
+$color-hover: #f8f9fa;
+$color-text-primary: #333333;
+$color-text-secondary: #666666;
+$color-text-light: #999999;
+
+
 
 // Escala de tamanhos de fonte
 $font-size-xxs: clamp(0.75rem, 1.5vw, 1rem); // Para textos muito pequenos
@@ -148,6 +155,291 @@ $font-size-corpoTexto: clamp(1rem, 3vw, 1.2rem);
   font-size: $font-size-md; // Padronizado
   color: $color-accent2;
   padding: 5%;
+}
+
+// Seção de navegação minimalista
+.minimal-quick-access {
+  text-align: center;
+  padding: 48px 20px;
+  margin-top: 32px;
+  border-top: 1px solid $color-border;
+  background: transparent;
+  
+  @media (max-width: 768px) {
+    padding: 32px 16px;
+  }
+}
+
+// Navegação horizontal
+.minimal-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  max-width: 600px;
+  margin: 0 auto;
+  
+  @media (max-width: 768px) {
+    gap: 24px;
+  }
+  
+  @media (max-width: 480px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+// Links minimalistas
+.minimal-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: $color-text-primary;
+  text-decoration: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.15s ease;
+  position: relative;
+  
+  // Estado normal
+  &:hover {
+    color: $color-accent;
+    background-color: $color-hover;
+    transform: translateY(-1px);
+  }
+  
+  // Estado ativo/focus
+  &:focus {
+    outline: 2px solid $color-accent;
+    outline-offset: 2px;
+  }
+  
+  // Estado pressed
+  &:active {
+    transform: translateY(0);
+  }
+  
+  @media (max-width: 480px) {
+    padding: 12px 16px;
+    font-size: 16px;
+    justify-content: center;
+    min-width: 140px;
+  }
+}
+
+// Ícones minimalistas
+.minimal-icon {
+  font-size: 20px !important;
+  transition: color 0.15s ease;
+  
+  .minimal-link:hover & {
+    color: $color-accent;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 22px !important;
+  }
+}
+
+// Labels dos links
+.minimal-label {
+  color: inherit;
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+
+// Separadores
+.minimal-separator {
+  color: $color-border;
+  font-weight: 300;
+  font-size: 16px;
+  user-select: none;
+  
+  @media (max-width: 480px) {
+    display: none; // Remove separadores em mobile
+  }
+}
+
+// Variação alternativa: Botões pill minimalistas
+.minimal-quick-access-pills {
+  text-align: center;
+  padding: 48px 20px;
+  margin-top: 32px;
+  
+  .minimal-nav-pills {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    max-width: 700px;
+    margin: 0 auto;
+    
+    @media (max-width: 768px) {
+      gap: 12px;
+    }
+    
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+  
+  .minimal-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $color-text-primary;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 10px 16px;
+    border: 1px solid $color-border;
+    border-radius: 20px;
+    background: white;
+    transition: all 0.15s ease;
+    
+    &:hover {
+      color: $color-accent;
+      border-color: $color-accent;
+      background: rgba(35, 96, 161, 0.02);
+    }
+    
+    @media (max-width: 480px) {
+      padding: 12px 20px;
+      font-size: 15px;
+      min-width: 160px;
+      justify-content: center;
+    }
+    
+    .minimal-icon {
+      font-size: 18px !important;
+    }
+  }
+}
+
+// Variação alternativa: Lista vertical minimalista
+.minimal-quick-access-list {
+  text-align: left;
+  padding: 48px 20px;
+  margin-top: 32px;
+  border-top: 1px solid $color-border;
+  
+  .minimal-nav-list {
+    max-width: 300px;
+    margin: 0 auto;
+    
+    @media (max-width: 480px) {
+      max-width: 100%;
+    }
+  }
+  
+  .minimal-list-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: $color-text-primary;
+    text-decoration: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(224, 224, 224, 0.3);
+    transition: all 0.15s ease;
+    
+    &:hover {
+      color: $color-accent;
+      padding-left: 8px;
+    }
+    
+    &:last-child {
+      border-bottom: none;
+    }
+    
+    .minimal-icon {
+      font-size: 20px !important;
+      color: $color-text-light;
+      transition: color 0.15s ease;
+    }
+    
+    &:hover .minimal-icon {
+      color: $color-accent;
+    }
+  }
+}
+
+// Estados de loading (opcional)
+.minimal-loading {
+  .minimal-link,
+  .minimal-pill,
+  .minimal-list-item {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
+
+// Modo escuro (opcional)
+@media (prefers-color-scheme: dark) {
+  .minimal-quick-access,
+  .minimal-quick-access-pills,
+  .minimal-quick-access-list {
+    border-top-color: #333;
+    
+    .minimal-link,
+    .minimal-pill,
+    .minimal-list-item {
+      color: #e0e0e0;
+      
+      &:hover {
+        color: #71aad3;
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+    }
+    
+    .minimal-separator {
+      color: #555;
+    }
+    
+    .minimal-pill {
+      border-color: $color-primary;
+      background: $color-primary;
+      
+      &:hover {
+        border-color: #71aad3;
+        background: rgba(113, 170, 211, 0.1);
+      }
+    }
+  }
+}
+
+// Acessibilidade aprimorada
+@media (prefers-reduced-motion: reduce) {
+  .minimal-link,
+  .minimal-pill,
+  .minimal-list-item,
+  .minimal-icon {
+    transition: none;
+  }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .minimal-link,
+  .minimal-pill,
+  .minimal-list-item {
+    border: 1px solid currentColor;
+    
+    &:hover {
+      background: currentColor;
+      color: white;
+    }
+  }
 }
 
 /* Responsividade */

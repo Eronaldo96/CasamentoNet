@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import useDaysUntil from "../../components/UseDaysUntil";
 import {
   Dialog,
@@ -17,6 +18,12 @@ import { ref, get, set, push } from "firebase/database";
 import { database } from "../../../firebase";
 import { toast } from "react-toastify";
 
+// Ícones outline para estilo minimalista
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import ListAltOutlinedIcon from "@mui/icons-material/ListAltOutlined";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+
 import "./styles.scss";
 
 export default function HomePage() {
@@ -27,6 +34,31 @@ export default function HomePage() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [messagesList, setMessagesList] = useState([]);
+
+  // Dados dos botões de acesso rápido - versão pill
+  const quickAccessLinks = [
+    {
+      to: "/HistoriaCasal",
+      label: "Nossa História",
+      icon: <FavoriteBorderIcon className="minimal-icon" />
+    },
+    {
+      to: "/Local",
+      label: "Local",
+      icon: <LocationOnOutlinedIcon className="minimal-icon" />
+    },
+    {
+      to: "/ListaPresentes",
+      label: "Presentes",
+      icon: <ListAltOutlinedIcon className="minimal-icon" />
+    },
+    {
+      to: "/ConfirmaPresenca",
+      label: "Confirmar Presença",
+      icon: <CheckCircleOutlineIcon className="minimal-icon" />
+    }
+  ];
+
   useEffect(() => {
     fetchMessages();
   }, []);
@@ -236,8 +268,21 @@ export default function HomePage() {
               </List>
             )}
           </div>
+
+          {/* Seção de Navegação Minimalista - Estilo Pills */}
+          <div className="minimal-quick-access-pills">
+            <nav className="minimal-nav-pills">
+              {quickAccessLinks.map((link, index) => (
+                <Link key={index} to={link.to} className="minimal-pill">
+                  {link.icon}
+                  <span className="minimal-label">{link.label}</span>
+                </Link>
+              ))}
+            </nav>
+          </div>
         </div>
       </div>
     </div>
   );
 }
+

@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import NavBar from "./app/components/NavBar";
 import Footer from "./app/components/Footer";
 import Container from "./app/components/Container";
+import ScrollToTop from "./app/components/ScrollToTop";
 import { ToastContainer } from "react-toastify";
 import "normalize.css";
 import "./app.scss";
@@ -24,6 +25,7 @@ export default function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       {isLoading && (
         <div className="loading-overlay">
           <img
